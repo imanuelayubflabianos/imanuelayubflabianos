@@ -1,18 +1,15 @@
 <div align="center">
 
-<!-- PROFILE SCANNER CARD (ANIMATED SVG) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400" width="100%" style="background: #0d1117; border-radius: 12px; font-family: monospace;">
   <defs>
-    <!-- Gradient Beam untuk Efek Scanline -->
     <linearGradient id="scan" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
       <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.45" />
       <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
     </linearGradient>
-    
     <style>
       .border-box { stroke: #ff3366; stroke-width: 1.5; fill: none; }
-      .text-title { fill: #00f0ff; font-weight: bold; font-size: 13px; letter-spacing: 1.5px; }
+      .text-title { fill: #00f0ff; font-weight: bold; font-size: 13px; }
       .text-label { fill: #ff0055; font-weight: bold; font-size: 13px; }
       .text-body { fill: #e6edf3; font-size: 12.5px; }
       .text-dim { fill: #8b949e; font-size: 12px; }
@@ -25,22 +22,15 @@
     </style>
   </defs>
 
-  <!-- Outer Frame / Border -->
   <rect x="10" y="10" width="830" height="380" rx="8" class="border-box" />
-  
-  <!-- Header Bar -->
   <line x1="10" y1="40" x2="840" y2="40" stroke="#ff3366" stroke-width="1" />
   <text x="30" y="30" class="text-title">VISUAL MAP / PORTRAIT SIGNAL</text>
   <text x="450" y="30" class="text-title">SYSTEM LOG / RESEARCH BUILDER</text>
   
-  <!-- Indicator Lights -->
   <circle cx="800" cy="26" r="4" fill="#ff0055" />
   <circle cx="815" cy="26" r="4" fill="#00f0ff" />
-
-  <!-- Center Divider -->
   <line x1="420" y1="40" x2="420" y2="390" stroke="#ff3366" stroke-width="1" stroke-dasharray="4" />
 
-  <!-- Left Side: ASCII Silhouette Scanner -->
   <g transform="translate(40, 55)">
     <text y="20" class="ascii-art">
       <tspan x="0" dy="1.2em">                 .::::::::::::::::..                 </tspan>
@@ -61,7 +51,6 @@
     </text>
   </g>
 
-  <!-- Right Side: Profile System Info -->
   <text x="440" y="70" class="text-label">[Profile]</text>
   <text x="440" y="92" class="text-dim">• Subject: <tspan class="text-body">Imanuel Ayub Flabianos</tspan></text>
   <text x="440" y="112" class="text-dim">• Role: <tspan class="text-body">Fullstack Developer (PPLG)</tspan></text>
@@ -79,13 +68,12 @@
   <text x="440" y="350" class="text-label">[Grid Signal]</text>
   <text x="440" y="370" class="text-dim">• GitHub: <tspan class="text-body">imanuelayubflabianos</tspan></text>
 
-  <!-- Moving Scan Line -->
   <rect x="10" y="10" width="830" height="25" fill="url(#scan)" class="scan-line" />
 </svg>
 
 <br/><br/>
 
-[![GitHub](https://img.shields.io/badge/GITHUB-IMANUELAYUBFLABIANOS-0B1220?style=for-the-badge&logo=github&logoColor=white)](https://github.com/imanuelayubflabianos)
+<a href="https://github.com/imanuelayubflabianos"><img alt="GitHub" src="https://img.shields.io/badge/GITHUB-IMANUELAYUBFLABIANOS-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
 
 </div>
 
