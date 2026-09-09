@@ -5,7 +5,7 @@
     <source media="(max-width: 760px)" srcset="./assets/hero/agent-console-59eda147-mobile-light.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/agent-console-59eda147-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/hero/agent-console-59eda147-light.svg">
-    <img src="./assets/hero/agent-console-59eda147-dark.svg" alt="ayub - Design, frontend developer, backend developer" width="100%">
+    <img src="./assets/hero/agent-console-59eda147-dark.svg" alt="Imanuel Ayub Flabianos - Fullstack Developer" width="100%">
   </picture>
 </p>
 
@@ -23,7 +23,7 @@ My journey is driven by curiosity and a hands-on approach: continuously explorin
 
 | Area | What I am exploring |
 | --- | --- |
-| **Web Development** | Building responsive user interfaces and secure backend architectures to create seamless digital products |
+| **Web Development** | Building responsive user interfaces and secure backend architectures to create seamless digital products. |
 | **UI/UX Design** | Designing intuitive, user-centered interfaces that make digital products easy and enjoyable to navigate. |
 | **Full-Stack Development** | Managing the complete lifecycle of web applications by combining creative user interfaces with scalable backend infrastructure. |
 
@@ -31,7 +31,7 @@ My journey is driven by curiosity and a hands-on approach: continuously explorin
 
 | Project | Focus | Why it matters |
 | --- | --- | --- |
-| [**Project_Management**](https://github.com/imanuelayubflabianos/Project_Management.git) | Full-Stack Dev | A web application designed to help teams organize tasks, track project progress, and streamline daily developer workflows. |
+| [**Project_Management**](https://github.com/imanuelayubflabianos/Project_Management) | Full-Stack Dev | A web application designed to help teams organize tasks, track project progress, and streamline daily developer workflows. |
 
 ## Research Direction
 
