@@ -25,8 +25,8 @@ I thrive on **self-directed learning**, constantly building my skills through ha
 | **Backend**       | PHP, Laravel                                |
 | **Frontend**      | JavaScript, HTML5, CSS3, Bootstrap          |
 | **Database**      | MySQL                                       |
-| **Design**        | Figma                                       |
-| **Version Control** | Git, GitHub                              |
+| **Design**        | Adobe Tools, Figma                          |
+| **Vers Control**  | Git, GitHub                                 |
 | **Productivity**  | Microsoft Office                            |
 
 ---
