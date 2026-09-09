@@ -1,5 +1,7 @@
 <div align="center">
 
+![Profile Scan Card](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgNDIwIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjQyMCI+PHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSI0MjAiIHJ4PSIxMiIgZmlsbD0iIzBhMGExZiIvPjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI4OTQiIGhlaWdodD0iNDE0IiByeD0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmMzM2NiIgc3Ryb2tlLXdpZHRoPSIyLjUiPjxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9InN0cm9rZS1vcGFjaXR5IiB2YWx1ZXM9IjE7MC40OzEiIGR1cj0iM3MiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+PC9yZWN0Pjx0ZXh0IHg9IjQ1MCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBmaWxsPSIjMDBmMGZmIj5JbWFudWVsIEF5dWIgRmxhYmlhbm9zPC90ZXh0Pjwvc3ZnPg==)
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420">
 <rect width="900" height="420" rx="12" fill="#0a0a0f"/>
 <rect x="3" y="3" width="894" height="414" rx="10" fill="none" stroke="#ff3366" stroke-width="2.5">
