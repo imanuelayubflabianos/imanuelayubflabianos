@@ -22,8 +22,8 @@ I thrive on **self-directed learning**, constantly building my skills through ha
 
 | Category          | Technologies                                |
 |-------------------|---------------------------------------------|
-| **Backend**       | PHP, Laravel                                |
 | **Frontend**      | JavaScript, HTML5, CSS3, Bootstrap          |
+| **Backend**       | PHP, Laravel                                |
 | **Database**      | MySQL                                       |
 | **Design**        | Adobe Tools, Figma                          |
 | **Vers Control**  | Git, GitHub                                 |
@@ -33,9 +33,8 @@ I thrive on **self-directed learning**, constantly building my skills through ha
 
 ## 🔬 Research & Interests
 
-- **Primary Focus:** Web & System Development (Fullstack)
-- **Direction:** Building scalable, maintainable web applications and IoT-integrated systems
-- **Themes:** UI/UX Design · Web Architecture · Database Optimization · IoT Integration
+- **Primary Focus:** Development (Fullstack)
+- **Direction:** Building scalable, maintainable and integrated systems
 
 ---
 
