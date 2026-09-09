@@ -42,8 +42,6 @@ I thrive on **self-directed learning**, constantly building my skills through ha
 ## 🏗️ Build Log
 
 - **Project Management:** End-to-end fullstack development lifecycle
-- **Approach:** Clean code, modular architecture, user-centered design
-- **Methodology:** Project-based learning and continuous skill development
 - 📂 Explore my repositories → [github.com/imanuelayubflabianos](https://github.com/imanuelayubflabianos)
 
 ---
