@@ -221,7 +221,7 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 
 ## 🛠️ Tech Stack
 
-| Kategori | Teknologi |
+| Category | Tech |
 |----------|-----------|
 | 🖥️ **Bahasa Pemrograman** | PHP, JavaScript, HTML5, CSS3 |
 | 🔧 **Framework / Library** | Laravel, Bootstrap |
@@ -235,7 +235,7 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 
 ## 🔬 Research & Interests
 
-| Area | Deskripsi |
+| Area | Description |
 |------|-----------|
 | 🌐 **Web Development** | Membangun aplikasi web fullstack dengan Laravel & JavaScript |
 | 🖥️ **System Development** | Pengembangan sistem informasi dan manajemen database |
@@ -262,15 +262,13 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 
 > *"Code a little every day, and one day you'll build something great."*
 
-| # | Proyek | Deskripsi | Stack |
+| # | Project | Description | Stack |
 |---|--------|-----------|-------|
 | 1 |  **Portfolio Website** | Website portofolio pribadi | HTML5, CSS3, JavaScript |
 | 2 | 🗄️ **Sistem Informasi** | Aplikasi manajemen berbasis web | PHP, Laravel, MySQL |
 | 3 | 📡 **IoT Project** | Proyek integrasi IoT & monitoring | PHP, JavaScript, MySQL |
 | 4 | 🎨 **UI/UX Design** | Koleksi desain antarmuka | Figma |
 | 5 |  **Learning Repo** | Catatan & eksperimen belajar | Multi-stack |
-
-> 💡 **Catatan:** Update link repositori di atas dengan URL repositori publik Anda yang sebenarnya.
 
 ---
 
