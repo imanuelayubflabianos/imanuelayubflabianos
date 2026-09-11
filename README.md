@@ -104,7 +104,7 @@ Fullstack Developer
   	    <li><b>OS:</b> Windows 11</li>
 	    <li><b>Laptop: </b> Advan Workpro Lite (i3 12th gen)</li>
 	    <li><b>Code Editor:</b> VSCode - The best editor out there.</li>
-	    <li><b>Stay Updated:</b> Linkedin and Github.</li>
+	    <li><b>Stay Updated:</b> Linkedin, Github and more.</li>
 	    <br />
 	</ul>	
 </details>
