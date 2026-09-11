@@ -1,5 +1,5 @@
 <p align="center">
-    M o t o  Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
+    M o t o    Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
 </p>
 
 ## 📊 GitHub Activity
@@ -113,7 +113,7 @@ Fullstack Developer
 ---
 
 <p align="center">
-  <sub>Built with ❤️ by <b>Imanuel Ayub Flabianos</b> | © 2026</sub>
+  <sub>Built with ❤️ by <b>Imanuel Ayub Flabianos</b> | © 2025</sub>
 </p>
 
 <p align="center">
@@ -122,7 +122,7 @@ Fullstack Developer
 
 ## 📬 Connect With Me
 
-  <a href="mailto:your-email@example.com" target="_blank">
+  <a href="mailto:your-email@example.com" target="blank">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
   </a>
 
