@@ -1,12 +1,11 @@
 <p align="center">
-    M o t o    Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
+    M o t o‎ ‎ ‎ Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
 </p>
 
 ## 📊 GitHub Activity Statistik
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&title_color=ff3366&icon_color=00f0ff&text_color=00f0ff" alt="GitHub Stats" width="420"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=radical&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
 </p>
 
 <p align="center">
