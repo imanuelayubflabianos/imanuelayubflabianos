@@ -2,7 +2,7 @@
     Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
 </p>
 
-<img align="right" height="250" width="375" alt="" src="https://github.com/imanuelayubflabianos/imanuelayubflabianos/" />
+<img align="right" height="250" width="375" alt="" src="https://github.com/imanuelayubflabianos/imanuelayubflabianos/assets/coder.gif" />
 
 ## 👨‍💻 About Me
 
