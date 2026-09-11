@@ -4,7 +4,7 @@
     Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
 </p>
 
-<img align="right" height="250" width="375" alt="" src="https://github.com/imanuelayubflabianos/imanuelayubflabianos" />
+<img align="right" height="250" width="375" alt="" src="https://github.com/imanuelayubflabianos/imanuelayubflabianos/" />
 
 ### About me:
 
@@ -26,7 +26,6 @@
 ### Languages and Tools: 🔥
 
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/csharp/csharp.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/dotnet/dotnet.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/96943574ba0c0340ba6ea1e6f768e9abe43e34e1/topics/sql-server/sql-server.png" style="max-width:100%;"></code>
@@ -50,50 +49,6 @@
   <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=ismaelmiah&hide_border=true" />
 </details>
 
-<details>
-
-  <br />
-  <table>
-    <thead align="center">
-      <tr border: none;>
-        <td><b>💻 Projects</b></td>
-        <td><b>🌟 Stars</b></td>
-        <td><b>🍴 Forks</b></td>
-        <td><b>🐛 Issues</b></td>
-        <td><b>🔔 Pull Requests</b></td>
-        <td><b>👨‍💻 Language</b></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-	    <td><a href="https://github.com/ismaelmiah/grandnode2"><b>Grandnode2</b></a></td>
-        <td><img alt="Stars" src="https://img.shields.io/github/stars/ismaelmiah/grandnode2?style=flat-square&labelColor=343b41"/></td>
-        <td><img alt="Forks" src="https://img.shields.io/github/forks/ismaelmiah/grandnode2?style=flat-square&labelColor=343b41"/></td>
-        <td><img alt="Issues" src="https://img.shields.io/github/issues/ismaelmiah/grandnode2?style=flat-square"/></td>
-        <td><img alt="Pull Requests" src="https://img.shields.io/github/issues-pr/ismaelmiah/grandnode2?style=flat-square"/></td>
-        <td><img alt="Language" src="https://img.shields.io/github/languages/top/ismaelmiah/grandnode2?style=flat-square"/></td>
-      </tr>
-      <tr>
-	    <td><a href="https://github.com/ismaelmiah/blogifier"><b> Blogifier</b></a></td>
-        <td><img alt="Stars" src="https://img.shields.io/github/stars/ismaelmiah/blogifier?style=flat-square&labelColor=343b41"/></td>
-        <td><img alt="Forks" src="https://img.shields.io/github/forks/ismaelmiah/blogifier?style=flat-square&labelColor=343b41"/></td>
-        <td><img alt="Issues" src="https://img.shields.io/github/issues/ismaelmiah/blogifier?style=flat-square"/></td>
-        <td><img alt="Pull Requests" src="https://img.shields.io/github/issues-pr/ismaelmiah/blogifier?style=flat-square"/></td>
-        <td><img alt="Language" src="https://img.shields.io/github/languages/top/ismaelmiah/blogifier?label=javascript&style=flat-square"/></td>
-      </tr>
-      <tr>
-	    <td><a href="https://github.com/ismaelmiah/RocketLeagueReplayParser"><b> RocketLeagueReplayParser</b></a></td>
-        <td><img alt="Stars" src="https://img.shields.io/github/stars/ismaelmiah/RocketLeagueReplayParser?style=flat-square&labelColor=343b41"/></td>
-        <td><img alt="Forks" src="https://img.shields.io/github/forks/ismaelmiah/RocketLeagueReplayParser?style=flat-square&labelColor=343b41"/></td>
-        <td><img alt="Issues" src="https://img.shields.io/github/issues/ismaelmiah/RocketLeagueReplayParser?style=flat-square"/></td>
-        <td><img alt="Pull Requests" src="https://img.shields.io/github/issues-pr/ismaelmiah/RocketLeagueReplayParser?style=flat-square"/></td>
-        <td><img alt="Language" src="https://img.shields.io/github/languages/top/ismaelmiah/RocketLeagueReplayParser?label=javascript&style=flat-square"/></td>
-      </tr>
-    </tbody>
-  </table>
-  <br />
-</details>
- 
 <details>	
   <br />
   <summary><b>⚙️ Things I use to get stuff done</b></summary>
