@@ -48,17 +48,17 @@ Fullstack Developer
 ---
 ## 📈 Engineering Focus
 
-[Game Development]  ──► Make and Develop more Games. <br>
-[Web Applications]  ──► Building scalable backends with Laravel & PHP. <br>
-[Database Systems]  ──► Designing efficient MySQL schema & queries. <br>
-[User Interface]    ──► Creating clean layouts via Figma & Bootstrap. <br>
-[IoT & Systems]     ──► Exploring device-to-cloud integration. <br>
+[Game Development]	──► Make and Develop more Games. <br>
+[Web Applications]	──► Building scalable backends with Laravel & PHP. <br>
+[Database Systems]	──► Designing efficient MySQL schema & queries. <br>
+[User Interface]	──► Creating clean layouts via Figma & Bootstrap. <br>
+[IoT & Systems]		──► Exploring device-to-cloud integration. <br>
 
 ### My Absolute Favorites:
 
 - 💻 &nbsp; I love exploring new tech stack and building cool stuffs, and playing Music
 - 📰 &nbsp; Reading & writing tech blogs whenever possible.
-- 🍕 &nbsp; Hackathons, meetups & tech events.
+- 🍕 &nbsp; Meetups & Tech events.
 
 <details>	
   <br />
