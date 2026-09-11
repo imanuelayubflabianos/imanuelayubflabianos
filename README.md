@@ -1,3 +1,7 @@
+<p align="center">
+    Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
+</p>
+
 ## 👨‍💻 About Me
 
 Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** berlatar belakang **Pengembangan Perangkat Lunak dan Gim (PPLG/RPL)**. Saya berfokus pada pembangunan sistem web yang stabil, arsitektur basis data, serta integrasi antarmuka yang ramah pengguna.
@@ -22,11 +26,11 @@ Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** berlatar belaka
 
 ## 🚀 Featured Repository
 
-### 📌 [Project Management Application](https://github.com/imanuelayubflabianos/Project_Management)
+### 📌 [Project Management Application]
 > **Full-Stack Web System**  
 Aplikasi berbasis web yang dirancang untuk membantu pengelolaan tugas, pelacakan progres proyek, dan otomatisasi alur kerja pengembangan sistem.
 
-* **Tech Stack:**
+* **Tech Stack:** <br>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/dotnet/dotnet.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" style="max-width:100%;"></code>
@@ -49,3 +53,21 @@ Aplikasi berbasis web yang dirancang untuk membantu pengelolaan tugas, pelacakan
 [Database Systems]  ──► Designing efficient MySQL schema & queries.
 [User Interface]    ──► Creating clean layouts via Figma & Bootstrap.
 [IoT & Systems]     ──► Exploring device-to-cloud integration.
+
+### My Absolute Favorites:
+
+- 💻 &nbsp; I love exploring new tech stack and building cool stuffs, and playing Music
+- 📰 &nbsp; Reading & writing tech blogs whenever possible.
+- 🍕 &nbsp; Hackathons, meetups & tech events.
+
+<details>	
+  <br />
+  <summary><b>⚙️ Things I use to get stuff done</b></summary>
+  	<ul>
+  	    <li><b>OS:</b> Windows 11</li>
+	    <li><b>Laptop: </b> Advan Workpro Lite (i3 12th gen)</li>
+	    <li><b>Code Editor:</b> VSCode - The best editor out there.</li>
+	    <li><b>To Stay Updated:</b> Dev.to, Linkedin and Github.</li>
+	    <br />
+	</ul>	
+</details>
