@@ -14,18 +14,6 @@ Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** berlatar belaka
 
 ---
 
-## 🛠️ Technical Capabilities
-
-| Kategori | Teknologi & Tools |
-| :--- | :--- |
-| **Backend & Architecture** | `PHP` · `Laravel` · `REST API` |
-| **Database Management** | `MySQL` · `Database Design` |
-| **Frontend Development** | `JavaScript` · `HTML5` · `CSS3` · `Bootstrap` |
-| **Design & Prototyping** | `Figma` · `Adobe Tools` |
-| **Dev Tools & Productivity** | `Git` · `GitHub` · `Microsoft Office` |
-
----
-
 ## 🚀 Featured Repository
 
 ### 📌 [Project Management App]
@@ -68,7 +56,7 @@ Fullstack Developer
   	    <li><b>OS:</b> Windows 11</li>
 	    <li><b>Laptop: </b> Advan Workpro Lite (i3 12th gen)</li>
 	    <li><b>Code Editor:</b> VSCode - The best editor out there.</li>
-	    <li><b>To Stay Updated:</b> Dev.to, Linkedin and Github.</li>
+	    <li><b>Stay Updated:</b> Linkedin and Github.</li>
 	    <br />
 	</ul>	
 </details>
