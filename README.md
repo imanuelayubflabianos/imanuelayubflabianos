@@ -1,8 +1,4 @@
-## Hey 👋, I'm Ismael
-
-<a href="https://devismael.com"><img alt="Website" src="https://img.shields.io/badge/Website-www.devismael.com-blue?style=flat-square&logo=google-chrome"></a>
-<a href="https://www.linkedin.com/in/ismaelmiah/"><img alt="LinkedIn" src="https://img.shields.io/badge/ismaelmiah-linkedIn-brightgreen?style=flat-square&logo=linkedin"></a>
-<a href="mailto:ismaelmiah.swe@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-ismaelmiah.swe@gmail.com-blue?style=flat-square&logo=gmail"></a>
+## Hey 👋, I'm Imanuel Ayub Flabianos
 
 <p align="center">
     Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
@@ -112,10 +108,9 @@
   <summary><b>⚙️ Things I use to get stuff done</b></summary>
   	<ul>
   	    <li><b>OS:</b> Windows 11</li>
-	    <li><b>Laptop: </b> Acer Aspire 5 (i5 12th)</li>
-  	    <li><b>Browser: </b> Chrome Web Browser</li>
+	    <li><b>Laptop: </b> Advan Workpro Lite (i3 12th gen)</li>
 	    <li><b>Code Editor:</b> VSCode - The best editor out there.</li>
-	    <li><b>To Stay Updated:</b> Dev.to, Medium, Linkedin and Github.</li>
+	    <li><b>To Stay Updated:</b> Dev.to, Linkedin and Github.</li>
 	    <br />
 	</ul>	
 </details>
