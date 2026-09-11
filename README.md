@@ -1,5 +1,5 @@
 <p align="center">
-    Moto Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
+    M o t o  Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
 </p>
 
 ## 📊 GitHub Activity
@@ -78,7 +78,7 @@ Fullstack Developer
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/github/github.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/docker/docker.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/aws/aws.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/bbd48b997e8d0bef63f676eca4da5e1f76487b56/topics/visual-studio-code/vscode.png" style="max-width:100%;"></code>
+<code><img height="30" src="https://raw.githubusercontent.com/github/explore/bbd48b997e8d0bef63f676eca4da5e1f76487b56/topics/vscode/vscode.png" style="max-width:100%;"></code>
 
 ---
 
