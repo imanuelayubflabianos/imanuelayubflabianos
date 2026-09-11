@@ -26,9 +26,9 @@ Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** berlatar belaka
 
 ## 🚀 Featured Repository
 
-### 📌 [Project Management Application]
-> **Full-Stack Web System**  
-Aplikasi berbasis web yang dirancang untuk membantu pengelolaan tugas, pelacakan progres proyek, dan otomatisasi alur kerja pengembangan sistem.
+### 📌 [Project Management App]
+> **Role**  
+Fullstack Developer
 
 * **Tech Stack:** <br>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" style="max-width:100%;"></code>
@@ -44,10 +44,8 @@ Aplikasi berbasis web yang dirancang untuk membantu pengelolaan tugas, pelacakan
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/bbd48b997e8d0bef63f676eca4da5e1f76487b56/topics/visual-studio-code/visual-studio-code.png" style="max-width:100%;"></code>
 
 ---
-
 ## 📈 Engineering Focus
 
-```text
 [Game Development]  ──► Make and Develop more Games.
 [Web Applications]  ──► Building scalable backends with Laravel & PHP.
 [Database Systems]  ──► Designing efficient MySQL schema & queries.
