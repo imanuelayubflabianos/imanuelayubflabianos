@@ -2,6 +2,8 @@
     Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
 </p>
 
+<img align="right" height="250" width="375" alt="" src="https://github.com/imanuelayubflabianos/imanuelayubflabianos/" />
+
 ## 👨‍💻 About Me
 
 Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** berlatar belakang **Pengembangan Perangkat Lunak dan Gim (PPLG/RPL)**. Saya berfokus pada pembangunan sistem web yang stabil, arsitektur basis data, serta integrasi antarmuka yang ramah pengguna.
@@ -46,11 +48,11 @@ Fullstack Developer
 ---
 ## 📈 Engineering Focus
 
-[Game Development]  ──► Make and Develop more Games.
-[Web Applications]  ──► Building scalable backends with Laravel & PHP.
-[Database Systems]  ──► Designing efficient MySQL schema & queries.
-[User Interface]    ──► Creating clean layouts via Figma & Bootstrap.
-[IoT & Systems]     ──► Exploring device-to-cloud integration.
+[Game Development]  ──► Make and Develop more Games. <br>
+[Web Applications]  ──► Building scalable backends with Laravel & PHP. <br>
+[Database Systems]  ──► Designing efficient MySQL schema & queries. <br>
+[User Interface]    ──► Creating clean layouts via Figma & Bootstrap. <br>
+[IoT & Systems]     ──► Exploring device-to-cloud integration. <br>
 
 ### My Absolute Favorites:
 
