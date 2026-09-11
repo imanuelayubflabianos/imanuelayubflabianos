@@ -5,7 +5,7 @@
 ## 📊 GitHub Activity Statistik
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&title_color=ff3366&icon_color=00f0ff&text_color=00f0ff" alt="GitHub Stats" width="420"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=radical&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
 </p>
 
 <p align="center">
@@ -77,7 +77,7 @@ Fullstack Developer
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/github/github.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/docker/docker.png" style="max-width:100%;"></code>
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/aws/aws.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://github.com/imanuelayubflabianos/imanuelayubflabianos/blob/910bd14c79c6fc32c034a2ca1e7617aed6c20bff/assets/vscode.png" style="max-width:100%;"></code>
+<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/visual-studio-code/visual-studio-code.png" style="max-width:100%;"></code>
 
 ---
 
@@ -118,7 +118,5 @@ Fullstack Developer
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=imanuelayubflabianos&color=00f0ff&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile Views"/>
 </p>
-
-## 📬 Connect With Me
 
 ---
