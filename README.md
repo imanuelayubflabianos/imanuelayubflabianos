@@ -101,7 +101,7 @@ Fullstack Developer
   <br />
   <summary><b>⚙️ Things I use to get stuff done</b></summary>
   	<ul>
-  	    <li><b>OS:</b> Windows 11</li>
+  	    <li><b>OS:</b> Windows 11, Linux </li>
 	    <li><b>Laptop: </b> Advan Workpro Lite (i3 12th gen)</li>
 	    <li><b>Code Editor:</b> VSCode - The best editor out there.</li>
 	    <li><b>Stay Updated:</b> Linkedin, Github and more.</li>
