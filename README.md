@@ -1,5 +1,5 @@
 <p align="center">
-    M o t o‎ ‎ ‎ Ｕｎｓｔｏｐｐａｂｌｅ　ｌｅａｒｎｅｒ
+    M o t o‎ ‎ ‎ Ｕｎｓｔｏｐｐａｂｌｅ　Lｅａｒｎｅｒ
 </p>
 
 ## 📊 GitHub Activity Statistik
