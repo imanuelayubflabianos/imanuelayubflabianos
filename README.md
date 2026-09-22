@@ -83,19 +83,10 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 > **Role**  
 Fullstack Developer
 
-* **Tech Stack:** <br>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/cpp/cpp.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/dotnet/dotnet.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/96943574ba0c0340ba6ea1e6f768e9abe43e34e1/topics/sql-server/sql-server.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/postgresql/postgresql.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/git/git.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/github/github.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/docker/docker.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/aws/aws.png" style="max-width:100%;"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/31ea1181d4a76262931a39ca68e0203774a69b60/topics/visual-studio-code/visual-studio-code.png" style="max-width:100%;"></code>
+* **Tech Stack:**
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,gitlab,vscode,html,nodejs,js,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,linux&theme=dark" />
+</a>
 
 ---
 
