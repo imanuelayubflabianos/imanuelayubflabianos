@@ -14,39 +14,7 @@
   <a href="https://github.com/imanuelayubflabianos/imanuelayubflabianos"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-Visit-0891B2?style=for-the-badge"></a>
 </p>
 
-## About Me
 
-I build practical systems at the intersection of artificial intelligence, software engineering, and products people can trust.
-
-My work combines technical exploration with a builder mindset: understand the problem, test the system, and share what actually works.
-
-## Current Focus
-
-| Area | What I am exploring |
-| --- | --- |
-| **Focus Crypto-** | Mentality |
-
-## Featured Work
-
-| Project | Focus | Why it matters |
-| --- | --- | --- |
-| [**TEMP**](https://github.com/imanuelayubflabianos/imanuelayubflabianos) | Dihcipline. | A concise explanation of what the project does and why it matters. |
-
-## Research Direction
-
-I am interested in systems that can observe state, use tools, evaluate outcomes, and take bounded actions with clear evidence and human oversight.
-
-## Tech Stack
-
-`any`
-
-## Recent Activity
-
-<!-- AUTO:ACTIVITY:START -->
-_Recent public activity will appear here after the workflow runs._
-<!-- AUTO:ACTIVITY:END -->
-
----
 
 <p align="center">
   Builderman
