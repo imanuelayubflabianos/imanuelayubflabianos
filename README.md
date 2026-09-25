@@ -28,9 +28,19 @@
 
 ## 📊 GitHub Activity Statistik
 
-<p align="center">
+<div align="center">
+
   <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=radical&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
-</p>
+
+[![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=raviwijerathna1&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+
+[![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=raviwijerathna1&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=raviwijerathna1&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+
+[![](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=raviwijerathna1&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+[![](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=raviwijerathna1&theme=tokyonight&utcOffset=5.5)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+
+</div>
 
 ---
 
@@ -89,7 +99,7 @@ Fullstack Developer
 
 * **Tech Stack:**
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,gitlab,vscode,html,nodejs,js,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,eth,linux&theme=dark" />
+  <img src="https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,figma,gitlab,vscode,html,nodejs,js,vite,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,bootsrap,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,cloudflare,linux&theme=dark" />
 </a>
 
 ---
