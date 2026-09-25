@@ -22,10 +22,6 @@
 </div>
 
 <p align="center">
-    M o t o‎ ‎ ‎ Ｕｎｓｔｏｐｐａｂｌｅ　Lｅａｒｎｅｒ
-</p>
-
-<p align="center">
   <a href="https://github.com/imanuelayubflabianos"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-imanuelayubflabianos-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
   <a href="https://github.com/imanuelayubflabianos/imanuelayubflabianos"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-Visit-0891B2?style=for-the-badge"></a>
 </p>
