@@ -98,7 +98,7 @@ Fullstack Developer
 
 * **Tech Stack:**
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,figma,gitlab,vscode,html,nodejs,js,vite,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,bootsrap,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,cloudflare,linux&theme=dark" />
+  <img src="https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,figma,gitlab,vscode,html,nodejs,js,vite,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,bootstrap,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,cloudflare,linux&theme=dark" />
 </a>
 
 ---
