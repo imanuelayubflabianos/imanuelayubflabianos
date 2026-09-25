@@ -37,7 +37,9 @@
 [![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
 [![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
 
-[![](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+<a href="https://github.com/imanuelayubflabianos">
+  <img height="150" src="https://github-readme-stats-eight-theta.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=github_dark&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&border_color=21262d&hide_border=false&count_private=true" alt="GitHub Stats" />
+</a>
 
 </div>
 
