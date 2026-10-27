@@ -54,7 +54,7 @@
     }
   ],
   "activity": {
-    "enabled": true,
+    "enabled": false,
     "limit": 6
   },
   "appearance": {

@@ -1,0 +1,9 @@
+name = "portfolio-contact-api"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# CATATAN KEAMANAN:
+# Jangan pernah memasukkan TURNSTILE_SECRET_KEY ke file ini!
+# Tambahkan secret melalui Cloudflare Dashboard atau CLI:
+# npx wrangler secret put TURNSTILE_SECRET_KEY
+

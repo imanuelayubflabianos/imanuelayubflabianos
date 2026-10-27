@@ -45,7 +45,7 @@ try {
     for (const assetName of assetNames) {
       const assetPath = resolve(repositoryRoot, "assets/hero", assetName);
       await access(assetPath);
-      const svg = await readFile(assetPath, "utf8");
+      const svg = (await readFile(assetPath, "utf8")).trim();
       assert(svg.startsWith("<svg") && svg.endsWith("</svg>"), `${assetName} is not a complete SVG document.`);
       assert(!svg.includes("${"), `${assetName} contains an unresolved template expression.`);
       assert(readme.includes(assetName), `README.md does not reference ${assetName}.`);
