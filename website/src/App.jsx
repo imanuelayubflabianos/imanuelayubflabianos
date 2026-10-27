@@ -514,7 +514,7 @@ function App() {
                   <span className="badge-glow" />
                   BUILDERMAN
                 </span>
-                <span className="badge badge-purple">GRADE XI · PPLG</span>
+                <span className="badge badge-purple">FULLSTACK DEVELOPER</span>
                 <span className="badge badge-pink">WNI · INDONESIA</span>
               </div>
 
@@ -776,7 +776,7 @@ function App() {
             <div className="about-text-content">
               <div className="about-lead">
                 Halo! Saya <strong>Imanuel Ayub Flabianos</strong>, seorang <strong>Fullstack Developer</strong> dari Indonesia.
-                Saat ini saya menempuh pendidikan di bidang <strong>Pengembangan Perangkat Lunak dan Gim (PPLG/RPL)</strong>.
+                Saya berfokus pada bidang <strong>Pengembangan Perangkat Lunak dan Gim (Software &amp; Game Development)</strong>.
               </div>
               <p>
                 Saya passionate dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik.
@@ -792,7 +792,7 @@ function App() {
             <div className="about-text-content">
               <div className="about-lead">
                 Hello! I&apos;m <strong>Imanuel Ayub Flabianos</strong>, a <strong>Fullstack Developer</strong> from Indonesia.
-                I&apos;m currently studying <strong>Software &amp; Game Development (PPLG/RPL)</strong>.
+                I specialize in <strong>Software &amp; Game Development</strong>.
               </div>
               <p>
                 I&apos;m passionate about building functional, efficient, and visually appealing web applications and systems. My
