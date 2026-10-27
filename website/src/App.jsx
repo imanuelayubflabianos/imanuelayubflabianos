@@ -12,39 +12,51 @@ const TYPING_PHRASES = [
   "Moto Unstoppable Learner",
 ]
 
-const FEATURED_PROJECTS = [
+// Fallback Repositories jika GitHub API sedang rate-limit atau offline
+const FALLBACK_PROJECTS = [
   {
-    number: '01',
-    name: 'Project Management App',
-    type: 'WEB APPLICATION',
-    role: 'Fullstack Developer',
-    description:
-      'A comprehensive project management system built for agile workflows, task tracking, and team collaboration with real-time updates.',
-    stack: ['Laravel', 'React', 'MySQL', 'Tailwind'],
-    status: 'FEATURED REPOSITORY',
-    link: 'https://github.com/imanuelayubflabianos',
-  },
-  {
-    number: '02',
+    id: 1,
     name: 'GuruKuu',
-    type: 'WEB APPLICATION',
-    role: 'Web Application Developer',
+    html_url: 'https://github.com/imanuelayubflabianos/GuruKuu',
     description:
-      'A web-based teacher evaluation and appreciation platform built to support transparent feedback, metrics, and school communities.',
-    stack: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
-    status: 'FEATURED PROJECT',
-    link: 'https://github.com/imanuelayubflabianos',
+      'Wadah aspirasi dan evaluasi kinerja guru berbasis web untuk penilaian transparan dan kemajuan pembelajaran siswa.',
+    language: 'PHP / Blade',
+    stargazers_count: 2,
+    forks_count: 0,
+    updated_at: '2026-10-27T07:22:17Z',
   },
   {
-    number: '03',
-    name: 'Compify',
-    type: 'E-COMMERCE',
-    role: 'Fullstack Developer',
+    id: 2,
+    name: 'Penjaga-Pusaka-Nusantara-Indonesia-minigame',
+    html_url: 'https://github.com/imanuelayubflabianos/Penjaga-Pusaka-Nusantara-Indonesia-minigame',
     description:
-      'An e-commerce platform for computer hardware, peripherals, and accessories with relational inventory databases and checkout.',
-    stack: ['Laravel 10', 'MySQL', 'JavaScript'],
-    status: 'WEB DEVELOPMENT',
-    link: 'https://github.com/imanuelayubflabianos',
+      'Proyek minigame interaktif bertema pelestarian pusaka dan budaya nusantara Indonesia.',
+    language: 'JavaScript / Game',
+    stargazers_count: 1,
+    forks_count: 0,
+    updated_at: '2026-09-22T15:12:23Z',
+  },
+  {
+    id: 3,
+    name: 'Timer-sederhana-Simple-timer-',
+    html_url: 'https://github.com/imanuelayubflabianos/Timer-sederhana-Simple-timer-',
+    description:
+      'Aplikasi web timer dan stopwatch sederhana dengan antarmuka yang bersih dan mudah digunakan.',
+    language: 'HTML / JS',
+    stargazers_count: 1,
+    forks_count: 0,
+    updated_at: '2026-09-09T14:12:23Z',
+  },
+  {
+    id: 4,
+    name: 'Compify',
+    html_url: 'https://github.com/imanuelayubflabianos',
+    description:
+      'Platform e-commerce perangkat keras komputer dengan arsitektur database relasional dan modern checkout flow.',
+    language: 'Laravel 10 / MySQL',
+    stargazers_count: 1,
+    forks_count: 0,
+    updated_at: '2026-08-15T10:00:00Z',
   },
 ]
 
@@ -133,12 +145,21 @@ function Typewriter({ words, speed = 80, delay = 1800 }) {
 }
 
 /**
- * Komponen Cloudflare Turnstile CAPTCHA (Frontend Safe)
- * Menggunakan Site Key publik dan membersihkan widget saat unmount (kompatibel React StrictMode).
+ * Komponen Cloudflare Turnstile CAPTCHA (Frontend Safe & Robust)
+ * Menggunakan theme auto dan callback ref agar tidak merender ulang / crash saat ganti tema.
  */
-function TurnstileWidget({ siteKey, theme, onVerify, onExpire, onError }) {
+function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
   const containerRef = useRef(null)
   const widgetIdRef = useRef(null)
+  const onVerifyRef = useRef(onVerify)
+  const onExpireRef = useRef(onExpire)
+  const onErrorRef = useRef(onError)
+
+  useEffect(() => {
+    onVerifyRef.current = onVerify
+    onExpireRef.current = onExpire
+    onErrorRef.current = onError
+  }, [onVerify, onExpire, onError])
 
   useEffect(() => {
     let isMounted = true
@@ -148,7 +169,6 @@ function TurnstileWidget({ siteKey, theme, onVerify, onExpire, onError }) {
     const renderWidget = () => {
       if (!isMounted || !container || !window.turnstile) return
 
-      // Bersihkan widget sebelumnya jika sudah ada (mencegah duplikasi StrictMode)
       if (widgetIdRef.current !== null) {
         try {
           window.turnstile.remove(widgetIdRef.current)
@@ -163,21 +183,21 @@ function TurnstileWidget({ siteKey, theme, onVerify, onExpire, onError }) {
       try {
         const id = window.turnstile.render(container, {
           sitekey: siteKey,
-          theme: theme === 'dark' ? 'dark' : 'light',
+          theme: 'auto',
           action: 'contact-form',
           callback: (token) => {
-            if (isMounted) onVerify(token)
+            if (isMounted && onVerifyRef.current) onVerifyRef.current(token)
           },
           'expired-callback': () => {
-            if (isMounted) onExpire()
+            if (isMounted && onExpireRef.current) onExpireRef.current()
           },
           'error-callback': () => {
-            if (isMounted) onError()
+            if (isMounted && onErrorRef.current) onErrorRef.current()
           },
         })
         widgetIdRef.current = id
       } catch (err) {
-        console.error('Error rendering Cloudflare Turnstile:', err)
+        console.error('Turnstile render notice:', err)
       }
     }
 
@@ -219,7 +239,7 @@ function TurnstileWidget({ siteKey, theme, onVerify, onExpire, onError }) {
         container.innerHTML = ''
       }
     }
-  }, [siteKey, theme, onVerify, onExpire, onError])
+  }, [siteKey])
 
   return <div ref={containerRef} className="turnstile-wrapper" />
 }
@@ -236,6 +256,10 @@ function App() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
   const [imgErrors, setImgErrors] = useState({})
 
+  // Dynamic GitHub Repositories State
+  const [githubRepos, setGithubRepos] = useState(FALLBACK_PROJECTS)
+  const [isReposLoading, setIsReposLoading] = useState(true)
+
   // Form State
   const [contactForm, setContactForm] = useState({
     name: '',
@@ -248,16 +272,58 @@ function App() {
   const [formFeedback, setFormFeedback] = useState('')
 
   const emailAddress = 'imanuelayub0309@gmail.com'
+  const linkedInUrl = 'https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/'
+  const gitHubUrl = 'https://github.com/imanuelayubflabianos'
 
   // Cloudflare Turnstile Configuration
-  // 1x00000000000000000000AA adalah official Cloudflare test site key (selalu pass) jika VITE_TURNSTILE_SITE_KEY belum diisi
   const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'
   const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT || ''
 
+  // Sinkronisasi Theme ke HTML dan Body
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
+    document.body.setAttribute('data-theme', theme)
     localStorage.setItem('portfolio-theme', theme)
   }, [theme])
+
+  // Deteksi Otomatis Repositori Terbaru & Terpopuler dari Akun GitHub Pengguna
+  useEffect(() => {
+    let isCancelled = false
+
+    fetch('https://api.github.com/users/imanuelayubflabianos/repos?sort=updated&per_page=100')
+      .then((res) => {
+        if (!res.ok) throw new Error('GitHub API response not ok')
+        return res.json()
+      })
+      .then((data) => {
+        if (isCancelled || !Array.isArray(data)) return
+
+        // Filter: kecualikan repo fork dan repo profil khusus jika diperlukan
+        const filtered = data.filter((repo) => !repo.fork)
+
+        // Urutkan berdasarkan popularitas (stars) tertinggi terlebih dahulu, lalu aktivitas terbaru
+        filtered.sort((a, b) => {
+          if (b.stargazers_count !== a.stargazers_count) {
+            return b.stargazers_count - a.stargazers_count
+          }
+          return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+        })
+
+        if (filtered.length > 0) {
+          setGithubRepos(filtered.slice(0, 4))
+        }
+      })
+      .catch((err) => {
+        console.warn('Gagal memuat repositori GitHub live, menggunakan data lokal:', err.message)
+      })
+      .finally(() => {
+        if (!isCancelled) setIsReposLoading(false)
+      })
+
+    return () => {
+      isCancelled = true
+    }
+  }, [])
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
@@ -280,11 +346,9 @@ function App() {
   // Turnstile Callbacks
   const handleTurnstileVerify = useCallback((token) => {
     setTurnstileToken(token)
-    if (formStatus === 'error') {
-      setFormStatus('idle')
-      setFormFeedback('')
-    }
-  }, [formStatus])
+    setFormStatus((prev) => (prev === 'error' ? 'idle' : prev))
+    setFormFeedback('')
+  }, [])
 
   const handleTurnstileExpire = useCallback(() => {
     setTurnstileToken('')
@@ -295,7 +359,7 @@ function App() {
   const handleTurnstileError = useCallback(() => {
     setTurnstileToken('')
     setFormStatus('error')
-    setFormFeedback('Gagal memuat widget Cloudflare Turnstile. Pastikan koneksi internet stabil.')
+    setFormFeedback('Widget Turnstile memerlukan koneksi internet untuk memverifikasi CAPTCHA.')
   }, [])
 
   const handleInputChange = (e) => {
@@ -307,7 +371,6 @@ function App() {
     e.preventDefault()
     setFormFeedback('')
 
-    // 1. Validasi Input Frontend
     if (
       !contactForm.name.trim() ||
       !contactForm.email.trim() ||
@@ -319,24 +382,20 @@ function App() {
       return
     }
 
-    // 2. Validasi Token Turnstile
     if (!turnstileToken) {
       setFormStatus('error')
-      setFormFeedback('Mohon selesaikan verifikasi Cloudflare Turnstile sebelum mengirim pesan.')
+      setFormFeedback('Mohon selesaikan verifikasi Cloudflare Turnstile sebelum mengirim.')
       return
     }
 
-    // 3. Pemeriksaan Ketersediaan Backend Endpoint
     if (!contactEndpoint) {
-      // Backend belum di-deploy: JANGAN berikan kesan palsu bahwa email sudah terkirim ke server!
       setFormStatus('no-endpoint')
       setFormFeedback(
-        'Verifikasi CAPTCHA Turnstile berhasil! Namun endpoint API backend (VITE_CONTACT_ENDPOINT) belum dihubungkan. Klik tombol di bawah untuk melanjutkan pengiriman langsung via Gmail dengan pesan yang sudah terisi otomatis.'
+        'Verifikasi Turnstile berhasil! Namun endpoint backend API belum diatur di VITE_CONTACT_ENDPOINT. Klik tombol di bawah untuk membuka aplikasi Gmail dengan pesan yang sudah terisi otomatis.'
       )
       return
     }
 
-    // 4. Pengiriman ke Backend Serverless Sebenarnya
     setFormStatus('submitting')
 
     try {
@@ -367,67 +426,71 @@ function App() {
     } catch (err) {
       setFormStatus('error')
       setFormFeedback(
-        `Gagal menghubungi server backend (${err.message}). Silakan kirim langsung melalui tautan email.`
+        `Gagal menghubungi server backend (${err.message}). Silakan hubungi via email langsung.`
       )
     }
   }
 
   return (
     <main className="main-wrapper">
-      {/* Top Capsule Render Waving Banner */}
-      <div className="capsule-banner-container">
-        <img
-          src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Imanuel%20Ayub%20Flabianos&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Full%20Stack%20%7C%20Web3%20%7C%20AI%20%7C%20Cybersecurity&descAlignY=62&descAlign=50"
-          alt="Imanuel Ayub Flabianos - Banner"
-          className="capsule-banner-img"
-          loading="eager"
-        />
-      </div>
-
-      {/* Navigation Bar */}
-      <nav className="navbar">
-        <a className="brand" href="#home">
-          <span className="brand-mark">IA</span>
-          <span>
-            imanuel<span className="accent">.dev</span>
-          </span>
-        </a>
-
-        <div className="nav-center-links">
-          <a href="#about">About</a>
-          <a href="#activity">Activity</a>
-          <a href="#projects">Projects</a>
-          <a href="#stack">Stack</a>
-          <a href="#focus">Focus</a>
-          <a href="#contact">Contact</a>
-        </div>
-
-        <div className="nav-actions">
-          {/* Dark / Light Mode Toggle Button */}
-          <button
-            className="theme-toggle-btn"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
-            {theme === 'dark' ? (
-              <span className="theme-icon sun">☀️ Light</span>
-            ) : (
-              <span className="theme-icon moon">🌙 Dark</span>
-            )}
-          </button>
-
-          <a href="#contact" className="nav-contact-btn">
-            Connect ↗
+      {/* 1. TOP NAVBAR (Selalu berada di paling atas layar pada desktop) */}
+      <header className="navbar-header">
+        <nav className="navbar">
+          <a className="brand" href="#home">
+            <span className="brand-mark">IA</span>
+            <span>
+              Ayub<span className="accent">.dev</span>
+            </span>
           </a>
-        </div>
-      </nav>
 
-      {/* Hero Section with Profile Face Photo & Typing Animation */}
+          {/* Desktop Center Links (Tersembunyi di Mobile) */}
+          <div className="nav-center-links">
+            <a href="#about">About</a>
+            <a href="#activity">Activity</a>
+            <a href="#projects">Projects</a>
+            <a href="#stack">Stack</a>
+            <a href="#focus">Focus</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div className="nav-actions">
+            {/* Theme Toggle Button */}
+            <button
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? (
+                <span className="theme-icon sun">☀️ Light</span>
+              ) : (
+                <span className="theme-icon moon">🌙 Dark</span>
+              )}
+            </button>
+
+            <a href="#contact" className="nav-contact-btn">
+              Connect ↗
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      {/* 2. HERO SECTION DENGAN BANNER DI BAWAH NAVBAR */}
       <section className="section hero-section" id="home">
+        {/* Waving Capsule Header Banner */}
+        <div className="capsule-banner-container">
+          <img
+            src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Imanuel%20Ayub%20Flabianos&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Full%20Stack%20%7C%20Web3%20%7C%20AI%20%7C%20Cybersecurity&descAlignY=62&descAlign=50"
+            alt="Imanuel Ayub Flabianos - Banner"
+            className="capsule-banner-img"
+            loading="eager"
+          />
+        </div>
+
+        {/* Hero Profile Card */}
         <div className="hero-card">
           <div className="profile-top-grid">
-            {/* Foto Profil Wajah (bisa diganti dengan mengubah file website/src/assets/profile.jpg) */}
+            {/* Foto Profil Wajah */}
             <div className="profile-avatar-frame">
               <div className="avatar-glow" />
               <img
@@ -472,8 +535,8 @@ function App() {
 
               <div className="hero-cta-buttons">
                 <a
-                  className="button button-primary"
-                  href="https://github.com/imanuelayubflabianos"
+                  className="button button-contact-pill"
+                  href={gitHubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -483,19 +546,19 @@ function App() {
                   GitHub Profile ↗
                 </a>
 
-                <a className="button button-secondary" href="#projects">
+                <a className="button button-contact-pill" href="#projects">
                   Explore Work ↓
                 </a>
 
-                <button className="button button-accent" onClick={handleCopyEmail}>
-                  {copiedEmail ? '✓ Email Copied!' : '✉ Copy Email'}
+                <button className="button button-contact-pill" onClick={handleCopyEmail}>
+                  {copiedEmail ? '✓ Copied!' : '✉ Copy Email'}
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Console / Terminal Hero Display (Responsive SVG from README) */}
+        {/* Console / Terminal Hero Display */}
         <div className="console-display-container">
           <div className="terminal-header-bar">
             <div className="terminal-dots">
@@ -526,7 +589,7 @@ function App() {
         </div>
       </section>
 
-      {/* GitHub Activity & Statistics Section */}
+      {/* 3. GITHUB ACTIVITY & STATISTIK SECTION */}
       <section className="section activity-section" id="activity">
         <div className="section-heading">
           <div>
@@ -549,7 +612,7 @@ function App() {
               {imgErrors['streak'] ? (
                 <div className="activity-fallback-box">
                   <p>📊 Streak Stats dapat dilihat di profil GitHub.</p>
-                  <a href="https://github.com/imanuelayubflabianos" target="_blank" rel="noopener noreferrer">
+                  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
                     Buka GitHub Profile ↗
                   </a>
                 </div>
@@ -577,7 +640,7 @@ function App() {
               {imgErrors['details'] ? (
                 <div className="activity-fallback-box">
                   <p>📋 Profile Details dapat dilihat di profil GitHub.</p>
-                  <a href="https://github.com/imanuelayubflabianos" target="_blank" rel="noopener noreferrer">
+                  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
                     Buka GitHub Profile ↗
                   </a>
                 </div>
@@ -605,7 +668,7 @@ function App() {
               {imgErrors['reposLang'] ? (
                 <div className="activity-fallback-box">
                   <p>🍩 Repos Per Language dapat dilihat di GitHub.</p>
-                  <a href="https://github.com/imanuelayubflabianos" target="_blank" rel="noopener noreferrer">
+                  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
                     Buka Repositori ↗
                   </a>
                 </div>
@@ -633,7 +696,7 @@ function App() {
               {imgErrors['commitLang'] ? (
                 <div className="activity-fallback-box">
                   <p>🍰 Commit Language Breakdown dapat dilihat di GitHub.</p>
-                  <a href="https://github.com/imanuelayubflabianos" target="_blank" rel="noopener noreferrer">
+                  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
                     Buka Repositori ↗
                   </a>
                 </div>
@@ -655,7 +718,7 @@ function App() {
         {/* General GitHub Statistics */}
         <div className="activity-bottom-stats">
           <a
-            href="https://github.com/imanuelayubflabianos"
+            href={gitHubUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="stats-link-card"
@@ -681,7 +744,7 @@ function App() {
         </div>
       </section>
 
-      {/* About Me Section (Bilingual Tabs: ID & EN) */}
+      {/* 4. ABOUT ME SECTION (Bilingual Tabs: ID & EN) */}
       <section className="section about-section" id="about">
         <div className="section-heading">
           <div>
@@ -751,56 +814,64 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Projects / Repositories Section */}
+      {/* 5. FEATURED REPOSITORIES (TERHUBUNG LANGSUNG DENGAN REPO GITHUB PENGGUNA) */}
       <section className="section projects-section" id="projects">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">SHOWCASE & WORK</p>
+            <p className="eyebrow">SHOWCASE & GITHUB REPOS</p>
             <h2>
               🚀 Featured <span className="gradient-text">Repository.</span>
             </h2>
           </div>
-          <p className="section-note">Selected software engineering projects and applications.</p>
+          <p className="section-note">
+            Repositori publik paling populer dan aktif dari akun GitHub{' '}
+            <a href={gitHubUrl} target="_blank" rel="noopener noreferrer" className="accent-link">
+              @imanuelayubflabianos ↗
+            </a>
+          </p>
         </div>
 
         <div className="project-grid">
-          {FEATURED_PROJECTS.map((project) => (
-            <article className="project-card" key={project.name}>
+          {githubRepos.map((repo, idx) => (
+            <article className="project-card" key={repo.name || idx}>
               <div className="project-top">
-                <span className="project-number">{project.number} / 03</span>
-                <span className="project-arrow">↗</span>
+                <span className="project-number">0{idx + 1} / 0{githubRepos.length}</span>
+                <span className="project-stars-pill">⭐ {repo.stargazers_count || 0}</span>
               </div>
-              <p className="project-type">{project.type}</p>
-              <h3>{project.name}</h3>
-              <p className="project-role">
-                <strong>Role:</strong> {project.role}
+              <p className="project-type">GITHUB REPOSITORY</p>
+              <h3>{repo.name}</h3>
+              <p className="project-description">
+                {repo.description || 'Repositori kode publik pada akun GitHub resmi Imanuel Ayub Flabianos.'}
               </p>
-              <p className="project-description">{project.description}</p>
               <div className="tag-list">
-                {project.stack.map((item) => (
-                  <span className="tag" key={item}>
-                    {item}
-                  </span>
-                ))}
+                <span className="tag tag-lang">{repo.language || 'Code'}</span>
+                {repo.forks_count > 0 && <span className="tag">🍴 {repo.forks_count} Forks</span>}
+                <span className="tag tag-updated">
+                  Aktif: {new Date(repo.updated_at).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' })}
+                </span>
               </div>
               <div className="project-bottom">
-                <span className="project-status-label">{project.status}</span>
+                <span className="project-status-label">OPEN SOURCE</span>
                 <a
-                  href={project.link}
+                  href={repo.html_url || gitHubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-link-btn"
-                  title={`Buka repositori ${project.name} di GitHub`}
+                  title={`Buka repositori ${repo.name} di GitHub`}
                 >
-                  View Repository ↗
+                  View on GitHub ↗
                 </a>
               </div>
             </article>
           ))}
         </div>
+
+        {isReposLoading && (
+          <p className="repos-loading-indicator">Memperbarui data repositori dari GitHub...</p>
+        )}
       </section>
 
-      {/* Tech Stack Section (Skillicons Banner + Categorized Grid) */}
+      {/* 6. TECH STACK SECTION (Skillicons Banner + Categorized Grid) */}
       <section className="section stack-section" id="stack">
         <div className="section-heading">
           <div>
@@ -843,16 +914,32 @@ function App() {
         </div>
       </section>
 
-      {/* Engineering Focus Section */}
+      {/* 7. ENGINEERING FOCUS SECTION (DILENGKAPI GAMBAR MESIN KUNING SCHEMATIC SESUAI README) */}
       <section className="section focus-section" id="focus">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">CORE CAPABILITIES</p>
+            <p className="eyebrow">CORE CAPABILITIES & ARCHITECTURE</p>
             <h2>
               📈 Engineering <span className="gradient-text">Focus.</span>
             </h2>
           </div>
-          <p className="section-note">Key technical disciplines and development goals.</p>
+          <p className="section-note">Key technical disciplines, system architecture, and development goals.</p>
+        </div>
+
+        {/* Box Gambar Mesin/Circuit Kuning Animated SVG dari README */}
+        <div className="engineering-schematic-banner">
+          <div className="schematic-img-frame">
+            <img
+              src={`${import.meta.env.BASE_URL}assets/javascript.svg`}
+              alt="Engineering Machine Architecture Schematic"
+              className="engineering-machine-svg"
+              loading="lazy"
+            />
+          </div>
+          <div className="schematic-caption">
+            <span className="caption-badge">FIG. ARCHITECTURE</span>
+            <p>Sistem arsitektur interaktif &amp; rekayasa perangkat lunak modern.</p>
+          </div>
         </div>
 
         <div className="focus-grid">
@@ -871,7 +958,7 @@ function App() {
         </div>
       </section>
 
-      {/* Favorites & Gear Section */}
+      {/* 8. FAVORITES & GEAR SECTION */}
       <section className="section favorites-section">
         <div className="section-heading">
           <div>
@@ -929,7 +1016,7 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section with Cloudflare Turnstile Protected Form */}
+      {/* 9. CONTACT SECTION WITH CLOUDFLARE TURNSTILE & UNIFIED BUTTONS */}
       <section className="section contact-section" id="contact">
         <div className="contact-box">
           <p className="eyebrow">GET IN TOUCH</p>
@@ -1039,7 +1126,6 @@ function App() {
               </div>
               <TurnstileWidget
                 siteKey={turnstileSiteKey}
-                theme={theme}
                 onVerify={handleTurnstileVerify}
                 onExpire={handleTurnstileExpire}
                 onError={handleTurnstileError}
@@ -1058,7 +1144,7 @@ function App() {
                       )}&body=${encodeURIComponent(
                         `Nama: ${contactForm.name}\nEmail: ${contactForm.email}\n\nPesan:\n${contactForm.message}`
                       )}`}
-                      className="button button-primary fallback-btn"
+                      className="button button-contact-pill fallback-btn"
                     >
                       ✉ Lanjutkan Kirim via Gmail Client ↗
                     </a>
@@ -1070,7 +1156,7 @@ function App() {
             <div className="form-actions-row">
               <button
                 type="submit"
-                className="button button-primary submit-btn"
+                className="button button-submit-pill"
                 disabled={formStatus === 'submitting' || !turnstileToken}
               >
                 {formStatus === 'submitting' ? 'Mengirim...' : 'Kirim Pesan Sekarang ↗'}
@@ -1078,10 +1164,10 @@ function App() {
             </div>
           </form>
 
-          {/* Quick Direct Links */}
+          {/* Quick Direct Links (SEMUA DENGAN GAYA TOMBOL SERAGAM & RAPI) */}
           <div className="contact-action-buttons">
             <a
-              className="button button-secondary"
+              className="button button-contact-pill"
               href={`mailto:${emailAddress}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -1089,19 +1175,18 @@ function App() {
               ✉ Direct Gmail ↗
             </a>
             <a
-              className="button button-secondary"
-              href="https://github.com/imanuelayubflabianos"
+              className="button button-contact-pill"
+              href={gitHubUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Connect on GitHub ↗
             </a>
             <a
-              className="button button-outline"
-              href="https://www.linkedin.com/"
+              className="button button-contact-pill"
+              href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              title="Profil LinkedIn Imanuel Ayub Flabianos (Placeholder)"
             >
               LinkedIn Profile ↗
             </a>
@@ -1109,12 +1194,12 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* 10. FOOTER */}
       <footer className="footer">
         <a className="brand" href="#home">
           <span className="brand-mark">IA</span>
           <span>
-            imanuel<span className="accent">.dev</span>
+            Ayub<span className="accent">.dev</span>
           </span>
         </a>
 
@@ -1134,6 +1219,30 @@ function App() {
           BACK TO TOP ↑
         </a>
       </footer>
+
+      {/* 11. MOBILE BOTTOM NAVIGATION BAR (KHUSUS TAMPIL DI HP) */}
+      <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
+        <a href="#home" className="mobile-nav-item">
+          <span className="mobile-nav-icon">🏠</span>
+          <span className="mobile-nav-label">Home</span>
+        </a>
+        <a href="#about" className="mobile-nav-item">
+          <span className="mobile-nav-icon">🧑‍💻</span>
+          <span className="mobile-nav-label">About</span>
+        </a>
+        <a href="#projects" className="mobile-nav-item">
+          <span className="mobile-nav-icon">🚀</span>
+          <span className="mobile-nav-label">Repos</span>
+        </a>
+        <a href="#stack" className="mobile-nav-item">
+          <span className="mobile-nav-icon">🛠️</span>
+          <span className="mobile-nav-label">Stack</span>
+        </a>
+        <a href="#contact" className="mobile-nav-item">
+          <span className="mobile-nav-icon">✉️</span>
+          <span className="mobile-nav-label">Contact</span>
+        </a>
+      </nav>
     </main>
   )
 }
