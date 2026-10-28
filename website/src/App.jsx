@@ -275,15 +275,15 @@ function App() {
   const [githubRepos, setGithubRepos] = useState(FALLBACK_PROJECTS)
   const [isReposLoading, setIsReposLoading] = useState(true)
 
-  // Form State & Anti-Spam Cooldown (3 Menit Jeda Antar Pengiriman)
-  const COOLDOWN_SECONDS = 180
+  // Form State & Anti-Spam Cooldown (1 Menit Jeda Antar Pengiriman)
+  const COOLDOWN_SECONDS = 60
   const [cooldownRemaining, setCooldownRemaining] = useState(() => {
     try {
       const lastSent = typeof window !== 'undefined' ? localStorage.getItem('portfolio_contact_last_sent') : null
       if (lastSent) {
         const elapsed = Math.floor((Date.now() - Number(lastSent)) / 1000)
-        if (elapsed < 180) {
-          return 180 - elapsed
+        if (elapsed < COOLDOWN_SECONDS) {
+          return COOLDOWN_SECONDS - elapsed
         }
       }
     } catch {

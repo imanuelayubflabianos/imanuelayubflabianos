@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <b>BUILDERMAN · FULLSTACK DEVELOPER · WNI (INDONESIA)</b>
+  Builderman
 </p>
 
 <div align="center">
@@ -23,7 +23,7 @@
 
 ---
 
-## 📊 GitHub Activity &amp; Statistik
+## 📊 GitHub Activity Statistik
 
 <div align="center">
 
@@ -47,120 +47,51 @@
 <img 
   width="224" height="112"
   src="./assets/Cross.gif"
-  alt="Rotating Cross Animation"
+  alt="Cross Animation"
   align="right"
 />
 
 ### 🔗 Portofolio
-> *Let me introduce myself.*
+> Let me introduce myself. 
 
 <p>
-  <img src="https://img.shields.io/badge/GitHub-@imanuelayubflabianos-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
   <img src="https://img.shields.io/badge/Status-Learning_%26_Building-00f0ff?style=for-the-badge" alt="Status"/>
-  <img src="https://img.shields.io/badge/Location-WNI%20(Indonesia)-ff3366?style=for-the-badge" alt="Location"/>
+  <img src="https://img.shields.io/badge/Location-WNI-ff3366?style=for-the-badge" alt="Location"/>
 </p>
 
 </div>
 
 ---
 
-<!-- BILINGUAL PROFILE CONTENT: SWITCH BETWEEN INDONESIA AND ENGLISH -->
+## 🧑‍💻 About Me
 
-<details open>
-<summary><h3>🇮🇩 Bahasa Indonesia (Klik untuk tampilan Bahasa Indonesia)</h3></summary>
-<br />
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### 🧑‍💻 Tentang Saya
+### 🇮 Bahasa Indonesia
 
 Halo! Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** dari Indonesia. Saya saat ini menempuh pendidikan di bidang **Pengembangan Perangkat Lunak dan Gim (PPLG/RPL)**.
 
-Saya berfokus dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik. Fokus utama saya meliputi pengembangan **Web & System (Fullstack)**, **IoT**, **UI/UX Design**, serta **Database Architecture**.
+Saya passionate dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik. Fokus utama saya meliputi pengembangan **Web & System (Fullstack)**, **IoT**, **UI/UX Design**, serta **Database Architecture**.
 
-Saat ini saya terus **belajar dan membangun** proyek-proyek baru untuk mengasah kemampuan dan menambah pengalaman di industri teknologi perangkat lunak modern.
+Saat ini saya terus **belajar dan membangun** proyek-proyek baru untuk mengasah kemampuan dan menambah pengalaman.
 
----
+</td>
+<td width="50%" valign="top">
 
-### 📈 Fokus Rekayasa
-
-<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
-
-<p align="center">
-[Game Development] ──► Membuat dan mengembangkan gim lebih banyak.<br>
-[Web Applications] ──► Membangun backend terukur dengan Laravel &amp; PHP.<br>
-[Database Systems] ──► Merancang skema &amp; kueri MySQL yang efisien.<br>
-[User Interface]   ──► Membuat tata letak bersih via Figma &amp; Bootstrap.<br>
-[IoT &amp; Systems]    ──► Mengeksplorasi integrasi perangkat ke cloud.<br>
-</p>
-
----
-
-### ⭐ Favorit Utama Saya
-
-- 💻 &nbsp; Suka menjelajahi teknologi baru, membuat hal-hal keren, dan bermain Musik.
-- 📰 &nbsp; Membaca &amp; menulis blog teknologi kapan pun ada kesempatan.
-- 🍕 &nbsp; Mengikuti acara &amp; pertemuan komunitas teknologi.
-
-<details>
-  <br />
-  <summary><b>⚙️ Peralatan yang saya gunakan sehari-hari</b></summary>
-  <ul>
-    <li><b>OS:</b> Windows, Linux</li>
-    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
-    <li><b>Editor Kode:</b> VS Code - Editor terbaik saat ini.</li>
-    <li><b>Tetap Terkini:</b> LinkedIn, GitHub, dan lainnya.</li>
-  </ul>
-</details>
-
-<br />
-</details>
-
-<details>
-<summary><h3>🇬🇧 English (Click to view English version)</h3></summary>
-<br />
-
-### 🧑‍💻 About Me
+### 🇧 English
 
 Hello! I'm **Imanuel Ayub Flabianos**, a **Fullstack Developer** from Indonesia. I'm currently studying **Software & Game Development (PPLG/RPL)**.
 
 I'm passionate about building functional, efficient, and visually appealing web applications and systems. My main focus areas include **Web & System Development (Fullstack)**, **IoT**, **UI/UX Design**, and **Database Architecture**.
 
-I'm constantly **learning and building** new projects to sharpen my skills and gain valuable practical software engineering experience.
+I'm constantly **learning and building** new projects to sharpen my skills and gain experience.
 
----
-
-### 📈 Engineering Focus
-
-<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
-
-<p align="center">
-[Game Development] ──► Make and develop more games.<br>
-[Web Applications] ──► Building scalable backends with Laravel &amp; PHP.<br>
-[Database Systems] ──► Designing efficient MySQL schema &amp; queries.<br>
-[User Interface]   ──► Creating clean layouts via Figma &amp; Bootstrap.<br>
-[IoT &amp; Systems]    ──► Exploring device-to-cloud integration.<br>
-</p>
-
----
-
-### ⭐ My Absolute Favorites
-
-- 💻 &nbsp; I love exploring new tech stacks and building cool stuffs, and playing Music.
-- 📰 &nbsp; Reading &amp; writing tech blogs whenever possible.
-- 🍕 &nbsp; Meetups &amp; tech community events.
-
-<details>
-  <br />
-  <summary><b>⚙️ Things I use to get stuff done</b></summary>
-  <ul>
-    <li><b>OS:</b> Windows, Linux</li>
-    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
-    <li><b>Code Editor:</b> VS Code - The best editor out there.</li>
-    <li><b>Stay Updated:</b> LinkedIn, GitHub, and more.</li>
-  </ul>
-</details>
-
-<br />
-</details>
+</td>
+</tr>
+</table>
 
 ---
 
@@ -183,6 +114,38 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 | **Databases & DevOps** | `MySQL` · `PostgreSQL` · `MongoDB` · `Docker` · `AWS` · `Cloudflare` · `Linux` · `Windows` |
 | **Tools & Creative** | `Minecraft` · `Command Block` · `Roblox` · `Roblox Studio` · `VS Code` · `Android Studio` · `Git` · `GitHub` · `GitLab` · `Postman` · `Figma` · `Photoshop` · `Illustrator` · `Premiere` · `After Effects` · `Unity` · `Blender` · `Discord` |
 
+</details>
+
+---
+
+## 📈 Engineering Focus
+<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
+
+<p align="center">
+[Game Development] ──► Make and Develop more Games. <br>
+[Web Applications] ──► Building scalable backends with Laravel &amp; PHP. <br>
+[Database Systems] ──► Designing efficient MySQL schema &amp; queries. <br>
+[User Interface]   ──► Creating clean layouts via Figma &amp; Bootstrap. <br>
+[IoT &amp; Systems]    ──► Exploring device-to-cloud integration. <br>
+</p>
+	
+---
+
+### My Absolute Favorites:
+
+- 💻 &nbsp; I love exploring new tech stack and building cool stuffs, and playing Music
+- 📰 &nbsp; Reading &amp; writing tech blogs whenever possible.
+- 🍕 &nbsp; Meetups &amp; Tech events.
+
+<details>	
+  <br />
+  <summary><b>⚙️ Things I use to get stuff done</b></summary>
+  <ul>
+    <li><b>OS:</b> Windows, Linux </li>
+    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
+    <li><b>Code Editor:</b> VS Code - The best editor out there.</li>
+    <li><b>Stay Updated:</b> LinkedIn, GitHub, and more.</li>
+  </ul>	
 </details>
 
 ---
