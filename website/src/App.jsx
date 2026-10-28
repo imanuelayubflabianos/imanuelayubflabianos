@@ -64,19 +64,34 @@ const FALLBACK_PROJECTS = [
 const TECH_CATEGORIES = [
   {
     category: 'Languages',
-    skills: ['C++', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Java', 'C#', 'Dart', 'HTML5', 'CSS3'],
+    skills: ['C++', 'C#', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Java', 'Dart', 'HTML5', 'CSS3'],
   },
   {
     category: 'Frameworks & Libs',
-    skills: ['Laravel', 'React', 'Node.js', 'Bootstrap', 'Flutter', 'Vite', '.NET'],
+    skills: ['Laravel', 'React', 'Node.js', 'Vite', 'Flutter', 'Bootstrap', '.NET', 'WordPress'],
   },
   {
     category: 'Databases & DevOps',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Cloudflare', 'Linux'],
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Cloudflare', 'Linux', 'Windows'],
   },
   {
     category: 'Tools & Creative',
-    skills: ['Git', 'GitHub', 'VS Code', 'Figma', 'Photoshop', 'Premiere', 'Unity', 'Blender', 'Postman'],
+    skills: [
+      'VS Code',
+      'Android Studio',
+      'Git',
+      'GitHub',
+      'GitLab',
+      'Figma',
+      'Photoshop',
+      'Illustrator',
+      'Premiere',
+      'After Effects',
+      'Unity',
+      'Blender',
+      'Postman',
+      'Discord',
+    ],
   },
 ]
 
@@ -267,7 +282,23 @@ function App() {
   const [githubRepos, setGithubRepos] = useState(FALLBACK_PROJECTS)
   const [isReposLoading, setIsReposLoading] = useState(true)
 
-  // Form State
+  // Form State & Anti-Spam Cooldown (3 Menit Jeda Antar Pengiriman)
+  const COOLDOWN_SECONDS = 180
+  const [cooldownRemaining, setCooldownRemaining] = useState(() => {
+    try {
+      const lastSent = typeof window !== 'undefined' ? localStorage.getItem('portfolio_contact_last_sent') : null
+      if (lastSent) {
+        const elapsed = Math.floor((Date.now() - Number(lastSent)) / 1000)
+        if (elapsed < 180) {
+          return 180 - elapsed
+        }
+      }
+    } catch {
+      // safe fallback
+    }
+    return 0
+  })
+
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -277,6 +308,29 @@ function App() {
   const [turnstileToken, setTurnstileToken] = useState('')
   const [formStatus, setFormStatus] = useState('idle') // 'idle' | 'submitting' | 'success' | 'error' | 'no-endpoint'
   const [formFeedback, setFormFeedback] = useState('')
+
+  // Live Timer Countdown untuk Anti-Spam Cooldown
+  useEffect(() => {
+    if (cooldownRemaining <= 0) return
+
+    const intervalId = setInterval(() => {
+      setCooldownRemaining((prev) => {
+        if (prev <= 1) {
+          clearInterval(intervalId)
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(intervalId)
+  }, [cooldownRemaining])
+
+  const formatCooldown = (seconds) => {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`
+  }
 
   const emailAddress = 'imanuelayub0309@gmail.com'
   const linkedInUrl = 'https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/'
@@ -384,6 +438,16 @@ function App() {
     e.preventDefault()
     setFormFeedback('')
 
+    if (cooldownRemaining > 0) {
+      setFormStatus('error')
+      setFormFeedback(
+        `Fitur perlindungan anti-spam aktif: Mohon tunggu ${formatCooldown(
+          cooldownRemaining
+        )} sebelum dapat mengirim pesan berikutnya.`
+      )
+      return
+    }
+
     if (
       !contactForm.name.trim() ||
       !contactForm.email.trim() ||
@@ -447,9 +511,20 @@ function App() {
 
       if (response.ok && result.success) {
         setFormStatus('success')
-        setFormFeedback(result.message || 'Pesan Anda berhasil dikirim langsung ke Gmail Imanuel Ayub!')
+        setFormFeedback(
+          result.message ||
+            'Pesan Anda berhasil dikirim langsung ke Gmail Imanuel Ayub! Silakan tunggu sejenak jika ingin mengirim pesan lagi.'
+        )
         setContactForm({ name: '', email: '', subject: '', message: '' })
         setTurnstileToken('')
+
+        // Aktifkan cooldown anti-spam (3 menit)
+        try {
+          localStorage.setItem('portfolio_contact_last_sent', Date.now().toString())
+        } catch {
+          // safe fallback
+        }
+        setCooldownRemaining(COOLDOWN_SECONDS)
       } else {
         setFormStatus('error')
         setFormFeedback(
@@ -1185,13 +1260,18 @@ function App() {
                 className="button button-submit-pill"
                 disabled={
                   formStatus === 'submitting' ||
+                  cooldownRemaining > 0 ||
                   (!turnstileToken &&
                     typeof window !== 'undefined' &&
                     window.location.hostname !== 'localhost' &&
                     window.location.hostname !== '127.0.0.1')
                 }
               >
-                {formStatus === 'submitting' ? 'Mengirim...' : 'Kirim Pesan Sekarang ↗'}
+                {formStatus === 'submitting'
+                  ? 'Mengirim...'
+                  : cooldownRemaining > 0
+                  ? `⏳ Tunggu (${formatCooldown(cooldownRemaining)})`
+                  : 'Kirim Pesan Sekarang ↗'}
               </button>
             </div>
           </form>
