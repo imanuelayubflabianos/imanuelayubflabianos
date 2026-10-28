@@ -271,6 +271,53 @@ function App() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
   const [imgErrors, setImgErrors] = useState({})
 
+  // Active Section & Garis Bawah Meluncur Mulus (Smooth Sliding Indicator)
+  const [activeSection, setActiveSection] = useState('home')
+  const navCenterRef = useRef(null)
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 })
+
+  const updateIndicator = useCallback(() => {
+    if (!navCenterRef.current) return
+    const activeEl = navCenterRef.current.querySelector(`.nav-link[data-section="${activeSection}"]`)
+    if (activeEl) {
+      setIndicatorStyle({
+        left: activeEl.offsetLeft,
+        width: activeEl.offsetWidth,
+        opacity: 1,
+      })
+    } else {
+      setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }))
+    }
+  }, [activeSection])
+
+  useEffect(() => {
+    updateIndicator()
+    window.addEventListener('resize', updateIndicator)
+    return () => window.removeEventListener('resize', updateIndicator)
+  }, [updateIndicator, activeLang])
+
+  // Deteksi posisi scroll agar garis bawah otomatis berpindah saat di-scroll
+  useEffect(() => {
+    const sectionIds = ['home', 'about', 'activity', 'projects', 'contact']
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i])
+        if (el) {
+          const top = el.offsetTop - 150
+          if (scrollY >= top) {
+            setActiveSection(sectionIds[i])
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   // Dynamic GitHub Repositories State
   const [githubRepos, setGithubRepos] = useState(FALLBACK_PROJECTS)
   const [isReposLoading, setIsReposLoading] = useState(true)
@@ -580,14 +627,59 @@ function App() {
             </span>
           </a>
 
-          {/* Desktop Center Links */}
-          <div className="nav-center-links">
-            <a href="#about">{t.nav.about}</a>
-            <a href="#activity">{t.nav.activity}</a>
-            <a href="#projects">{t.nav.projects}</a>
-            <a href="#stack">{t.nav.stack}</a>
-            <a href="#focus">{t.nav.focus}</a>
-            <a href="#contact">{t.nav.contact}</a>
+          {/* Desktop Center Links dengan Garis Bawah Meluncur Mulus */}
+          <div className="nav-center-links" ref={navCenterRef}>
+            <a
+              href="#home"
+              data-section="home"
+              className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
+              onClick={() => setActiveSection('home')}
+            >
+              {t.nav.home}
+            </a>
+            <a
+              href="#about"
+              data-section="about"
+              className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+              onClick={() => setActiveSection('about')}
+            >
+              {t.nav.about}
+            </a>
+            <a
+              href="#activity"
+              data-section="activity"
+              className={`nav-link ${activeSection === 'activity' ? 'active' : ''}`}
+              onClick={() => setActiveSection('activity')}
+            >
+              {t.nav.activity}
+            </a>
+            <a
+              href="#projects"
+              data-section="projects"
+              className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
+              onClick={() => setActiveSection('projects')}
+            >
+              {t.nav.projects}
+            </a>
+            <a
+              href="#contact"
+              data-section="contact"
+              className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
+              onClick={() => setActiveSection('contact')}
+            >
+              {t.nav.contact}
+            </a>
+
+            {/* Garis Bawah Animasi Geser Mulus */}
+            <span
+              className="nav-sliding-indicator"
+              style={{
+                left: `${indicatorStyle.left}px`,
+                width: `${indicatorStyle.width}px`,
+                opacity: indicatorStyle.opacity,
+              }}
+              aria-hidden="true"
+            />
           </div>
 
           <div className="nav-actions">
@@ -1369,23 +1461,35 @@ function App() {
 
       {/* 11. MOBILE BOTTOM NAVIGATION BAR */}
       <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
-        <a href="#home" className="mobile-nav-item">
+        <a
+          href="#home"
+          className={`mobile-nav-item ${activeSection === 'home' ? 'active' : ''}`}
+          onClick={() => setActiveSection('home')}
+        >
           <span className="mobile-nav-icon">🏠</span>
           <span className="mobile-nav-label">{t.mobileNav.home}</span>
         </a>
-        <a href="#about" className="mobile-nav-item">
+        <a
+          href="#about"
+          className={`mobile-nav-item ${activeSection === 'about' ? 'active' : ''}`}
+          onClick={() => setActiveSection('about')}
+        >
           <span className="mobile-nav-icon">🧑‍💻</span>
           <span className="mobile-nav-label">{t.mobileNav.about}</span>
         </a>
-        <a href="#projects" className="mobile-nav-item">
+        <a
+          href="#projects"
+          className={`mobile-nav-item ${activeSection === 'projects' ? 'active' : ''}`}
+          onClick={() => setActiveSection('projects')}
+        >
           <span className="mobile-nav-icon">🚀</span>
           <span className="mobile-nav-label">{t.mobileNav.repos}</span>
         </a>
-        <a href="#stack" className="mobile-nav-item">
-          <span className="mobile-nav-icon">🛠️</span>
-          <span className="mobile-nav-label">{t.mobileNav.stack}</span>
-        </a>
-        <a href="#contact" className="mobile-nav-item">
+        <a
+          href="#contact"
+          className={`mobile-nav-item ${activeSection === 'contact' ? 'active' : ''}`}
+          onClick={() => setActiveSection('contact')}
+        >
           <span className="mobile-nav-icon">✉️</span>
           <span className="mobile-nav-label">{t.mobileNav.contact}</span>
         </a>

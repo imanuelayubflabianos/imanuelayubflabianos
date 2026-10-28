@@ -171,6 +171,7 @@ code {
 }
 
 .nav-center-links {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 26px;
@@ -179,12 +180,31 @@ code {
 }
 
 .nav-center-links a {
-  transition: color 0.2s ease;
+  position: relative;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: color 0.25s ease;
   font-weight: 500;
 }
 
-.nav-center-links a:hover {
+.nav-center-links a:hover,
+.nav-center-links a.active {
   color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+/* Garis bawah animasi geser mulus & ringan (Smooth Sliding Underline) */
+.nav-sliding-indicator {
+  position: absolute;
+  bottom: -6px;
+  height: 3px;
+  background: var(--accent-cyan);
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--accent-cyan-glow), 0 0 4px var(--accent-cyan);
+  pointer-events: none;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease;
 }
 
 .nav-actions {
@@ -1739,7 +1759,8 @@ code {
   }
 
   .mobile-nav-item:active,
-  .mobile-nav-item:hover {
+  .mobile-nav-item:hover,
+  .mobile-nav-item.active {
     color: var(--accent-cyan);
     background: var(--tag-bg);
   }

@@ -6,11 +6,10 @@
 export const TRANSLATIONS = {
   id: {
     nav: {
+      home: 'Beranda',
       about: 'Tentang',
       activity: 'Aktivitas',
       projects: 'Proyek',
-      stack: 'Stack',
-      focus: 'Fokus',
       contact: 'Kontak',
       connect: 'Hubungi ↗',
     },
@@ -190,11 +189,10 @@ export const TRANSLATIONS = {
 
   en: {
     nav: {
+      home: 'Home',
       about: 'About',
       activity: 'Activity',
       projects: 'Projects',
-      stack: 'Stack',
-      focus: 'Focus',
       contact: 'Contact',
       connect: 'Connect ↗',
     },

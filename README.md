@@ -17,7 +17,13 @@
 
 <div align="center">
 	
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=006400&center=true&vCenter=true&width=650&lines=Hello%2C+World!+I'm+Ayub!;Full+Stack+Developer;Web3+%26+Blockchain+Engineer;ML+%26+AI+Enthusiast;Cybersecurity+Expert;Moto+Unstoppable+Learner)](https://git.io/typing-svg)
+<a href="https://git.io/typing-svg">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=00f0ff&center=true&vCenter=true&width=650&lines=Hello%2C+World!+I'm+Ayub!;Full+Stack+Developer;Web3+%26+Blockchain+Engineer;ML+%26+AI+Enthusiast;Cybersecurity+Expert;Moto+Unstoppable+Learner">
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=006400&center=true&vCenter=true&width=650&lines=Hello%2C+World!+I'm+Ayub!;Full+Stack+Developer;Web3+%26+Blockchain+Engineer;ML+%26+AI+Enthusiast;Cybersecurity+Expert;Moto+Unstoppable+Learner">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=006400&center=true&vCenter=true&width=650&lines=Hello%2C+World!+I'm+Ayub!;Full+Stack+Developer;Web3+%26+Blockchain+Engineer;ML+%26+AI+Enthusiast;Cybersecurity+Expert;Moto+Unstoppable+Learner" alt="Typing SVG">
+  </picture>
+</a>
 
 </div>
 
@@ -27,16 +33,48 @@
 
 <div align="center">
 
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=github-light&hide_border=true&background=ffffff">
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
+  </picture>
 
-[![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+  <br />
 
-[![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
-[![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
+  <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=tokyonight">
+      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=default">
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=tokyonight" alt="Profile Details" />
+    </picture>
+  </a>
 
-<a href="https://github.com/imanuelayubflabianos">
-  <img height="150" src="https://github-readme-stats-eight-theta.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=github_dark&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&border_color=21262d&hide_border=false&count_private=true" alt="GitHub Stats" />
-</a>
+  <br />
+
+  <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=imanuelayubflabianos&theme=tokyonight">
+      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=imanuelayubflabianos&theme=default">
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=imanuelayubflabianos&theme=tokyonight" alt="Repos Per Language" />
+    </picture>
+  </a>
+  <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=imanuelayubflabianos&theme=tokyonight">
+      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=imanuelayubflabianos&theme=default">
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=imanuelayubflabianos&theme=tokyonight" alt="Most Commit Language" />
+    </picture>
+  </a>
+
+  <br />
+
+  <a href="https://github.com/imanuelayubflabianos">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=github_dark&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&border_color=21262d&hide_border=false&count_private=true">
+      <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=default&bg_color=ffffff&title_color=0969da&icon_color=0969da&text_color=24292f&border_color=e4e2e2&hide_border=false&count_private=true">
+      <img height="150" src="https://github-readme-stats-eight-theta.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=github_dark&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&border_color=21262d&hide_border=false&count_private=true" alt="GitHub Stats" />
+    </picture>
+  </a>
 
 </div>
 
