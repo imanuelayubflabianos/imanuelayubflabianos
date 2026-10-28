@@ -21,12 +21,6 @@
 
 </div>
 
-<p align="center">
-  <a href="https://github.com/imanuelayubflabianos"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-imanuelayubflabianos-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
-  <a href="https://imanuelayubflabianos.github.io/imanuelayubflabianos/"><img alt="Live Portfolio Website" src="https://img.shields.io/badge/Live%20Portfolio-Ayub.dev-0891B2?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
-  <a href="https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-</p>
-
 ---
 
 ## 📊 GitHub Activity &amp; Statistik
@@ -58,7 +52,7 @@
 />
 
 ### 🔗 Portofolio
-> *Let me introduce myself.* &mdash; Izinkan saya memperkenalkan diri.
+> *Let me introduce myself.*
 
 <p>
   <img src="https://img.shields.io/badge/GitHub-@imanuelayubflabianos-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
@@ -70,24 +64,61 @@
 
 ---
 
-## 🧑‍💻 About Me
+<!-- BILINGUAL PROFILE CONTENT: SWITCH BETWEEN INDONESIA AND ENGLISH -->
 
-<table>
-<tr>
-<td width="50%" valign="top">
+<details open>
+<summary><h3>🇮🇩 Bahasa Indonesia (Klik untuk tampilan Bahasa Indonesia)</h3></summary>
+<br />
 
-### 🇮 Bahasa Indonesia
+### 🧑‍💻 Tentang Saya
 
 Halo! Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** dari Indonesia. Saya saat ini menempuh pendidikan di bidang **Pengembangan Perangkat Lunak dan Gim (PPLG/RPL)**.
 
-Saya passionate dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik. Fokus utama saya meliputi pengembangan **Web & System (Fullstack)**, **IoT**, **UI/UX Design**, serta **Database Architecture**.
+Saya berfokus dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik. Fokus utama saya meliputi pengembangan **Web & System (Fullstack)**, **IoT**, **UI/UX Design**, serta **Database Architecture**.
 
 Saat ini saya terus **belajar dan membangun** proyek-proyek baru untuk mengasah kemampuan dan menambah pengalaman di industri teknologi perangkat lunak modern.
 
-</td>
-<td width="50%" valign="top">
+---
 
-### 🇬🇧 English
+### 📈 Fokus Rekayasa
+
+<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
+
+<p align="center">
+[Game Development] ──► Membuat dan mengembangkan gim lebih banyak.<br>
+[Web Applications] ──► Membangun backend terukur dengan Laravel &amp; PHP.<br>
+[Database Systems] ──► Merancang skema &amp; kueri MySQL yang efisien.<br>
+[User Interface]   ──► Membuat tata letak bersih via Figma &amp; Bootstrap.<br>
+[IoT &amp; Systems]    ──► Mengeksplorasi integrasi perangkat ke cloud.<br>
+</p>
+
+---
+
+### ⭐ Favorit Utama Saya
+
+- 💻 &nbsp; Suka menjelajahi teknologi baru, membuat hal-hal keren, dan bermain Musik.
+- 📰 &nbsp; Membaca &amp; menulis blog teknologi kapan pun ada kesempatan.
+- 🍕 &nbsp; Mengikuti acara &amp; pertemuan komunitas teknologi.
+
+<details>
+  <br />
+  <summary><b>⚙️ Peralatan yang saya gunakan sehari-hari</b></summary>
+  <ul>
+    <li><b>OS:</b> Windows, Linux</li>
+    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
+    <li><b>Editor Kode:</b> VS Code - Editor terbaik saat ini.</li>
+    <li><b>Tetap Terkini:</b> LinkedIn, GitHub, dan lainnya.</li>
+  </ul>
+</details>
+
+<br />
+</details>
+
+<details>
+<summary><h3>🇬🇧 English (Click to view English version)</h3></summary>
+<br />
+
+### 🧑‍💻 About Me
 
 Hello! I'm **Imanuel Ayub Flabianos**, a **Fullstack Developer** from Indonesia. I'm currently studying **Software & Game Development (PPLG/RPL)**.
 
@@ -95,68 +126,46 @@ I'm passionate about building functional, efficient, and visually appealing web 
 
 I'm constantly **learning and building** new projects to sharpen my skills and gain valuable practical software engineering experience.
 
-</td>
-</tr>
-</table>
+---
+
+### 📈 Engineering Focus
+
+<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
+
+<p align="center">
+[Game Development] ──► Make and develop more games.<br>
+[Web Applications] ──► Building scalable backends with Laravel &amp; PHP.<br>
+[Database Systems] ──► Designing efficient MySQL schema &amp; queries.<br>
+[User Interface]   ──► Creating clean layouts via Figma &amp; Bootstrap.<br>
+[IoT &amp; Systems]    ──► Exploring device-to-cloud integration.<br>
+</p>
 
 ---
 
-## 🚀 Proyek &amp; Repositori Unggulan / Featured Repositories
+### ⭐ My Absolute Favorites
 
-Berikut adalah 3 proyek utama open-source yang saya kembangkan:
+- 💻 &nbsp; I love exploring new tech stacks and building cool stuffs, and playing Music.
+- 📰 &nbsp; Reading &amp; writing tech blogs whenever possible.
+- 🍕 &nbsp; Meetups &amp; tech community events.
 
-<table>
-<tr>
-<td width="33%" valign="top">
+<details>
+  <br />
+  <summary><b>⚙️ Things I use to get stuff done</b></summary>
+  <ul>
+    <li><b>OS:</b> Windows, Linux</li>
+    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
+    <li><b>Code Editor:</b> VS Code - The best editor out there.</li>
+    <li><b>Stay Updated:</b> LinkedIn, GitHub, and more.</li>
+  </ul>
+</details>
 
-### 📁 [GuruKuu](https://github.com/imanuelayubflabianos/GuruKuu)
-`PHP` · `Blade` · ⭐ **2**
 <br />
-**🇮🇩** Wadah aspirasi dan evaluasi kinerja guru berbasis web untuk penilaian transparan dan kemajuan pembelajaran siswa SMK N 1 BANGSRI.
-<br /><br />
-**🇬🇧** Web-based teacher performance assessment and aspiration platform for transparent evaluation and student learning advancement.
-
-[**Lihat di GitHub ↗**](https://github.com/imanuelayubflabianos/GuruKuu)
-
-</td>
-<td width="33%" valign="top">
-
-### 📁 [Penjaga Pusaka](https://github.com/imanuelayubflabianos/Penjaga-Pusaka-Nusantara-Indonesia-minigame)
-`JavaScript` · `Game` · ⭐ **1**
-<br />
-**🇮🇩** Proyek minigame interaktif bertema pelestarian pusaka, kearifan lokal, dan budaya nusantara Indonesia.
-<br /><br />
-**🇬🇧** Interactive minigame project themed around preserving cultural heritage and Indonesian folklore.
-
-[**Lihat di GitHub ↗**](https://github.com/imanuelayubflabianos/Penjaga-Pusaka-Nusantara-Indonesia-minigame)
-
-</td>
-<td width="33%" valign="top">
-
-### 📁 [Timer Sederhana](https://github.com/imanuelayubflabianos/Timer-sederhana-Simple-timer-)
-`HTML` · `CSS` · `JavaScript` · ⭐ **1**
-<br />
-**🇮🇩** Aplikasi web timer dan stopwatch sederhana dengan antarmuka yang bersih, responsif, dan mudah digunakan.
-<br /><br />
-**🇬🇧** Clean and intuitive simple web timer and stopwatch application with a responsive user interface.
-
-[**Lihat di GitHub ↗**](https://github.com/imanuelayubflabianos/Timer-sederhana-Simple-timer-)
-
-</td>
-</tr>
-</table>
-
-<p align="right">
-  <a href="https://github.com/imanuelayubflabianos?tab=repositories">
-    <img src="https://img.shields.io/badge/Lihat%20Semua%20Repositori-View%20All%20Repositories%20%E2%86%97-00f0ff?style=for-the-badge&logo=github&logoColor=black" alt="View All Repositories on GitHub" />
-  </a>
-</p>
+</details>
 
 ---
 
 ## 🛠️ Tech Stack &amp; Tools
 
-* **Visual Tech Stack Banner (43 Teknologi Lengkap):**
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/tech-stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/tech-stack-light.svg">
@@ -164,10 +173,10 @@ Berikut adalah 3 proyek utama open-source yang saya kembangkan:
 </picture>
 
 <details open>
-<summary><b>🛠️ Rincian Kategori / Categorized Stack &amp; Tools</b></summary>
+<summary><b>🛠️ Categorized Stack &amp; Tools</b></summary>
 <br />
 
-| Kategori / Category | Teknologi &amp; Alat / Technologies &amp; Tools |
+| Category | Technologies &amp; Tools |
 | :--- | :--- |
 | **Languages** | `C++` · `C#` · `JavaScript` · `TypeScript` · `PHP` · `Python` · `Java` · `Dart` · `HTML5` · `CSS3` |
 | **Frameworks & Libs** | `Laravel` · `React` · `Node.js` · `Vite` · `Flutter` · `Bootstrap` · `.NET` · `WordPress` |
@@ -178,40 +187,7 @@ Berikut adalah 3 proyek utama open-source yang saya kembangkan:
 
 ---
 
-## 📈 Engineering Focus / Fokus Rekayasa
-
-<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
-
-<p align="center">
-[Game Development]	──► Membuat dan Mengembangkan Lebih Banyak Gim / Make and Develop more Games. <br>
-[Web Applications]	──► Membangun backend terukur dengan Laravel &amp; PHP / Building scalable backends with Laravel &amp; PHP. <br>
-[Database Systems]	──► Merancang skema &amp; kueri MySQL yang efisien / Designing efficient MySQL schema &amp; queries. <br>
-[User Interface]	──► Membuat tata letak bersih via Figma &amp; Bootstrap / Creating clean layouts via Figma &amp; Bootstrap. <br>
-[IoT &amp; Systems]		──► Mengeksplorasi integrasi perangkat ke cloud / Exploring device-to-cloud integration. <br>
-</p>
-	
----
-
-### ⭐ My Absolute Favorites / Favorit Utama
-
-- 💻 &nbsp; **🇮🇩** Suka mengeksplorasi teknologi baru, membuat proyek seru, dan bermain Musik.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**🇬🇧** *I love exploring new tech stacks and building cool stuffs, and playing Music.*
-- 📰 &nbsp; **🇮🇩** Membaca &amp; menulis blog teknologi kapan pun ada kesempatan.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**🇬🇧** *Reading &amp; writing tech blogs whenever possible.*
-- 🍕 &nbsp; **🇮🇩** Mengikuti pertemuan &amp; acara komunitas teknologi.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**🇬🇧** *Meetups &amp; Tech community events.*
-
-<details>	
-  <br />
-  <summary><b>⚙️ Peralatan yang Digunakan / Things I use to get stuff done</b></summary>
-  <ul>
-    <li><b>OS:</b> Windows, Linux </li>
-    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
-    <li><b>Code Editor:</b> VS Code - The best editor out there.</li>
-    <li><b>Stay Updated:</b> LinkedIn, GitHub, and more.</li>
-  </ul>	
-</details>
-
----
-
-### 📬 Connect &amp; Collaborate / Hubungi Saya
+### 📬 Connect &amp; Collaborate
 
 <p align="center">
   <a href="mailto:imanuelayub0309@gmail.com">
