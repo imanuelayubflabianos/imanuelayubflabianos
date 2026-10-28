@@ -459,6 +459,13 @@ function App() {
       return
     }
 
+    // Validasi: Pengunjung wajib memasukkan email mereka sendiri (bukan email pemilik web)
+    if (contactForm.email.trim().toLowerCase() === emailAddress.toLowerCase()) {
+      setFormStatus('error')
+      setFormFeedback('Mohon masukkan alamat email Anda sendiri (bukan email pemilik website).')
+      return
+    }
+
     const isLocalhost =
       typeof window !== 'undefined' &&
       (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
@@ -1177,7 +1184,7 @@ function App() {
                   name="email"
                   value={contactForm.email}
                   onChange={handleInputChange}
-                  placeholder="email@domain.com"
+                  placeholder="email-anda@gmail.com"
                   maxLength={100}
                   required
                   disabled={formStatus === 'submitting'}
