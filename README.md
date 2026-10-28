@@ -35,7 +35,7 @@
 
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=github-light&hide_border=true&background=ffffff">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=ffffff&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff">
     <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
   </picture>
 

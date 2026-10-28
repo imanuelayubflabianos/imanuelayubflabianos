@@ -836,7 +836,7 @@ function App() {
         </div>
 
         <div className="activity-cards-grid">
-          {/* GitHub Streak Stats Card */}
+          {/* 1. GitHub Streak Stats Card */}
           <div className="activity-card streak-card">
             <div className="card-top-header">
               <span>{t.activity.streakTitle}</span>
@@ -864,7 +864,35 @@ function App() {
             </div>
           </div>
 
-          {/* Repos Per Language */}
+          {/* 2. Profile Details & Contributions Wave Card */}
+          <div className="activity-card profile-details-card">
+            <div className="card-top-header">
+              <span>{t.activity.profileTitle}</span>
+              <span className="card-badge">{t.activity.profileBadge}</span>
+            </div>
+            <div className="activity-media-box">
+              {imgErrors['profileDetails'] ? (
+                <div className="activity-fallback-box">
+                  <p>{t.activity.profileFallback}</p>
+                  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
+                    {t.activity.openRepoBtn}
+                  </a>
+                </div>
+              ) : (
+                <img
+                  src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=${
+                    theme === 'dark' ? 'tokyonight' : 'default'
+                  }`}
+                  alt="GitHub Profile Details & Contributions"
+                  className="activity-img"
+                  loading="lazy"
+                  onError={() => handleImgError('profileDetails')}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* 3. Repos Per Language */}
           <div className="activity-card">
             <div className="card-top-header">
               <span>{t.activity.reposTitle}</span>
@@ -892,7 +920,7 @@ function App() {
             </div>
           </div>
 
-          {/* Most Commit Language */}
+          {/* 4. Most Commit Language */}
           <div className="activity-card">
             <div className="card-top-header">
               <span>{t.activity.commitsTitle}</span>
@@ -921,7 +949,7 @@ function App() {
           </div>
         </div>
 
-        {/* General GitHub Statistics */}
+        {/* 5. General GitHub Statistics */}
         <div className="activity-bottom-stats">
           <a
             href={gitHubUrl}
@@ -937,9 +965,15 @@ function App() {
               <img
                 src={`https://github-readme-stats-eight-theta.vercel.app/api?username=imanuelayubflabianos&show_icons=true&theme=${
                   theme === 'dark' ? 'github_dark' : 'default'
-                }&bg_color=${theme === 'dark' ? '0d1117' : 'ffffff'}&title_color=58a6ff&icon_color=58a6ff&text_color=${
+                }&bg_color=${theme === 'dark' ? '0d1117' : 'ffffff'}&title_color=${
+                  theme === 'dark' ? '58a6ff' : '0969da'
+                }&icon_color=${
+                  theme === 'dark' ? '58a6ff' : '0969da'
+                }&text_color=${
                   theme === 'dark' ? 'c9d1d9' : '24292f'
-                }&border_color=21262d&hide_border=false&count_private=true`}
+                }&border_color=${
+                  theme === 'dark' ? '21262d' : 'e4e2e2'
+                }&hide_border=false&count_private=true`}
                 alt="Imanuel Ayub Flabianos GitHub Stats"
                 className="activity-img"
                 loading="lazy"
