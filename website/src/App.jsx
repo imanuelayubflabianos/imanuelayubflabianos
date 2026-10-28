@@ -77,6 +77,10 @@ const TECH_CATEGORIES = [
   {
     category: 'Tools & Creative',
     skills: [
+      'Minecraft',
+      'Command Block',
+      'Roblox',
+      'Roblox Studio',
       'VS Code',
       'Android Studio',
       'Git',
@@ -434,9 +438,51 @@ function App() {
     setContactForm((prev) => ({ ...prev, [name]: value }))
   }
 
+  // Validasi Format Email, Typo Detection, & Disposable Mail Blocker
+  const getEmailValidationError = (email) => {
+    const trimmed = email.trim().toLowerCase()
+    if (!trimmed) return ''
+    if (trimmed === emailAddress.toLowerCase()) {
+      return 'Masukkan email Anda sendiri (bukan email pemilik web).'
+    }
+    const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (!EMAIL_REGEX.test(trimmed)) {
+      return 'Format email tidak valid (contoh: nama@gmail.com).'
+    }
+    const domain = trimmed.split('@')[1] || ''
+    const DISPOSABLE_DOMAINS = [
+      'tempmail.com',
+      'mailinator.com',
+      '10minutemail.com',
+      'guerrillamail.com',
+      'trashmail.com',
+      'yopmail.com',
+      'sharklasers.com',
+      'throwawaymail.com',
+      'dispostable.com',
+    ]
+    if (DISPOSABLE_DOMAINS.includes(domain)) {
+      return 'Email sementara (temp/disposable mail) tidak diizinkan.'
+    }
+    if (domain === 'gmai.com' || domain === 'gamil.com' || domain === 'gmial.com') {
+      return 'Sepertinya ada typo pada domain email (maksud Anda @gmail.com?).'
+    }
+    if (domain === 'yaho.com' || domain === 'yahooo.com') {
+      return 'Sepertinya ada typo pada domain email (maksud Anda @yahoo.com?).'
+    }
+    return ''
+  }
+
+  const emailValidationError = getEmailValidationError(contactForm.email)
+
   const handleFormSubmit = async (e) => {
     e.preventDefault()
     setFormFeedback('')
+
+    if (emailValidationError) {
+      setFormStatus('error')
+      return
+    }
 
     if (cooldownRemaining > 0) {
       setFormStatus('error')
@@ -456,13 +502,6 @@ function App() {
     ) {
       setFormStatus('error')
       setFormFeedback('Mohon lengkapi semua kolom formulir (Nama, Email, Subjek, dan Pesan).')
-      return
-    }
-
-    // Validasi: Pengunjung wajib memasukkan email mereka sendiri (bukan email pemilik web)
-    if (contactForm.email.trim().toLowerCase() === emailAddress.toLowerCase()) {
-      setFormStatus('error')
-      setFormFeedback('Mohon masukkan alamat email Anda sendiri (bukan email pemilik website).')
       return
     }
 
@@ -991,18 +1030,20 @@ function App() {
           <p className="section-note">Languages, frameworks, tools, and platforms I work with.</p>
         </div>
 
-        {/* Skillicons Dev Banner matching README */}
+        {/* Skillicons Dev Banner matching README (Includes Minecraft, Command Block, Roblox & Roblox Studio) */}
         <div className="skillicons-container">
-          <a href="https://skillicons.dev" target="_blank" rel="noopener noreferrer">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcSet={`${import.meta.env.BASE_URL}assets/tech-stack-${theme === 'light' ? 'light' : 'dark'}.svg`}
+            />
             <img
-              src={`https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,figma,gitlab,vscode,html,nodejs,js,vite,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,bootstrap,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,cloudflare,linux&theme=${
-                theme === 'dark' ? 'dark' : 'light'
-              }`}
-              alt="Imanuel Tech Stack Skillicons"
+              src={`${import.meta.env.BASE_URL}assets/tech-stack-${theme === 'light' ? 'light' : 'dark'}.svg`}
+              alt="Imanuel Tech Stack & Tools"
               className="skillicons-banner-img"
               loading="lazy"
             />
-          </a>
+          </picture>
         </div>
 
         {/* Categorized Stack Grid */}
@@ -1188,7 +1229,13 @@ function App() {
                   maxLength={100}
                   required
                   disabled={formStatus === 'submitting'}
+                  className={emailValidationError ? 'input-error-field' : ''}
                 />
+                {emailValidationError && (
+                  <span className="field-inline-error">
+                    ⚠️ {emailValidationError}
+                  </span>
+                )}
               </div>
             </div>
 

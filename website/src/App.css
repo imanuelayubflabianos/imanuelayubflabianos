@@ -1333,7 +1333,22 @@ code {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
   color: var(--text-muted);
-  align-self: flex-end;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.input-error-field {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25) !important;
+}
+
+.field-inline-error {
+  display: block;
+  color: #ef4444;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-top: 6px;
+  line-height: 1.4;
 }
 
 .turnstile-section {

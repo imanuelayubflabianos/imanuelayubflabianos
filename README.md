@@ -99,9 +99,11 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 Fullstack Developer
 
 * **Tech Stack:**
-<a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=cpp,windows,discord,ai,ps,pr,ae,figma,gitlab,vscode,html,nodejs,js,vite,py,css,git,github,dotnet,java,mysql,postgres,docker,php,laravel,bootstrap,react,wordpress,dart,flutter,androidstudio,unity,blender,cs,mongodb,postman,aws,cloudflare,linux&theme=dark" />
-</a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/tech-stack-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/tech-stack-light.svg">
+  <img src="./assets/tech-stack-dark.svg" alt="Tech Stack & Tools" width="100%">
+</picture>
 
 <details open>
 <summary><b>🛠️ Categorized Stack & Tools</b></summary>
@@ -112,7 +114,7 @@ Fullstack Developer
 | **Languages** | `C++` · `C#` · `JavaScript` · `TypeScript` · `PHP` · `Python` · `Java` · `Dart` · `HTML5` · `CSS3` |
 | **Frameworks & Libs** | `Laravel` · `React` · `Node.js` · `Vite` · `Flutter` · `Bootstrap` · `.NET` · `WordPress` |
 | **Databases & DevOps** | `MySQL` · `PostgreSQL` · `MongoDB` · `Docker` · `AWS` · `Cloudflare` · `Linux` · `Windows` |
-| **Tools & Creative** | `VS Code` · `Android Studio` · `Git` · `GitHub` · `GitLab` · `Postman` · `Figma` · `Photoshop` · `Illustrator` · `Premiere` · `After Effects` · `Unity` · `Blender` · `Discord` |
+| **Tools & Creative** | `Minecraft` · `Command Block` · `Roblox` · `Roblox Studio` · `VS Code` · `Android Studio` · `Git` · `GitHub` · `GitLab` · `Postman` · `Figma` · `Photoshop` · `Illustrator` · `Premiere` · `After Effects` · `Unity` · `Blender` · `Discord` |
 
 </details>
 
