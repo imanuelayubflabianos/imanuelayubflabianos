@@ -153,6 +153,9 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 ### 📬 Connect &amp; Collaborate
 
 <p align="center">
+	  <a href="https://imanuelayubflabianos.github.io/imanuelayubflabianos/">
+    <img src="https://img.shields.io/badge/Website-Ayub.dev-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Portfolio Website" />
+  </a>
   <a href="mailto:imanuelayub0309@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-Direct%20Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Direct Gmail" />
   </a>
@@ -165,9 +168,6 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
     <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile" />
   </a>
   &nbsp;
-  <a href="https://imanuelayubflabianos.github.io/imanuelayubflabianos/">
-    <img src="https://img.shields.io/badge/Website-Ayub.dev-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Portfolio Website" />
-  </a>
 </p>
 
 ---
