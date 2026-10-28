@@ -541,69 +541,16 @@ code {
 }
 
 /* ==========================================================================
-   CONSOLE / TERMINAL SVG DISPLAY
+   CONSOLE / TERMINAL SVG DISPLAY (SESUAI README ASLI TANPA DOBEL HEADER)
    ========================================================================== */
 
 .console-display-container {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow-card);
-}
-
-.terminal-header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 18px;
-  background: var(--bg-surface);
-  border-bottom: 1px solid var(--border-color);
-  font-family: 'DM Mono', monospace;
-  font-size: 0.8rem;
-}
-
-.terminal-dots {
-  display: flex;
-  gap: 8px;
-}
-
-.dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-}
-
-.dot-red { background-color: #ef4444; }
-.dot-yellow { background-color: #f59e0b; }
-.dot-green { background-color: #10b981; }
-
-.terminal-title {
-  color: var(--text-secondary);
-}
-
-.scanning-pulse {
-  color: #10b981;
-  font-weight: 700;
-  animation: blink 1.2s infinite;
-}
-
-.terminal-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.console-svg-frame {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-surface);
+  transition: border-color 0.25s ease;
 }
 
 .console-vector-img {
@@ -1558,58 +1505,6 @@ code {
   }
 }
 
-/* ==========================================================================
-   11. MOBILE BOTTOM NAVIGATION BAR (KHUSUS TAMPIL DI HP)
-   ========================================================================== */
 
-.mobile-bottom-nav {
-  display: none;
-}
 
-@media (max-width: 768px) {
-  .mobile-bottom-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: var(--nav-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid var(--border-color);
-    padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .mobile-nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    padding: 6px 10px;
-    border-radius: 8px;
-    color: var(--text-secondary);
-    font-size: 0.72rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .mobile-nav-item:active,
-  .mobile-nav-item:hover {
-    color: var(--accent-cyan);
-    background: var(--tag-bg);
-  }
-
-  .mobile-nav-icon {
-    font-size: 1.15rem;
-    line-height: 1;
-  }
-
-  .mobile-nav-label {
-    letter-spacing: -0.2px;
-  }
-}
 

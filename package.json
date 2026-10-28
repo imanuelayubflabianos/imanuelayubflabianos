@@ -8,6 +8,7 @@
     "node": ">=20"
   },
   "scripts": {
+    "dev": "npm --prefix website run dev",
     "setup": "node scripts/setup.mjs",
     "generate": "node scripts/generate.mjs",
     "generate:hero": "node scripts/generate-hero.mjs",

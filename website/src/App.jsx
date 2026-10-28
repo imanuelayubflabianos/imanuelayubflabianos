@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
+import { TURNSTILE_SITE_KEY, CONTACT_ENDPOINT } from './config.js'
 // Foto profil wajah: Simpan foto kamu di website/src/assets/profile.jpg
 import profilePhoto from './assets/profile.jpg'
 
@@ -146,7 +147,7 @@ function Typewriter({ words, speed = 80, delay = 1800 }) {
 
 /**
  * Komponen Cloudflare Turnstile CAPTCHA (Frontend Safe & Robust)
- * Menggunakan theme auto dan callback ref agar tidak merender ulang / crash saat ganti tema.
+ * Menggunakan theme auto dan polling siap pakai agar langsung tampil saat script dimuat.
  */
 function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
   const containerRef = useRef(null)
@@ -163,8 +164,8 @@ function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
 
   useEffect(() => {
     let isMounted = true
-    const SCRIPT_ID = 'cf-turnstile-script'
     const container = containerRef.current
+    if (!container) return
 
     const renderWidget = () => {
       if (!isMounted || !container || !window.turnstile) return
@@ -197,37 +198,36 @@ function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
         })
         widgetIdRef.current = id
       } catch (err) {
-        console.error('Turnstile render notice:', err)
+        console.warn('Turnstile render notice:', err)
       }
     }
 
-    let script = document.getElementById(SCRIPT_ID)
+    let pollInterval = null
 
-    if (!script) {
-      script = document.createElement('script')
-      script.id = SCRIPT_ID
-      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
-      script.async = true
-      script.defer = true
-      script.onload = () => {
-        if (window.turnstile) {
-          window.turnstile.ready(renderWidget)
-        }
+    if (window.turnstile && typeof window.turnstile.render === 'function') {
+      try {
+        renderWidget()
+      } catch (err) {
+        console.warn('Turnstile direct render notice:', err)
       }
-      document.head.appendChild(script)
-    } else if (window.turnstile) {
-      window.turnstile.ready(renderWidget)
     } else {
-      script.addEventListener('load', () => {
-        if (window.turnstile) {
-          window.turnstile.ready(renderWidget)
+      pollInterval = setInterval(() => {
+        if (window.turnstile && typeof window.turnstile.render === 'function') {
+          clearInterval(pollInterval)
+          pollInterval = null
+          try {
+            renderWidget()
+          } catch (err) {
+            console.warn('Turnstile delayed render notice:', err)
+          }
         }
-      })
+      }, 120)
     }
 
     return () => {
       isMounted = false
-      if (widgetIdRef.current !== null && window.turnstile?.remove) {
+      if (pollInterval) clearInterval(pollInterval)
+      if (widgetIdRef.current !== null && window.turnstile && typeof window.turnstile.remove === 'function') {
         try {
           window.turnstile.remove(widgetIdRef.current)
         } catch {
@@ -246,9 +246,16 @@ function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('portfolio-theme')
-    if (saved) return saved
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+    try {
+      const saved = typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('portfolio-theme') : null
+      if (saved === 'dark' || saved === 'light') return saved
+      if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light'
+      }
+    } catch {
+      // safe fallback
+    }
+    return 'dark'
   })
 
   const [activeLang, setActiveLang] = useState('id') // 'id' | 'en'
@@ -275,15 +282,21 @@ function App() {
   const linkedInUrl = 'https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/'
   const gitHubUrl = 'https://github.com/imanuelayubflabianos'
 
-  // Cloudflare Turnstile Configuration
-  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'
-  const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT || ''
+  // Cloudflare Turnstile & Backend Configuration (Bisa diatur di website/src/config.js atau .env)
+  const turnstileSiteKey = TURNSTILE_SITE_KEY
+  const contactEndpoint = CONTACT_ENDPOINT
 
   // Sinkronisasi Theme ke HTML dan Body
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    document.body.setAttribute('data-theme', theme)
-    localStorage.setItem('portfolio-theme', theme)
+    try {
+      document.documentElement.setAttribute('data-theme', theme)
+      if (document.body) {
+        document.body.setAttribute('data-theme', theme)
+      }
+      localStorage.setItem('portfolio-theme', theme)
+    } catch {
+      // safe fallback for restricted browser storage
+    }
   }, [theme])
 
   // Deteksi Otomatis Repositori Terbaru & Terpopuler dari Akun GitHub Pengguna
@@ -558,34 +571,21 @@ function App() {
           </div>
         </div>
 
-        {/* Console / Terminal Hero Display */}
+        {/* Console / Terminal Hero Display (Sesuai README GitHub Asli - Tanpa Dobel Header) */}
         <div className="console-display-container">
-          <div className="terminal-header-bar">
-            <div className="terminal-dots">
-              <span className="dot dot-red" />
-              <span className="dot dot-yellow" />
-              <span className="dot dot-green" />
-            </div>
-            <div className="terminal-title">
-              imanuelayubflabianos@profile &mdash; ~/profile --live &bull; <span className="scanning-pulse">SCANNING</span>
-            </div>
-            <div className="terminal-badge">SYS.ONLINE</div>
-          </div>
-
-          <div className="console-svg-frame">
-            <picture>
-              <source
-                media="(max-width: 760px)"
-                srcSet={`${import.meta.env.BASE_URL}assets/hero/agent-console-e2124e67-mobile-${theme === 'light' ? 'light' : 'dark'}.svg`}
-              />
-              <img
-                src={`${import.meta.env.BASE_URL}assets/hero/agent-console-e2124e67-${theme === 'light' ? 'light' : 'dark'}.svg`}
-                alt="Imanuel Ayub Flabianos - Developer Console"
-                className="console-vector-img"
-                loading="lazy"
-              />
-            </picture>
-          </div>
+          <picture>
+            <source
+              media="(max-width: 760px)"
+              srcSet={`${import.meta.env.BASE_URL}assets/hero/agent-console-e2124e67-mobile-${theme === 'light' ? 'light' : 'dark'}.svg`}
+            />
+            <img
+              src={`${import.meta.env.BASE_URL}assets/hero/agent-console-e2124e67-${theme === 'light' ? 'light' : 'dark'}.svg`}
+              alt="Imanuel Ayub Flabianos - Developer Console"
+              className="console-vector-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
       </section>
 
@@ -847,7 +847,13 @@ function App() {
                 <span className="tag tag-lang">{repo.language || 'Code'}</span>
                 {repo.forks_count > 0 && <span className="tag">🍴 {repo.forks_count} Forks</span>}
                 <span className="tag tag-updated">
-                  Aktif: {new Date(repo.updated_at).toLocaleDateString('id-ID', { month: 'short', year: 'numeric' })}
+                  Aktif:{' '}
+                  {repo.updated_at
+                    ? new Date(repo.updated_at).toLocaleDateString('id-ID', {
+                        month: 'short',
+                        year: 'numeric',
+                      })
+                    : 'Terbaru'}
                 </span>
               </div>
               <div className="project-bottom">
