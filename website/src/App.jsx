@@ -426,9 +426,10 @@ function App() {
 
       if (WEB3FORMS_ACCESS_KEY && contactEndpoint.includes('web3forms')) {
         payload.access_key = WEB3FORMS_ACCESS_KEY
-      }
-
-      if (turnstileToken) {
+        // Web3Forms Free plan melarang pengiriman field 'cf-turnstile-response' (fitur Pro).
+        // Turnstile tetap memvalidasi manusia di browser, lalu dikirim via Web3Forms gratis.
+      } else if (turnstileToken) {
+        // Hanya dikirim ke backend mandiri (Cloudflare Worker)
         payload.turnstileToken = turnstileToken
         payload['cf-turnstile-response'] = turnstileToken
       }
