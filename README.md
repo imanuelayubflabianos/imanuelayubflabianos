@@ -34,9 +34,9 @@
 <div align="center">
 
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=dark&hide_border=true&background=0d1117&ring=e11d48&fire=e11d48&currStreakLabel=e11d48&sideNums=f1f5f9&currStreakNum=f1f5f9&sideLabels=94a3b8&dates=64748b&stroke=21262d">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=default&hide_border=true&background=ffffff&ring=be123c&fire=be123c&currStreakLabel=be123c&sideNums=0f172a&currStreakNum=0f172a&sideLabels=475569&dates=64748b&stroke=e2e8f0">
-    <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=dark&hide_border=true&background=0d1117&ring=e11d48&fire=e11d48&currStreakLabel=e11d48&sideNums=f1f5f9&currStreakNum=f1f5f9&sideLabels=94a3b8&dates=64748b&stroke=21262d" alt="GitHub Streak" width="420"/>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=dark&hide_border=false&border=21262d&background=0d1117&ring=e11d48&fire=e11d48&currStreakLabel=e11d48&sideNums=f1f5f9&currStreakNum=f1f5f9&sideLabels=94a3b8&dates=64748b&stroke=21262d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=default&hide_border=false&border=e4e2e2&background=ffffff&ring=be123c&fire=be123c&currStreakLabel=be123c&sideNums=0f172a&currStreakNum=0f172a&sideLabels=475569&dates=64748b&stroke=e2e8f0">
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=dark&hide_border=false&border=21262d&background=0d1117&ring=e11d48&fire=e11d48&currStreakLabel=e11d48&sideNums=f1f5f9&currStreakNum=f1f5f9&sideLabels=94a3b8&dates=64748b&stroke=21262d" alt="GitHub Streak" width="420"/>
   </picture>
 
   <br />
