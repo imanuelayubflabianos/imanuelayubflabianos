@@ -645,7 +645,10 @@ function App() {
               href="#home"
               data-section="home"
               className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
-              onClick={() => setActiveSection('home')}
+              onClick={(e) => {
+                e.currentTarget.blur()
+                setActiveSection('home')
+              }}
             >
               {t.nav.home}
             </a>
@@ -653,7 +656,10 @@ function App() {
               href="#about"
               data-section="about"
               className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-              onClick={() => setActiveSection('about')}
+              onClick={(e) => {
+                e.currentTarget.blur()
+                setActiveSection('about')
+              }}
             >
               {t.nav.about}
             </a>
@@ -661,7 +667,10 @@ function App() {
               href="#projects"
               data-section="projects"
               className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
-              onClick={() => setActiveSection('projects')}
+              onClick={(e) => {
+                e.currentTarget.blur()
+                setActiveSection('projects')
+              }}
             >
               {t.nav.projects}
             </a>
@@ -669,7 +678,10 @@ function App() {
               href="#contact"
               data-section="contact"
               className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-              onClick={() => setActiveSection('contact')}
+              onClick={(e) => {
+                e.currentTarget.blur()
+                setActiveSection('contact')
+              }}
             >
               {t.nav.contact}
             </a>
@@ -1500,7 +1512,10 @@ function App() {
         <a
           href="#home"
           className={`mobile-nav-item ${activeSection === 'home' ? 'active' : ''}`}
-          onClick={() => setActiveSection('home')}
+          onClick={(e) => {
+            e.currentTarget.blur()
+            setActiveSection('home')
+          }}
         >
           <span className="mobile-nav-icon">🏠</span>
           <span className="mobile-nav-label">{t.mobileNav.home}</span>
@@ -1508,7 +1523,10 @@ function App() {
         <a
           href="#about"
           className={`mobile-nav-item ${activeSection === 'about' ? 'active' : ''}`}
-          onClick={() => setActiveSection('about')}
+          onClick={(e) => {
+            e.currentTarget.blur()
+            setActiveSection('about')
+          }}
         >
           <span className="mobile-nav-icon">🧑‍💻</span>
           <span className="mobile-nav-label">{t.mobileNav.about}</span>
@@ -1516,7 +1534,10 @@ function App() {
         <a
           href="#projects"
           className={`mobile-nav-item ${activeSection === 'projects' ? 'active' : ''}`}
-          onClick={() => setActiveSection('projects')}
+          onClick={(e) => {
+            e.currentTarget.blur()
+            setActiveSection('projects')
+          }}
         >
           <span className="mobile-nav-icon">🚀</span>
           <span className="mobile-nav-label">{t.mobileNav.projects}</span>
@@ -1524,7 +1545,10 @@ function App() {
         <a
           href="#contact"
           className={`mobile-nav-item ${activeSection === 'contact' ? 'active' : ''}`}
-          onClick={() => setActiveSection('contact')}
+          onClick={(e) => {
+            e.currentTarget.blur()
+            setActiveSection('contact')
+          }}
         >
           <span className="mobile-nav-icon">✉️</span>
           <span className="mobile-nav-label">{t.mobileNav.contact}</span>
