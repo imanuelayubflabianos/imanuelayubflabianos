@@ -184,8 +184,7 @@ export const TRANSLATIONS = {
     mobileNav: {
       home: 'Beranda',
       about: 'Tentang',
-      repos: 'Karya',
-      stack: 'Stack',
+      projects: 'Proyek',
       contact: 'Kontak',
     },
   },
@@ -370,8 +369,7 @@ export const TRANSLATIONS = {
     mobileNav: {
       home: 'Home',
       about: 'About',
-      repos: 'Repos',
-      stack: 'Stack',
+      projects: 'Projects',
       contact: 'Contact',
     },
   },

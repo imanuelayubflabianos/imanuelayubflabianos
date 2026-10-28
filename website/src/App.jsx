@@ -298,13 +298,18 @@ function App() {
 
   // Deteksi posisi scroll agar garis bawah otomatis berpindah saat di-scroll
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'activity', 'projects', 'contact']
+    const sectionIds = ['home', 'about', 'projects', 'contact']
     const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        setActiveSection('contact')
+        return
+      }
+
       const scrollY = window.scrollY
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const el = document.getElementById(sectionIds[i])
         if (el) {
-          const top = el.offsetTop - 150
+          const top = el.offsetTop - 180
           if (scrollY >= top) {
             setActiveSection(sectionIds[i])
             break
@@ -653,14 +658,6 @@ function App() {
               {t.nav.about}
             </a>
             <a
-              href="#activity"
-              data-section="activity"
-              className={`nav-link ${activeSection === 'activity' ? 'active' : ''}`}
-              onClick={() => setActiveSection('activity')}
-            >
-              {t.nav.activity}
-            </a>
-            <a
               href="#projects"
               data-section="projects"
               className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
@@ -725,10 +722,6 @@ function App() {
                 <span className="theme-icon moon">🌙 Dark</span>
               )}
             </button>
-
-            <a href="#contact" className="nav-contact-btn">
-              {t.nav.connect}
-            </a>
           </div>
         </nav>
       </header>
@@ -1526,7 +1519,7 @@ function App() {
           onClick={() => setActiveSection('projects')}
         >
           <span className="mobile-nav-icon">🚀</span>
-          <span className="mobile-nav-label">{t.mobileNav.repos}</span>
+          <span className="mobile-nav-label">{t.mobileNav.projects}</span>
         </a>
         <a
           href="#contact"

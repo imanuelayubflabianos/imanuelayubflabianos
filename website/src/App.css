@@ -197,14 +197,18 @@ code {
 .nav-sliding-indicator {
   position: absolute;
   bottom: -6px;
-  height: 3px;
+  height: 2.5px;
   background: var(--accent-cyan);
   border-radius: 999px;
-  box-shadow: 0 0 10px var(--accent-cyan-glow), 0 0 4px var(--accent-cyan);
+  box-shadow: none;
   pointer-events: none;
-  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.2s ease;
+}
+
+[data-theme='dark'] .nav-sliding-indicator {
+  box-shadow: 0 1px 4px rgba(73, 230, 224, 0.3);
 }
 
 .nav-actions {
