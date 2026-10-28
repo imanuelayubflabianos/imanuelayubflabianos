@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  Builderman
+  <b>BUILDERMAN · FULLSTACK DEVELOPER · WNI (INDONESIA)</b>
 </p>
 
 <div align="center">
@@ -23,14 +23,17 @@
 
 <p align="center">
   <a href="https://github.com/imanuelayubflabianos"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-imanuelayubflabianos-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
-  <a href="https://github.com/imanuelayubflabianos/imanuelayubflabianos"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-Visit-0891B2?style=for-the-badge"></a>
+  <a href="https://imanuelayubflabianos.github.io/imanuelayubflabianos/"><img alt="Live Portfolio Website" src="https://img.shields.io/badge/Live%20Portfolio-Ayub.dev-0891B2?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
+  <a href="https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 </p>
 
-## 📊 GitHub Activity Statistik
+---
+
+## 📊 GitHub Activity &amp; Statistik
 
 <div align="center">
 
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=0d1117&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff" alt="GitHub Streak" width="420"/>
 
 [![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=tokyonight)](https://github.com/vn7n24fzkq/github-profile-summary-cards)
 
@@ -49,15 +52,21 @@
 
 <img 
   width="224" height="112"
-src="https://github.com/imanuelayubflabianos/imanuelayubflabianos/blob/5897c24f01a060e4e657d46616d0e119c435e586/assets/Cross.gif" align="right"/>
+  src="./assets/Cross.gif"
+  alt="Rotating Cross Animation"
+  align="right"
+/>
+
 ### 🔗 Portofolio
-> Let me introduce myself. 
+> *Let me introduce myself.* &mdash; Izinkan saya memperkenalkan diri.
 
 <p>
-  <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-  <img src="https://img.shields.io/badge/Status-Learning_%26_Building-00f0ff?style=for-the-badge" alt="Status"/>
-  <img src="https://img.shields.io/badge/Location-WNI-ff3366?style=for-the-badge" alt="Location"/>
+  <img src="https://img.shields.io/badge/GitHub-@imanuelayubflabianos-000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  <img src="https://img.shields.io/badge/Status-Learning_%26_Building-00f0ff?style=for-the-badge" alt="Status"/>
+  <img src="https://img.shields.io/badge/Location-WNI%20(Indonesia)-ff3366?style=for-the-badge" alt="Location"/>
 </p>
+
+</div>
 
 ---
 
@@ -73,18 +82,18 @@ Halo! Saya **Imanuel Ayub Flabianos**, seorang **Fullstack Developer** dari Indo
 
 Saya passionate dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik. Fokus utama saya meliputi pengembangan **Web & System (Fullstack)**, **IoT**, **UI/UX Design**, serta **Database Architecture**.
 
-Saat ini saya terus **belajar dan membangun** proyek-proyek baru untuk mengasah kemampuan dan menambah pengalaman.
+Saat ini saya terus **belajar dan membangun** proyek-proyek baru untuk mengasah kemampuan dan menambah pengalaman di industri teknologi perangkat lunak modern.
 
 </td>
 <td width="50%" valign="top">
 
-### 🇧 English
+### 🇬🇧 English
 
 Hello! I'm **Imanuel Ayub Flabianos**, a **Fullstack Developer** from Indonesia. I'm currently studying **Software & Game Development (PPLG/RPL)**.
 
 I'm passionate about building functional, efficient, and visually appealing web applications and systems. My main focus areas include **Web & System Development (Fullstack)**, **IoT**, **UI/UX Design**, and **Database Architecture**.
 
-I'm constantly **learning and building** new projects to sharpen my skills and gain experience.
+I'm constantly **learning and building** new projects to sharpen my skills and gain valuable practical software engineering experience.
 
 </td>
 </tr>
@@ -92,13 +101,62 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 
 ---
 
-## 🚀 Featured Repository
+## 🚀 Proyek &amp; Repositori Unggulan / Featured Repositories
 
-### 📌 [Project Management App]
-> **Role**  
-Fullstack Developer
+Berikut adalah 3 proyek utama open-source yang saya kembangkan:
 
-* **Tech Stack:**
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 📁 [GuruKuu](https://github.com/imanuelayubflabianos/GuruKuu)
+`PHP` · `Blade` · ⭐ **2**
+<br />
+**🇮🇩** Wadah aspirasi dan evaluasi kinerja guru berbasis web untuk penilaian transparan dan kemajuan pembelajaran siswa SMK N 1 BANGSRI.
+<br /><br />
+**🇬🇧** Web-based teacher performance assessment and aspiration platform for transparent evaluation and student learning advancement.
+
+[**Lihat di GitHub ↗**](https://github.com/imanuelayubflabianos/GuruKuu)
+
+</td>
+<td width="33%" valign="top">
+
+### 📁 [Penjaga Pusaka](https://github.com/imanuelayubflabianos/Penjaga-Pusaka-Nusantara-Indonesia-minigame)
+`JavaScript` · `Game` · ⭐ **1**
+<br />
+**🇮🇩** Proyek minigame interaktif bertema pelestarian pusaka, kearifan lokal, dan budaya nusantara Indonesia.
+<br /><br />
+**🇬🇧** Interactive minigame project themed around preserving cultural heritage and Indonesian folklore.
+
+[**Lihat di GitHub ↗**](https://github.com/imanuelayubflabianos/Penjaga-Pusaka-Nusantara-Indonesia-minigame)
+
+</td>
+<td width="33%" valign="top">
+
+### 📁 [Timer Sederhana](https://github.com/imanuelayubflabianos/Timer-sederhana-Simple-timer-)
+`HTML` · `CSS` · `JavaScript` · ⭐ **1**
+<br />
+**🇮🇩** Aplikasi web timer dan stopwatch sederhana dengan antarmuka yang bersih, responsif, dan mudah digunakan.
+<br /><br />
+**🇬🇧** Clean and intuitive simple web timer and stopwatch application with a responsive user interface.
+
+[**Lihat di GitHub ↗**](https://github.com/imanuelayubflabianos/Timer-sederhana-Simple-timer-)
+
+</td>
+</tr>
+</table>
+
+<p align="right">
+  <a href="https://github.com/imanuelayubflabianos?tab=repositories">
+    <img src="https://img.shields.io/badge/Lihat%20Semua%20Repositori-View%20All%20Repositories%20%E2%86%97-00f0ff?style=for-the-badge&logo=github&logoColor=black" alt="View All Repositories on GitHub" />
+  </a>
+</p>
+
+---
+
+## 🛠️ Tech Stack &amp; Tools
+
+* **Visual Tech Stack Banner (43 Teknologi Lengkap):**
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/tech-stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/tech-stack-light.svg">
@@ -106,10 +164,10 @@ Fullstack Developer
 </picture>
 
 <details open>
-<summary><b>🛠️ Categorized Stack & Tools</b></summary>
+<summary><b>🛠️ Rincian Kategori / Categorized Stack &amp; Tools</b></summary>
 <br />
 
-| Category | Technologies & Tools |
+| Kategori / Category | Teknologi &amp; Alat / Technologies &amp; Tools |
 | :--- | :--- |
 | **Languages** | `C++` · `C#` · `JavaScript` · `TypeScript` · `PHP` · `Python` · `Java` · `Dart` · `HTML5` · `CSS3` |
 | **Frameworks & Libs** | `Laravel` · `React` · `Node.js` · `Vite` · `Flutter` · `Bootstrap` · `.NET` · `WordPress` |
@@ -120,45 +178,67 @@ Fullstack Developer
 
 ---
 
-## 📈 Engineering Focus
-<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112"/>
+## 📈 Engineering Focus / Fokus Rekayasa
+
+<img align="left" src="https://raw.githubusercontent.com/imanuelayubflabianos/imanuelayubflabianos/5897c24f01a060e4e657d46616d0e119c435e586/assets/javascript.svg" width="256" height="112" alt="Architecture Schematic"/>
 
 <p align="center">
-[Game Development]	──► Make and Develop more Games. <br>
-[Web Applications]	──► Building scalable backends with Laravel & PHP. <br>
-[Database Systems]	──► Designing efficient MySQL schema & queries. <br>
-[User Interface]	──► Creating clean layouts via Figma & Bootstrap. <br>
-[IoT & Systems]		──► Exploring device-to-cloud integration. <br>
-<p/>
+[Game Development]	──► Membuat dan Mengembangkan Lebih Banyak Gim / Make and Develop more Games. <br>
+[Web Applications]	──► Membangun backend terukur dengan Laravel &amp; PHP / Building scalable backends with Laravel &amp; PHP. <br>
+[Database Systems]	──► Merancang skema &amp; kueri MySQL yang efisien / Designing efficient MySQL schema &amp; queries. <br>
+[User Interface]	──► Membuat tata letak bersih via Figma &amp; Bootstrap / Creating clean layouts via Figma &amp; Bootstrap. <br>
+[IoT &amp; Systems]		──► Mengeksplorasi integrasi perangkat ke cloud / Exploring device-to-cloud integration. <br>
+</p>
 	
 ---
 
-### My Absolute Favorites:
+### ⭐ My Absolute Favorites / Favorit Utama
 
-- 💻 &nbsp; I love exploring new tech stack and building cool stuffs, and playing Music
-- 📰 &nbsp; Reading & writing tech blogs whenever possible.
-- 🍕 &nbsp; Meetups & Tech events.
+- 💻 &nbsp; **🇮🇩** Suka mengeksplorasi teknologi baru, membuat proyek seru, dan bermain Musik.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**🇬🇧** *I love exploring new tech stacks and building cool stuffs, and playing Music.*
+- 📰 &nbsp; **🇮🇩** Membaca &amp; menulis blog teknologi kapan pun ada kesempatan.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**🇬🇧** *Reading &amp; writing tech blogs whenever possible.*
+- 🍕 &nbsp; **🇮🇩** Mengikuti pertemuan &amp; acara komunitas teknologi.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**🇬🇧** *Meetups &amp; Tech community events.*
 
 <details>	
-  <br />
-  <summary><b>⚙️ Things I use to get stuff done</b></summary>
-  	<ul>
-  	    <li><b>OS:</b> Windows, Linux </li>
-	    <li><b>Laptop: </b> Advan Workpro Lite (i3 12th gen)</li>
-	    <li><b>Code Editor:</b> VSCode - The best editor out there.</li>
-	    <li><b>Stay Updated:</b> Linkedin, Github and more.</li>
-	    <br />
-	</ul>	
+  <br />
+  <summary><b>⚙️ Peralatan yang Digunakan / Things I use to get stuff done</b></summary>
+  <ul>
+    <li><b>OS:</b> Windows, Linux </li>
+    <li><b>Laptop:</b> Advan Workpro Lite (Intel Core i3 12th Gen)</li>
+    <li><b>Code Editor:</b> VS Code - The best editor out there.</li>
+    <li><b>Stay Updated:</b> LinkedIn, GitHub, and more.</li>
+  </ul>	
 </details>
 
 ---
 
+### 📬 Connect &amp; Collaborate / Hubungi Saya
+
 <p align="center">
-  <sub>Built with ❤️ by <b>Imanuel Ayub Flabianos</b> | © 2025</sub>
+  <a href="mailto:imanuelayub0309@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-Direct%20Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Direct Gmail" />
+  </a>
+  &nbsp;
+  <a href="https://github.com/imanuelayubflabianos">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile" />
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Profile" />
+  </a>
+  &nbsp;
+  <a href="https://imanuelayubflabianos.github.io/imanuelayubflabianos/">
+    <img src="https://img.shields.io/badge/Website-Ayub.dev-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Portfolio Website" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ by <b>Imanuel Ayub Flabianos</b> | © 2026</sub>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=imanuelayubflabianos&color=00f0ff&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile Views"/>
+  <img src="https://komarev.com/ghpvc/?username=imanuelayubflabianos&color=00f0ff&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile Views"/>
 </p>
 
 ---

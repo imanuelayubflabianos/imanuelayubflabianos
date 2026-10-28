@@ -740,6 +740,127 @@ code {
 }
 
 /* ==========================================================================
+   3.5 PORTFOLIO INTRO BANNER WITH CROSS.GIF (Matching README.md)
+   ========================================================================== */
+
+.portfolio-intro-section {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 36px;
+}
+
+.portfolio-intro-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-intro-content {
+  flex: 1;
+}
+
+.portfolio-intro-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portfolio-intro-title .chain-icon {
+  color: var(--accent-cyan);
+}
+
+.portfolio-intro-quote {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent-cyan);
+}
+
+.portfolio-intro-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge-shield {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.badge-shield.badge-github {
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.badge-shield.badge-status {
+  background: #00f0ff;
+  color: #080a12;
+  border: 1px solid #00f0ff;
+}
+
+.badge-shield.badge-location {
+  background: #ff3366;
+  color: #fff;
+  border: 1px solid #ff3366;
+}
+
+.portfolio-cross-frame {
+  flex-shrink: 0;
+  width: 224px;
+  height: 112px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.cross-gif-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .portfolio-intro-box {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .portfolio-cross-frame {
+    width: 100%;
+    max-width: 280px;
+    height: 120px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
    4. ABOUT ME & BILINGUAL TABS
    ========================================================================== */
 
@@ -929,6 +1050,52 @@ code {
   font-size: 0.85rem;
   color: var(--text-muted);
   text-align: center;
+}
+
+/* Projects CTA: View All Repositories Button */
+.projects-footer-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.button-view-all-repos {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.button-view-all-repos:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-surface);
+  transform: translateY(-2px);
+  color: var(--accent-cyan);
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.15);
+}
+
+.button-view-all-repos .btn-arrow {
+  font-size: 1.05rem;
+  transition: transform 0.2s ease;
+}
+
+.button-view-all-repos:hover .btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 768px) {
+  .projects-footer-cta {
+    justify-content: center;
+  }
 }
 
 /* ==========================================================================
@@ -1450,6 +1617,38 @@ code {
   justify-content: center;
   flex-wrap: wrap;
   gap: 14px;
+  margin-top: 24px;
+}
+
+.button-app-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.button-app-contact:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.16);
+}
+
+.button-app-contact .btn-app-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================

@@ -47,6 +47,13 @@ export const TRANSLATIONS = {
       statsFallback: '📈 Statistik Komit dan PR Lengkap di GitHub.',
       openRepoBtn: 'Buka Repositori ↗',
     },
+    portfolioIntro: {
+      title: 'Portofolio',
+      quote: 'Izinkan saya memperkenalkan diri.',
+      badgeGithub: 'GitHub: @imanuelayubflabianos',
+      badgeStatus: 'Status: Belajar & Membangun',
+      badgeLocation: 'Lokasi: Indonesia (WNI)',
+    },
     about: {
       eyebrow: 'LEBIH DEKAT DENGANKU',
       title: 'Tentang',
@@ -78,9 +85,10 @@ export const TRANSLATIONS = {
       eyebrow: 'KARYA TERPILIH',
       title: 'Proyek &',
       titleAccent: 'Eksplorasi.',
-      subtitle: 'Repositori open-source publik yang dikembangkan di GitHub.',
+      subtitle: 'Repositori open-source unggulan yang dikembangkan di GitHub.',
       badgeOpenSource: 'OPEN SOURCE',
       viewOnGithub: 'Lihat di GitHub ↗',
+      viewAllRepos: 'Lihat Semua Repositori di GitHub ↗',
       loadingText: 'Memperbarui data repositori dari GitHub...',
     },
     stack: {
@@ -146,9 +154,9 @@ export const TRANSLATIONS = {
       submitBtn: 'Kirim Pesan Sekarang ↗',
       submittingBtn: 'Mengirim...',
       waitCooldown: (time) => `⏳ Tunggu (${time})`,
-      connectGithub: 'Terhubung di GitHub ↗',
-      linkedInProfile: 'Profil LinkedIn ↗',
-      directGmailBtn: '✉ Direct Gmail ↗',
+      btnDirectGmail: 'Direct Gmail ↗',
+      btnGithub: 'GitHub Profile ↗',
+      btnLinkedIn: 'LinkedIn Profile ↗',
       continueMailto: '✉ Lanjutkan Kirim via Gmail Client ↗',
       // Validations and Errors
       errEmptyFields: 'Mohon lengkapi semua kolom formulir (Nama, Email, Subjek, dan Pesan).',
@@ -223,6 +231,13 @@ export const TRANSLATIONS = {
       statsFallback: '📈 Detailed commits and PR statistics on GitHub.',
       openRepoBtn: 'Open Repository ↗',
     },
+    portfolioIntro: {
+      title: 'Portfolio',
+      quote: 'Let me introduce myself.',
+      badgeGithub: 'GitHub: @imanuelayubflabianos',
+      badgeStatus: 'Status: Learning & Building',
+      badgeLocation: 'Location: Indonesia (WNI)',
+    },
     about: {
       eyebrow: 'GET TO KNOW ME',
       title: 'About',
@@ -254,9 +269,10 @@ export const TRANSLATIONS = {
       eyebrow: 'FEATURED REPOSITORIES',
       title: 'Projects &',
       titleAccent: 'Exploration.',
-      subtitle: 'Public open-source software and projects developed on GitHub.',
+      subtitle: 'Featured public open-source software and projects developed on GitHub.',
       badgeOpenSource: 'OPEN SOURCE',
       viewOnGithub: 'View on GitHub ↗',
+      viewAllRepos: 'View All Repositories on GitHub ↗',
       loadingText: 'Updating repository data from GitHub...',
     },
     stack: {
@@ -322,9 +338,9 @@ export const TRANSLATIONS = {
       submitBtn: 'Send Message Now ↗',
       submittingBtn: 'Sending...',
       waitCooldown: (time) => `⏳ Wait (${time})`,
-      connectGithub: 'Connect on GitHub ↗',
-      linkedInProfile: 'LinkedIn Profile ↗',
-      directGmailBtn: '✉ Direct Gmail ↗',
+      btnDirectGmail: 'Direct Gmail ↗',
+      btnGithub: 'GitHub Profile ↗',
+      btnLinkedIn: 'LinkedIn Profile ↗',
       continueMailto: '✉ Continue via Gmail Client ↗',
       // Validations and Errors
       errEmptyFields: 'Please fill in all form fields (Name, Email, Subject, and Message).',
@@ -356,4 +372,3 @@ export const TRANSLATIONS = {
     },
   },
 }
-

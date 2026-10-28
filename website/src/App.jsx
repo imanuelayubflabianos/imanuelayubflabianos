@@ -858,6 +858,43 @@ function App() {
         </div>
       </section>
 
+      {/* 3.5 PORTOFOLIO INTRO SECTION WITH CROSS.GIF (Matching README.md) */}
+      <section className="portfolio-intro-section">
+        <div className="portfolio-intro-box">
+          <div className="portfolio-intro-content">
+            <h3 className="portfolio-intro-title">
+              <span className="chain-icon">🔗</span> {t.portfolioIntro.title}
+            </h3>
+            <blockquote className="portfolio-intro-quote">
+              {t.portfolioIntro.quote}
+            </blockquote>
+            <div className="portfolio-intro-badges">
+              <span className="badge-shield badge-github">
+                <svg className="shield-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                {t.portfolioIntro.badgeGithub}
+              </span>
+              <span className="badge-shield badge-status">
+                {t.portfolioIntro.badgeStatus}
+              </span>
+              <span className="badge-shield badge-location">
+                {t.portfolioIntro.badgeLocation}
+              </span>
+            </div>
+          </div>
+
+          <div className="portfolio-cross-frame">
+            <img
+              src={`${import.meta.env.BASE_URL}assets/Cross.gif`}
+              alt="Rotating Cross Animation"
+              className="cross-gif-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* 4. ABOUT ME SECTION */}
       <section className="section about-section" id="about">
         <div className="section-heading">
@@ -897,7 +934,7 @@ function App() {
         </div>
 
         <div className="projects-grid">
-          {githubRepos.map((repo) => (
+          {githubRepos.slice(0, 3).map((repo) => (
             <article className="project-card" key={repo.id}>
               <div className="project-top">
                 <span className="folder-icon">📁</span>
@@ -928,6 +965,20 @@ function App() {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* View All Repositories CTA */}
+        <div className="projects-footer-cta">
+          <a
+            href="https://github.com/imanuelayubflabianos?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button-view-all-repos"
+            title="Lihat semua repositori publik Imanuel Ayub di GitHub"
+          >
+            <span>{t.projects.viewAllRepos}</span>
+            <span className="btn-arrow">↗</span>
+          </a>
         </div>
 
         {isReposLoading && (
@@ -1244,31 +1295,47 @@ function App() {
             </div>
           </form>
 
-          {/* Quick Direct Links */}
+          {/* Quick Direct Links with Official App SVG Icons */}
           <div className="contact-action-buttons">
             <a
-              className="button button-contact-pill"
+              className="button-app-contact btn-gmail"
               href={`mailto:${emailAddress}`}
               target="_blank"
               rel="noopener noreferrer"
+              title="Kirim pesan langsung ke Gmail Imanuel Ayub"
             >
-              {t.contact.directGmailBtn}
+              <svg className="btn-app-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6Z" fill="#EA4335" fillOpacity="0.12"/>
+                <path d="M20 4H4C2.9 4 2 4.9 2 6V7.25L12 13.5L22 7.25V6C22 4.9 21.1 4 20 4Z" fill="#EA4335"/>
+                <path d="M2 7.25V18C2 19.1 2.9 20 4 20H5V8.875L2 7.25Z" fill="#4285F4"/>
+                <path d="M22 7.25V18C22 19.1 21.1 20 20 20H19V8.875L22 7.25Z" fill="#34A853"/>
+                <path d="M19 20H5V11L12 15.5L19 11V20Z" fill="#FBBC05"/>
+              </svg>
+              <span>{t.contact.btnDirectGmail}</span>
             </a>
             <a
-              className="button button-contact-pill"
+              className="button-app-contact btn-github"
               href={gitHubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              title="Kunjungi profil GitHub Imanuel Ayub"
             >
-              {t.contact.connectGithub}
+              <svg className="btn-app-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              <span>{t.contact.btnGithub}</span>
             </a>
             <a
-              className="button button-contact-pill"
+              className="button-app-contact btn-linkedin"
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
+              title="Kunjungi profil LinkedIn Imanuel Ayub"
             >
-              {t.contact.linkedInProfile}
+              <svg className="btn-app-icon" viewBox="0 0 24 24" fill="#0A66C2">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>{t.contact.btnLinkedIn}</span>
             </a>
           </div>
         </div>
