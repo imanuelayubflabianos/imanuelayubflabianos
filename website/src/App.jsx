@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
 import { TURNSTILE_SITE_KEY, CONTACT_ENDPOINT, WEB3FORMS_ACCESS_KEY } from './config.js'
+import { TRANSLATIONS } from './translations.jsx'
 // Foto profil wajah: Simpan foto kamu di website/src/assets/profile.jpg
 import profilePhoto from './assets/profile.jpg'
 
@@ -99,34 +100,6 @@ const TECH_CATEGORIES = [
   },
 ]
 
-const ENGINEERING_FOCUS = [
-  {
-    area: 'Game Development',
-    action: 'Make and Develop more Games.',
-    tag: 'Unity / C#',
-  },
-  {
-    area: 'Web Applications',
-    action: 'Building scalable backends with Laravel & PHP.',
-    tag: 'Laravel / PHP',
-  },
-  {
-    area: 'Database Systems',
-    action: 'Designing efficient MySQL schema & queries.',
-    tag: 'MySQL / DB Schema',
-  },
-  {
-    area: 'User Interface',
-    action: 'Creating clean layouts via Figma & Bootstrap.',
-    tag: 'Figma / UI/UX',
-  },
-  {
-    area: 'IoT & Systems',
-    action: 'Exploring device-to-cloud integration.',
-    tag: 'Hardware / Cloud',
-  },
-]
-
 function Typewriter({ words, speed = 80, delay = 1800 }) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [currentText, setCurrentText] = useState('')
@@ -179,14 +152,13 @@ function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
     onVerifyRef.current = onVerify
     onExpireRef.current = onExpire
     onErrorRef.current = onError
-  }, [onVerify, onExpire, onError])
+  })
 
   useEffect(() => {
     let isMounted = true
-    const container = containerRef.current
-    if (!container) return
 
     const renderWidget = () => {
+      const container = containerRef.current
       if (!isMounted || !container || !window.turnstile) return
 
       if (widgetIdRef.current !== null) {
@@ -252,10 +224,6 @@ function TurnstileWidget({ siteKey, onVerify, onExpire, onError }) {
         } catch {
           // ignore
         }
-        widgetIdRef.current = null
-      }
-      if (container) {
-        container.innerHTML = ''
       }
     }
   }, [siteKey])
@@ -277,7 +245,28 @@ function App() {
     return 'dark'
   })
 
-  const [activeLang, setActiveLang] = useState('id') // 'id' | 'en'
+  // Global Multi-Language State (IDN & ENG)
+  const [activeLang, setActiveLang] = useState(() => {
+    try {
+      const saved = typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('portfolio-lang') : null
+      if (saved === 'id' || saved === 'en') return saved
+    } catch {
+      // safe fallback
+    }
+    return 'id'
+  })
+
+  const setLanguage = (lang) => {
+    setActiveLang(lang)
+    try {
+      localStorage.setItem('portfolio-lang', lang)
+    } catch {
+      // safe fallback
+    }
+  }
+
+  const t = TRANSLATIONS[activeLang] || TRANSLATIONS.id
+
   const [copiedEmail, setCopiedEmail] = useState(false)
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
   const [imgErrors, setImgErrors] = useState({})
@@ -340,7 +329,7 @@ function App() {
   const linkedInUrl = 'https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/'
   const gitHubUrl = 'https://github.com/imanuelayubflabianos'
 
-  // Cloudflare Turnstile & Backend Configuration (Bisa diatur di website/src/config.js atau .env)
+  // Cloudflare Turnstile & Backend Configuration
   const turnstileSiteKey = TURNSTILE_SITE_KEY
   const contactEndpoint = CONTACT_ENDPOINT
 
@@ -353,11 +342,11 @@ function App() {
       }
       localStorage.setItem('portfolio-theme', theme)
     } catch {
-      // safe fallback for restricted browser storage
+      // safe fallback
     }
   }, [theme])
 
-  // Deteksi Otomatis Repositori Terbaru & Terpopuler dari Akun GitHub Pengguna
+  // Deteksi Otomatis Repositori Terbaru & Terpopuler dari Akun GitHub
   useEffect(() => {
     let isCancelled = false
 
@@ -369,10 +358,8 @@ function App() {
       .then((data) => {
         if (isCancelled || !Array.isArray(data)) return
 
-        // Filter: kecualikan repo fork dan repo profil khusus jika diperlukan
         const filtered = data.filter((repo) => !repo.fork)
 
-        // Urutkan berdasarkan popularitas (stars) tertinggi terlebih dahulu, lalu aktivitas terbaru
         filtered.sort((a, b) => {
           if (b.stargazers_count !== a.stargazers_count) {
             return b.stargazers_count - a.stargazers_count
@@ -424,14 +411,14 @@ function App() {
   const handleTurnstileExpire = useCallback(() => {
     setTurnstileToken('')
     setFormStatus('error')
-    setFormFeedback('Verifikasi Turnstile kedaluwarsa. Silakan centang ulang CAPTCHA.')
-  }, [])
+    setFormFeedback(t.contact.errTurnstileExpire)
+  }, [t.contact.errTurnstileExpire])
 
   const handleTurnstileError = useCallback(() => {
     setTurnstileToken('')
     setFormStatus('error')
-    setFormFeedback('Widget Turnstile memerlukan koneksi internet untuk memverifikasi CAPTCHA.')
-  }, [])
+    setFormFeedback(t.contact.errTurnstileOffline)
+  }, [t.contact.errTurnstileOffline])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -443,54 +430,63 @@ function App() {
     const trimmed = email.trim().toLowerCase()
     if (!trimmed) return ''
     if (trimmed === emailAddress.toLowerCase()) {
-      return 'Masukkan email Anda sendiri (bukan email pemilik web).'
+      return t.contact.errOwnerEmail
     }
     const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!EMAIL_REGEX.test(trimmed)) {
-      return 'Format email tidak valid (contoh: nama@gmail.com).'
+      return t.contact.errInvalidEmail
     }
-    const domain = trimmed.split('@')[1] || ''
-    const DISPOSABLE_DOMAINS = [
-      'tempmail.com',
-      'mailinator.com',
-      '10minutemail.com',
-      'guerrillamail.com',
-      'trashmail.com',
-      'yopmail.com',
-      'sharklasers.com',
-      'throwawaymail.com',
-      'dispostable.com',
-    ]
-    if (DISPOSABLE_DOMAINS.includes(domain)) {
-      return 'Email sementara (temp/disposable mail) tidak diizinkan.'
-    }
-    if (domain === 'gmai.com' || domain === 'gamil.com' || domain === 'gmial.com') {
-      return 'Sepertinya ada typo pada domain email (maksud Anda @gmail.com?).'
-    }
-    if (domain === 'yaho.com' || domain === 'yahooo.com') {
-      return 'Sepertinya ada typo pada domain email (maksud Anda @yahoo.com?).'
+    const parts = trimmed.split('@')
+    if (parts.length === 2) {
+      const domain = parts[1]
+      const DISPOSABLE_DOMAINS = [
+        'mailinator.com',
+        'tempmail.com',
+        'guerrillamail.com',
+        '10minutemail.com',
+        'yopmail.com',
+        'sharklasers.com',
+        'throwawaymail.com',
+        'trashmail.com',
+        'getairmail.com',
+        'dispostable.com',
+      ]
+      if (DISPOSABLE_DOMAINS.includes(domain)) {
+        return t.contact.errDisposableEmail
+      }
+      const TYPO_MAP = {
+        'gmai.com': 'gmail.com',
+        'gamil.com': 'gmail.com',
+        'gmaill.com': 'gmail.com',
+        'gmial.com': 'gmail.com',
+        'yaho.com': 'yahoo.com',
+        'yahooo.com': 'yahoo.com',
+        'hotmial.com': 'hotmail.com',
+        'hotmai.com': 'hotmail.com',
+        'outlok.com': 'outlook.com',
+      }
+      if (TYPO_MAP[domain]) {
+        return t.contact.errDidYouMean(TYPO_MAP[domain])
+      }
     }
     return ''
   }
 
   const emailValidationError = getEmailValidationError(contactForm.email)
 
+  // Pengiriman Formulir Kontak
   const handleFormSubmit = async (e) => {
     e.preventDefault()
-    setFormFeedback('')
-
-    if (emailValidationError) {
-      setFormStatus('error')
-      return
-    }
 
     if (cooldownRemaining > 0) {
       setFormStatus('error')
-      setFormFeedback(
-        `Fitur perlindungan anti-spam aktif: Mohon tunggu ${formatCooldown(
-          cooldownRemaining
-        )} sebelum dapat mengirim pesan berikutnya.`
-      )
+      setFormFeedback(t.contact.waitCooldown(formatCooldown(cooldownRemaining)))
+      return
+    }
+
+    if (emailValidationError) {
+      setFormStatus('error')
+      setFormFeedback(emailValidationError)
       return
     }
 
@@ -501,7 +497,7 @@ function App() {
       !contactForm.message.trim()
     ) {
       setFormStatus('error')
-      setFormFeedback('Mohon lengkapi semua kolom formulir (Nama, Email, Subjek, dan Pesan).')
+      setFormFeedback(t.contact.errEmptyFields)
       return
     }
 
@@ -511,15 +507,13 @@ function App() {
 
     if (!turnstileToken && !isLocalhost) {
       setFormStatus('error')
-      setFormFeedback('Mohon selesaikan verifikasi Cloudflare Turnstile sebelum mengirim.')
+      setFormFeedback(t.contact.errTurnstileRequired)
       return
     }
 
     if (!contactEndpoint) {
       setFormStatus('no-endpoint')
-      setFormFeedback(
-        'Verifikasi berhasil! Namun endpoint pengiriman belum diatur. Klik tombol di bawah untuk membuka aplikasi Gmail dengan pesan yang sudah terisi otomatis.'
-      )
+      setFormFeedback(t.contact.errNoEndpoint)
       return
     }
 
@@ -536,10 +530,7 @@ function App() {
 
       if (WEB3FORMS_ACCESS_KEY && contactEndpoint.includes('web3forms')) {
         payload.access_key = WEB3FORMS_ACCESS_KEY
-        // Web3Forms Free plan melarang pengiriman field 'cf-turnstile-response' (fitur Pro).
-        // Turnstile tetap memvalidasi manusia di browser, lalu dikirim via Web3Forms gratis.
       } else if (turnstileToken) {
-        // Hanya dikirim ke backend mandiri (Cloudflare Worker)
         payload.turnstileToken = turnstileToken
         payload['cf-turnstile-response'] = turnstileToken
       }
@@ -557,14 +548,10 @@ function App() {
 
       if (response.ok && result.success) {
         setFormStatus('success')
-        setFormFeedback(
-          result.message ||
-            'Pesan Anda berhasil dikirim langsung ke Gmail Imanuel Ayub! Silakan tunggu sejenak jika ingin mengirim pesan lagi.'
-        )
+        setFormFeedback(result.message || t.contact.successMessage)
         setContactForm({ name: '', email: '', subject: '', message: '' })
         setTurnstileToken('')
 
-        // Aktifkan cooldown anti-spam (3 menit)
         try {
           localStorage.setItem('portfolio_contact_last_sent', Date.now().toString())
         } catch {
@@ -573,21 +560,17 @@ function App() {
         setCooldownRemaining(COOLDOWN_SECONDS)
       } else {
         setFormStatus('error')
-        setFormFeedback(
-          result.message || result.error || 'Pengiriman gagal. Silakan coba lagi atau kirim via tombol Direct Gmail di bawah.'
-        )
+        setFormFeedback(result.message || result.error || t.contact.failedMessage)
       }
     } catch (err) {
       setFormStatus('error')
-      setFormFeedback(
-        `Gagal menghubungi server pengiriman (${err.message}). Silakan hubungi via tombol Direct Gmail di bawah.`
-      )
+      setFormFeedback(t.contact.serverError(err.message))
     }
   }
 
   return (
     <main className="main-wrapper">
-      {/* 1. TOP NAVBAR (Selalu berada di paling atas layar pada desktop) */}
+      {/* 1. TOP NAVBAR */}
       <header className="navbar-header">
         <nav className="navbar">
           <a className="brand" href="#home">
@@ -597,17 +580,39 @@ function App() {
             </span>
           </a>
 
-          {/* Desktop Center Links (Tersembunyi di Mobile) */}
+          {/* Desktop Center Links */}
           <div className="nav-center-links">
-            <a href="#about">About</a>
-            <a href="#activity">Activity</a>
-            <a href="#projects">Projects</a>
-            <a href="#stack">Stack</a>
-            <a href="#focus">Focus</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">{t.nav.about}</a>
+            <a href="#activity">{t.nav.activity}</a>
+            <a href="#projects">{t.nav.projects}</a>
+            <a href="#stack">{t.nav.stack}</a>
+            <a href="#focus">{t.nav.focus}</a>
+            <a href="#contact">{t.nav.contact}</a>
           </div>
 
           <div className="nav-actions">
+            {/* Language Switcher Toggle (IDN / ENG) */}
+            <div className="nav-lang-toggle" role="group" aria-label="Select Language">
+              <button
+                type="button"
+                className={`lang-pill-btn ${activeLang === 'id' ? 'active' : ''}`}
+                onClick={() => setLanguage('id')}
+                aria-pressed={activeLang === 'id'}
+                title="Bahasa Indonesia"
+              >
+                IDN
+              </button>
+              <button
+                type="button"
+                className={`lang-pill-btn ${activeLang === 'en' ? 'active' : ''}`}
+                onClick={() => setLanguage('en')}
+                aria-pressed={activeLang === 'en'}
+                title="English"
+              >
+                ENG
+              </button>
+            </div>
+
             {/* Theme Toggle Button */}
             <button
               className="theme-toggle-btn"
@@ -623,13 +628,13 @@ function App() {
             </button>
 
             <a href="#contact" className="nav-contact-btn">
-              Connect ↗
+              {t.nav.connect}
             </a>
           </div>
         </nav>
       </header>
 
-      {/* 2. HERO SECTION DENGAN BANNER DI BAWAH NAVBAR */}
+      {/* 2. HERO SECTION */}
       <section className="section hero-section" id="home">
         {/* Waving Capsule Header Banner */}
         <div className="capsule-banner-container">
@@ -644,7 +649,6 @@ function App() {
         {/* Hero Profile Card */}
         <div className="hero-card">
           <div className="profile-top-grid">
-            {/* Foto Profil Wajah */}
             <div className="profile-avatar-frame">
               <div className="avatar-glow" />
               <img
@@ -655,10 +659,10 @@ function App() {
                   e.currentTarget.src = 'https://github.com/imanuelayubflabianos.png'
                 }}
               />
-              <span className="avatar-status-pill" title="Status: Learning & Building">
+              <span className="avatar-status-pill" title={`Status: ${t.hero.active}`}>
                 <span className="status-ping" />
                 <span className="status-dot" />
-                Active
+                {t.hero.active}
               </span>
             </div>
 
@@ -666,10 +670,10 @@ function App() {
               <div className="hero-badges-row">
                 <span className="badge badge-cyan">
                   <span className="badge-glow" />
-                  BUILDERMAN
+                  {t.hero.badgeBuilderman}
                 </span>
-                <span className="badge badge-purple">FULLSTACK DEVELOPER</span>
-                <span className="badge badge-pink">WNI · INDONESIA</span>
+                <span className="badge badge-purple">{t.hero.badgeRole}</span>
+                <span className="badge badge-pink">{t.hero.badgeLocation}</span>
               </div>
 
               <h1 className="hero-title">
@@ -682,10 +686,7 @@ function App() {
                 <Typewriter words={TYPING_PHRASES} />
               </div>
 
-              <p className="hero-bio-quote">
-                <strong>@imanuelayubflabianos</strong> &mdash; <em>&ldquo;PERSONAL BRANDING ACCOUNT&rdquo;</em> iDiD |
-                Software Dev, Programming, Data Analyst, IoT, UI/UX, and App Dev.
-              </p>
+              <p className="hero-bio-quote">{t.hero.bio}</p>
 
               <div className="hero-cta-buttons">
                 <a
@@ -697,22 +698,22 @@ function App() {
                   <svg className="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                   </svg>
-                  GitHub Profile ↗
+                  {t.hero.githubProfile}
                 </a>
 
                 <a className="button button-contact-pill" href="#projects">
-                  Explore Work ↓
+                  {t.hero.exploreWork}
                 </a>
 
                 <button className="button button-contact-pill" onClick={handleCopyEmail}>
-                  {copiedEmail ? '✓ Copied!' : '✉ Copy Email'}
+                  {copiedEmail ? t.hero.copied : t.hero.copyEmail}
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Console / Terminal Hero Display (Sesuai README GitHub Asli - Tanpa Dobel Header) */}
+        {/* Console / Terminal Hero Display */}
         <div className="console-display-container">
           <picture>
             <source
@@ -734,35 +735,35 @@ function App() {
       <section className="section activity-section" id="activity">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">METRICS & REPOSITORIES</p>
+            <p className="eyebrow">{t.activity.eyebrow}</p>
             <h2>
-              📊 GitHub Activity <span className="gradient-text">Statistik.</span>
+              📊 {t.activity.title} <span className="gradient-text">{t.activity.titleAccent}</span>
             </h2>
           </div>
-          <p className="section-note">Live contributions, streak, and programming language analytics.</p>
+          <p className="section-note">{t.activity.subtitle}</p>
         </div>
 
         <div className="activity-cards-grid">
           {/* GitHub Streak Stats Card */}
           <div className="activity-card streak-card">
             <div className="card-top-header">
-              <span>🔥 Contribution Streak</span>
-              <span className="card-badge">LIVE METRICS</span>
+              <span>{t.activity.streakTitle}</span>
+              <span className="card-badge">{t.activity.streakBadge}</span>
             </div>
             <div className="activity-media-box">
               {imgErrors['streak'] ? (
                 <div className="activity-fallback-box">
-                  <p>📊 Streak Stats dapat dilihat di profil GitHub.</p>
+                  <p>{t.activity.streakFallback}</p>
                   <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
-                    Buka GitHub Profile ↗
+                    {t.activity.openRepoBtn}
                   </a>
                 </div>
               ) : (
                 <img
-                  src={`https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=${
-                    theme === 'dark' ? 'synthwave' : 'default'
-                  }&hide_border=true&background=${theme === 'dark' ? '0d1117' : 'ffffff'}&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff`}
-                  alt="GitHub Streak Stats"
+                  src={`https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=synthwave&hide_border=true&background=${
+                    theme === 'dark' ? '0d1117' : 'ffffff'
+                  }&ring=ff3366&fire=00f0ff&currStreakLabel=00f0ff`}
+                  alt="GitHub Streak"
                   className="activity-img"
                   loading="lazy"
                   onError={() => handleImgError('streak')}
@@ -771,46 +772,18 @@ function App() {
             </div>
           </div>
 
-          {/* GitHub Profile Details Card */}
-          <div className="activity-card profile-details-card">
-            <div className="card-top-header">
-              <span>📋 Profile Details</span>
-              <span className="card-badge">GITHUB SUMMARY</span>
-            </div>
-            <div className="activity-media-box">
-              {imgErrors['details'] ? (
-                <div className="activity-fallback-box">
-                  <p>📋 Profile Details dapat dilihat di profil GitHub.</p>
-                  <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
-                    Buka GitHub Profile ↗
-                  </a>
-                </div>
-              ) : (
-                <img
-                  src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imanuelayubflabianos&theme=${
-                    theme === 'dark' ? 'tokyonight' : 'default'
-                  }`}
-                  alt="GitHub Profile Details Summary"
-                  className="activity-img"
-                  loading="lazy"
-                  onError={() => handleImgError('details')}
-                />
-              )}
-            </div>
-          </div>
-
           {/* Repos Per Language */}
           <div className="activity-card">
             <div className="card-top-header">
-              <span>🍩 Top Languages by Repo</span>
-              <span className="card-badge">REPOSITORIES</span>
+              <span>{t.activity.reposTitle}</span>
+              <span className="card-badge">{t.activity.reposBadge}</span>
             </div>
             <div className="activity-media-box">
               {imgErrors['reposLang'] ? (
                 <div className="activity-fallback-box">
-                  <p>🍩 Repos Per Language dapat dilihat di GitHub.</p>
+                  <p>{t.activity.reposFallback}</p>
                   <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
-                    Buka Repositori ↗
+                    {t.activity.openRepoBtn}
                   </a>
                 </div>
               ) : (
@@ -830,15 +803,15 @@ function App() {
           {/* Most Commit Language */}
           <div className="activity-card">
             <div className="card-top-header">
-              <span>🍰 Top Languages by Commit</span>
-              <span className="card-badge">COMMITS</span>
+              <span>{t.activity.commitsTitle}</span>
+              <span className="card-badge">{t.activity.commitsBadge}</span>
             </div>
             <div className="activity-media-box">
               {imgErrors['commitLang'] ? (
                 <div className="activity-fallback-box">
-                  <p>🍰 Commit Language Breakdown dapat dilihat di GitHub.</p>
+                  <p>{t.activity.commitsFallback}</p>
                   <a href={gitHubUrl} target="_blank" rel="noopener noreferrer">
-                    Buka Repositori ↗
+                    {t.activity.openRepoBtn}
                   </a>
                 </div>
               ) : (
@@ -866,7 +839,7 @@ function App() {
           >
             {imgErrors['stats'] ? (
               <div className="activity-fallback-box">
-                <p>📈 Statistik Komit dan PR Lengkap di GitHub.</p>
+                <p>{t.activity.statsFallback}</p>
               </div>
             ) : (
               <img
@@ -885,128 +858,72 @@ function App() {
         </div>
       </section>
 
-      {/* 4. ABOUT ME SECTION (Bilingual Tabs: ID & EN) */}
+      {/* 4. ABOUT ME SECTION */}
       <section className="section about-section" id="about">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">GET TO KNOW ME</p>
+            <p className="eyebrow">{t.about.eyebrow}</p>
             <h2>
-              🧑‍💻 About <span className="gradient-text">Me.</span>
+              🧑‍💻 {t.about.title} <span className="gradient-text">{t.about.titleAccent}</span>
             </h2>
-          </div>
-          <div className="lang-switcher">
-            <button
-              className={`lang-btn ${activeLang === 'id' ? 'active' : ''}`}
-              onClick={() => setActiveLang('id')}
-              aria-label="Tampilkan dalam Bahasa Indonesia"
-            >
-              🇮🇩 Bahasa Indonesia
-            </button>
-            <button
-              className={`lang-btn ${activeLang === 'en' ? 'active' : ''}`}
-              onClick={() => setActiveLang('en')}
-              aria-label="Show in English"
-            >
-              🇬🇧 English
-            </button>
           </div>
         </div>
 
         <div className="about-card-container">
-          {activeLang === 'id' ? (
-            <div className="about-text-content">
-              <div className="about-lead">
-                Halo! Saya <strong>Imanuel Ayub Flabianos</strong>, seorang <strong>Fullstack Developer</strong> dari Indonesia.
-                Saya berfokus pada bidang <strong>Pengembangan Perangkat Lunak dan Gim (Software &amp; Game Development)</strong>.
-              </div>
-              <p>
-                Saya passionate dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik.
-                Fokus utama saya meliputi pengembangan <strong>Web &amp; System (Fullstack)</strong>, <strong>IoT</strong>,{' '}
-                <strong>UI/UX Design</strong>, serta <strong>Database Architecture</strong>.
-              </p>
-              <p>
-                Saat ini saya terus <strong>belajar dan membangun</strong> proyek-proyek baru untuk mengasah kemampuan dan menambah
-                pengalaman di industri teknologi perangkat lunak modern.
-              </p>
-            </div>
-          ) : (
-            <div className="about-text-content">
-              <div className="about-lead">
-                Hello! I&apos;m <strong>Imanuel Ayub Flabianos</strong>, a <strong>Fullstack Developer</strong> from Indonesia.
-                I specialize in <strong>Software &amp; Game Development</strong>.
-              </div>
-              <p>
-                I&apos;m passionate about building functional, efficient, and visually appealing web applications and systems. My
-                main focus areas include <strong>Web &amp; System Development (Fullstack)</strong>, <strong>IoT</strong>,{' '}
-                <strong>UI/UX Design</strong>, and <strong>Database Architecture</strong>.
-              </p>
-              <p>
-                I&apos;m constantly <strong>learning and building</strong> new projects to sharpen my skills and gain valuable
-                practical software engineering experience.
-              </p>
-            </div>
-          )}
+          <div className="about-text-content">
+            <div className="about-lead">{t.about.lead}</div>
+            <p>{t.about.p1}</p>
+            <p>{t.about.p2}</p>
+          </div>
 
           <div className="about-badges-footer">
-            <span className="badge badge-outline">🔗 GitHub: @imanuelayubflabianos</span>
-            <span className="badge badge-outline">⚡ Status: Learning &amp; Building</span>
-            <span className="badge badge-outline">📍 Location: Indonesia (WNI)</span>
+            <span className="about-pill">🔗 {t.about.badgeGithub}</span>
+            <span className="about-pill">⚡ {t.about.badgeStatus}</span>
+            <span className="about-pill">📍 {t.about.badgeLocation}</span>
           </div>
         </div>
       </section>
 
-      {/* 5. FEATURED REPOSITORIES (TERHUBUNG LANGSUNG DENGAN REPO GITHUB PENGGUNA) */}
+      {/* 5. FEATURED REPOSITORIES */}
       <section className="section projects-section" id="projects">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">SHOWCASE & GITHUB REPOS</p>
+            <p className="eyebrow">{t.projects.eyebrow}</p>
             <h2>
-              🚀 Featured <span className="gradient-text">Repository.</span>
+              🚀 {t.projects.title} <span className="gradient-text">{t.projects.titleAccent}</span>
             </h2>
           </div>
-          <p className="section-note">
-            Repositori publik paling populer dan aktif dari akun GitHub{' '}
-            <a href={gitHubUrl} target="_blank" rel="noopener noreferrer" className="accent-link">
-              @imanuelayubflabianos ↗
-            </a>
-          </p>
+          <p className="section-note">{t.projects.subtitle}</p>
         </div>
 
-        <div className="project-grid">
-          {githubRepos.map((repo, idx) => (
-            <article className="project-card" key={repo.name || idx}>
+        <div className="projects-grid">
+          {githubRepos.map((repo) => (
+            <article className="project-card" key={repo.id}>
               <div className="project-top">
-                <span className="project-number">0{idx + 1} / 0{githubRepos.length}</span>
-                <span className="project-stars-pill">⭐ {repo.stargazers_count || 0}</span>
+                <span className="folder-icon">📁</span>
+                <div className="project-stats-pills">
+                  <span className="stat-pill">★ {repo.stargazers_count ?? 0}</span>
+                  <span className="stat-pill">⑂ {repo.forks_count ?? 0}</span>
+                </div>
               </div>
-              <p className="project-type">GITHUB REPOSITORY</p>
-              <h3>{repo.name}</h3>
-              <p className="project-description">
-                {repo.description || 'Repositori kode publik pada akun GitHub resmi Imanuel Ayub Flabianos.'}
-              </p>
-              <div className="tag-list">
-                <span className="tag tag-lang">{repo.language || 'Code'}</span>
-                {repo.forks_count > 0 && <span className="tag">🍴 {repo.forks_count} Forks</span>}
-                <span className="tag tag-updated">
-                  Aktif:{' '}
-                  {repo.updated_at
-                    ? new Date(repo.updated_at).toLocaleDateString('id-ID', {
-                        month: 'short',
-                        year: 'numeric',
-                      })
-                    : 'Terbaru'}
-                </span>
+
+              <h3 className="project-title">{repo.name}</h3>
+              <p className="project-desc">{repo.description || 'Proyek open source oleh Imanuel Ayub.'}</p>
+
+              <div className="project-tags">
+                <span className="tech-badge">{repo.language || 'Code'}</span>
               </div>
+
               <div className="project-bottom">
-                <span className="project-status-label">OPEN SOURCE</span>
+                <span className="project-status-label">{t.projects.badgeOpenSource}</span>
                 <a
                   href={repo.html_url || gitHubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-link-btn"
-                  title={`Buka repositori ${repo.name} di GitHub`}
+                  title={`Open ${repo.name} on GitHub`}
                 >
-                  View on GitHub ↗
+                  {t.projects.viewOnGithub}
                 </a>
               </div>
             </article>
@@ -1014,23 +931,23 @@ function App() {
         </div>
 
         {isReposLoading && (
-          <p className="repos-loading-indicator">Memperbarui data repositori dari GitHub...</p>
+          <p className="repos-loading-indicator">{t.projects.loadingText}</p>
         )}
       </section>
 
-      {/* 6. TECH STACK SECTION (Skillicons Banner + Categorized Grid) */}
+      {/* 6. TECH STACK SECTION */}
       <section className="section stack-section" id="stack">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">TOOLS OF THE TRADE</p>
+            <p className="eyebrow">{t.stack.eyebrow}</p>
             <h2>
-              🛠️ Tech <span className="gradient-text">Stack.</span>
+              🛠️ {t.stack.title} <span className="gradient-text">{t.stack.titleAccent}</span>
             </h2>
           </div>
-          <p className="section-note">Languages, frameworks, tools, and platforms I work with.</p>
+          <p className="section-note">{t.stack.subtitle}</p>
         </div>
 
-        {/* Skillicons Dev Banner matching README (Includes Minecraft, Command Block, Roblox & Roblox Studio) */}
+        {/* Custom Tech Stack SVG Banner (Minecraft, Command Block, Roblox, Roblox Studio + Skillicons) */}
         <div className="skillicons-container">
           <picture>
             <source
@@ -1050,7 +967,7 @@ function App() {
         <div className="tech-categories-grid">
           {TECH_CATEGORIES.map((cat) => (
             <div className="tech-cat-card" key={cat.category}>
-              <h4>{cat.category}</h4>
+              <h4>{t.stack.categories[cat.category] || cat.category}</h4>
               <div className="tech-pill-list">
                 {cat.skills.map((skill) => (
                   <span className="tech-pill" key={skill}>
@@ -1063,19 +980,19 @@ function App() {
         </div>
       </section>
 
-      {/* 7. ENGINEERING FOCUS SECTION (DILENGKAPI GAMBAR MESIN KUNING SCHEMATIC SESUAI README) */}
+      {/* 7. ENGINEERING FOCUS SECTION */}
       <section className="section focus-section" id="focus">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">CORE CAPABILITIES & ARCHITECTURE</p>
+            <p className="eyebrow">{t.focus.eyebrow}</p>
             <h2>
-              📈 Engineering <span className="gradient-text">Focus.</span>
+              📈 {t.focus.title} <span className="gradient-text">{t.focus.titleAccent}</span>
             </h2>
           </div>
-          <p className="section-note">Key technical disciplines, system architecture, and development goals.</p>
+          <p className="section-note">{t.focus.subtitle}</p>
         </div>
 
-        {/* Box Gambar Mesin/Circuit Kuning Animated SVG dari README */}
+        {/* Box Gambar Mesin Schematic SVG dari README */}
         <div className="engineering-schematic-banner">
           <div className="schematic-img-frame">
             <img
@@ -1086,13 +1003,13 @@ function App() {
             />
           </div>
           <div className="schematic-caption">
-            <span className="caption-badge">FIG. ARCHITECTURE</span>
-            <p>Sistem arsitektur interaktif &amp; rekayasa perangkat lunak modern.</p>
+            <span className="caption-badge">{t.focus.figBadge}</span>
+            <p>{t.focus.figCaption}</p>
           </div>
         </div>
 
         <div className="focus-grid">
-          {ENGINEERING_FOCUS.map((item, index) => (
+          {t.focus.items.map((item, index) => (
             <div className="focus-card" key={item.area}>
               <div className="focus-card-header">
                 <span className="focus-index">0{index + 1}</span>
@@ -1111,9 +1028,9 @@ function App() {
       <section className="section favorites-section">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">BEYOND THE CODE</p>
+            <p className="eyebrow">{t.favorites.eyebrow}</p>
             <h2>
-              ⭐ My Absolute <span className="gradient-text">Favorites.</span>
+              ⭐ {t.favorites.title} <span className="gradient-text">{t.favorites.titleAccent}</span>
             </h2>
           </div>
         </div>
@@ -1122,15 +1039,15 @@ function App() {
           <ul className="favorites-bullets">
             <li>
               <span className="bullet-icon">💻</span>
-              <span>I love exploring new tech stacks and building cool stuffs, and playing Music</span>
+              <span>{t.favorites.bullet1}</span>
             </li>
             <li>
               <span className="bullet-icon">📰</span>
-              <span>Reading &amp; writing tech blogs whenever possible.</span>
+              <span>{t.favorites.bullet2}</span>
             </li>
             <li>
               <span className="bullet-icon">🍕</span>
-              <span>Meetups &amp; Tech events.</span>
+              <span>{t.favorites.bullet3}</span>
             </li>
           </ul>
 
@@ -1141,23 +1058,23 @@ function App() {
               onClick={() => setIsDetailsOpen((prev) => !prev)}
               aria-expanded={isDetailsOpen}
             >
-              <span>⚙️ Things I use to get stuff done</span>
+              <span>{t.favorites.gearTitle}</span>
               <span className="accordion-arrow">{isDetailsOpen ? '▲' : '▼'}</span>
             </button>
 
             {isDetailsOpen && (
               <div className="gear-content-box">
                 <div className="gear-item">
-                  <strong>OS:</strong> Windows, Linux
+                  <strong>{t.favorites.gearOs}</strong>
                 </div>
                 <div className="gear-item">
-                  <strong>Laptop:</strong> Advan Workpro Lite (i3 12th gen)
+                  <strong>{t.favorites.gearLaptop}</strong>
                 </div>
                 <div className="gear-item">
-                  <strong>Code Editor:</strong> VSCode - The best editor out there.
+                  <strong>{t.favorites.gearEditor}</strong>
                 </div>
                 <div className="gear-item">
-                  <strong>Stay Updated:</strong> LinkedIn, GitHub, and more.
+                  <strong>{t.favorites.gearStayUpdated}</strong>
                 </div>
               </div>
             )}
@@ -1165,20 +1082,17 @@ function App() {
         </div>
       </section>
 
-      {/* 9. CONTACT SECTION WITH CLOUDFLARE TURNSTILE & UNIFIED BUTTONS */}
+      {/* 9. CONTACT SECTION */}
       <section className="section contact-section" id="contact">
         <div className="contact-box">
-          <p className="eyebrow">GET IN TOUCH</p>
+          <p className="eyebrow">{t.contact.eyebrow}</p>
           <h2>
-            Let&apos;s build something <span className="gradient-text">meaningful.</span>
+            {t.contact.title} <span className="gradient-text">{t.contact.titleAccent}</span>
           </h2>
-          <p className="contact-description">
-            Tertarik untuk berkolaborasi, mendiskusikan proyek web, atau konsultasi teknis? Kirim pesan melalui formulir
-            aman di bawah ini (dilindungi oleh Cloudflare Turnstile) atau hubungi langsung via email dan media profesional.
-          </p>
+          <p className="contact-description">{t.contact.description}</p>
 
           <div className="contact-email-badge">
-            <span className="email-label">Direct Gmail:</span>
+            <span className="email-label">{t.contact.directGmail}</span>
             <code className="email-code">{emailAddress}</code>
             <button
               className="copy-badge-btn"
@@ -1186,21 +1100,21 @@ function App() {
               aria-label="Copy email address"
               title="Copy email address"
             >
-              {copiedEmail ? '✓ Copied' : '📋 Copy'}
+              {copiedEmail ? t.contact.copied : t.contact.copy}
             </button>
           </div>
 
           {/* Interactive Secure Contact Form with Cloudflare Turnstile */}
           <form className="contact-form-card" onSubmit={handleFormSubmit} noValidate>
             <div className="form-header">
-              <h3>✉️ Kirim Pesan Langsung</h3>
-              <span className="form-badge-security">🛡️ Turnstile Protected</span>
+              <h3>{t.contact.formTitle}</h3>
+              <span className="form-badge-security">{t.contact.turnstileProtected}</span>
             </div>
 
             <div className="form-grid-two">
               <div className="form-field">
                 <label htmlFor="contact-name">
-                  Nama Lengkap <span className="field-required">*</span>
+                  {t.contact.labelName} <span className="field-required">*</span>
                 </label>
                 <input
                   type="text"
@@ -1208,7 +1122,7 @@ function App() {
                   name="name"
                   value={contactForm.name}
                   onChange={handleInputChange}
-                  placeholder="Nama Anda"
+                  placeholder={t.contact.placeholderName}
                   maxLength={100}
                   required
                   disabled={formStatus === 'submitting'}
@@ -1217,7 +1131,7 @@ function App() {
 
               <div className="form-field">
                 <label htmlFor="contact-email">
-                  Alamat Email <span className="field-required">*</span>
+                  {t.contact.labelEmail} <span className="field-required">*</span>
                 </label>
                 <input
                   type="email"
@@ -1225,7 +1139,7 @@ function App() {
                   name="email"
                   value={contactForm.email}
                   onChange={handleInputChange}
-                  placeholder="email-anda@gmail.com"
+                  placeholder={t.contact.placeholderEmail}
                   maxLength={100}
                   required
                   disabled={formStatus === 'submitting'}
@@ -1241,7 +1155,7 @@ function App() {
 
             <div className="form-field">
               <label htmlFor="contact-subject">
-                Subjek Pesan <span className="field-required">*</span>
+                {t.contact.labelSubject} <span className="field-required">*</span>
               </label>
               <input
                 type="text"
@@ -1249,7 +1163,7 @@ function App() {
                 name="subject"
                 value={contactForm.subject}
                 onChange={handleInputChange}
-                placeholder="Topik proyek atau pertanyaan..."
+                placeholder={t.contact.placeholderSubject}
                 maxLength={150}
                 required
                 disabled={formStatus === 'submitting'}
@@ -1258,7 +1172,7 @@ function App() {
 
             <div className="form-field">
               <label htmlFor="contact-message">
-                Isi Pesan <span className="field-required">*</span>
+                {t.contact.labelMessage} <span className="field-required">*</span>
               </label>
               <textarea
                 id="contact-message"
@@ -1266,7 +1180,7 @@ function App() {
                 rows={4}
                 value={contactForm.message}
                 onChange={handleInputChange}
-                placeholder="Ceritakan detail proyek atau pertanyaan Anda..."
+                placeholder={t.contact.placeholderMessage}
                 maxLength={2000}
                 required
                 disabled={formStatus === 'submitting'}
@@ -1277,7 +1191,7 @@ function App() {
             {/* Cloudflare Turnstile Widget */}
             <div className="turnstile-section">
               <div className="turnstile-info-label">
-                <span>Verifikasi Keamanan Manusia:</span>
+                <span>{t.contact.turnstileLabel}</span>
               </div>
               <TurnstileWidget
                 siteKey={turnstileSiteKey}
@@ -1301,7 +1215,7 @@ function App() {
                       )}`}
                       className="button button-contact-pill fallback-btn"
                     >
-                      ✉ Lanjutkan Kirim via Gmail Client ↗
+                      {t.contact.continueMailto}
                     </a>
                   </div>
                 )}
@@ -1322,15 +1236,15 @@ function App() {
                 }
               >
                 {formStatus === 'submitting'
-                  ? 'Mengirim...'
+                  ? t.contact.submittingBtn
                   : cooldownRemaining > 0
-                  ? `⏳ Tunggu (${formatCooldown(cooldownRemaining)})`
-                  : 'Kirim Pesan Sekarang ↗'}
+                  ? t.contact.waitCooldown(formatCooldown(cooldownRemaining))
+                  : t.contact.submitBtn}
               </button>
             </div>
           </form>
 
-          {/* Quick Direct Links (SEMUA DENGAN GAYA TOMBOL SERAGAM & RAPI) */}
+          {/* Quick Direct Links */}
           <div className="contact-action-buttons">
             <a
               className="button button-contact-pill"
@@ -1338,7 +1252,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              ✉ Direct Gmail ↗
+              {t.contact.directGmailBtn}
             </a>
             <a
               className="button button-contact-pill"
@@ -1346,7 +1260,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Connect on GitHub ↗
+              {t.contact.connectGithub}
             </a>
             <a
               className="button button-contact-pill"
@@ -1354,7 +1268,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn Profile ↗
+              {t.contact.linkedInProfile}
             </a>
           </div>
         </div>
@@ -1370,7 +1284,7 @@ function App() {
         </a>
 
         <div className="footer-credits">
-          <span>Built with ❤️ by <strong>Imanuel Ayub Flabianos</strong> | © 2026</span>
+          <span>{t.footer.builtBy} <strong>Imanuel Ayub Flabianos</strong> | © 2026</span>
           <div className="footer-views">
             <img
               src="https://komarev.com/ghpvc/?username=imanuelayubflabianos&color=00f0ff&style=for-the-badge&label=PROFILE+VIEWS"
@@ -1382,31 +1296,31 @@ function App() {
         </div>
 
         <a href="#home" className="back-to-top-btn">
-          BACK TO TOP ↑
+          {t.footer.backToTop}
         </a>
       </footer>
 
-      {/* 11. MOBILE BOTTOM NAVIGATION BAR (KHUSUS TAMPIL DI HP) */}
+      {/* 11. MOBILE BOTTOM NAVIGATION BAR */}
       <nav className="mobile-bottom-nav" aria-label="Mobile Navigation">
         <a href="#home" className="mobile-nav-item">
           <span className="mobile-nav-icon">🏠</span>
-          <span className="mobile-nav-label">Home</span>
+          <span className="mobile-nav-label">{t.mobileNav.home}</span>
         </a>
         <a href="#about" className="mobile-nav-item">
           <span className="mobile-nav-icon">🧑‍💻</span>
-          <span className="mobile-nav-label">About</span>
+          <span className="mobile-nav-label">{t.mobileNav.about}</span>
         </a>
         <a href="#projects" className="mobile-nav-item">
           <span className="mobile-nav-icon">🚀</span>
-          <span className="mobile-nav-label">Repos</span>
+          <span className="mobile-nav-label">{t.mobileNav.repos}</span>
         </a>
         <a href="#stack" className="mobile-nav-item">
           <span className="mobile-nav-icon">🛠️</span>
-          <span className="mobile-nav-label">Stack</span>
+          <span className="mobile-nav-label">{t.mobileNav.stack}</span>
         </a>
         <a href="#contact" className="mobile-nav-item">
           <span className="mobile-nav-icon">✉️</span>
-          <span className="mobile-nav-label">Contact</span>
+          <span className="mobile-nav-label">{t.mobileNav.contact}</span>
         </a>
       </nav>
     </main>
