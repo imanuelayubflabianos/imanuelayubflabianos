@@ -537,14 +537,21 @@ function App() {
       return
     }
 
-    if (
-      !contactForm.name.trim() ||
-      !contactForm.email.trim() ||
-      !contactForm.subject.trim() ||
-      !contactForm.message.trim()
-    ) {
+    const sanitizeInput = (val) => String(val || '').normalize('NFKC').trim()
+    const cleanName = sanitizeInput(contactForm.name)
+    const cleanEmail = sanitizeInput(contactForm.email)
+    const cleanSubject = sanitizeInput(contactForm.subject)
+    const cleanMessage = sanitizeInput(contactForm.message)
+
+    if (!cleanName || !cleanEmail || !cleanSubject || !cleanMessage) {
       setFormStatus('error')
       setFormFeedback(t.contact.errEmptyFields)
+      return
+    }
+
+    if (cleanName.length > 100 || cleanEmail.length > 254 || cleanSubject.length > 200 || cleanMessage.length > 3000) {
+      setFormStatus('error')
+      setFormFeedback('Karakter melebihi batas aman yang diizinkan.')
       return
     }
 
@@ -568,11 +575,11 @@ function App() {
 
     try {
       const payload = {
-        name: contactForm.name.trim(),
-        email: contactForm.email.trim(),
-        subject: contactForm.subject.trim(),
-        message: contactForm.message.trim(),
-        from_name: `${contactForm.name.trim()} (Portfolio Form)`,
+        name: cleanName,
+        email: cleanEmail,
+        subject: cleanSubject,
+        message: cleanMessage,
+        from_name: `${cleanName} (Portfolio Form)`,
       }
 
       if (WEB3FORMS_ACCESS_KEY && contactEndpoint.includes('web3forms')) {
@@ -854,8 +861,8 @@ function App() {
                 <img
                   src={
                     theme === 'dark'
-                      ? 'https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=dark&hide_border=true&background=0d1117&ring=00f0ff&fire=00f0ff&currStreakLabel=00f0ff&sideNums=f1f5f9&currStreakNum=f1f5f9&sideLabels=94a3b8&dates=64748b&stroke=21262d'
-                      : 'https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=default&hide_border=true&background=ffffff&ring=0284c7&fire=0284c7&currStreakLabel=0284c7&sideNums=0f172a&currStreakNum=0f172a&sideLabels=475569&dates=64748b&stroke=e2e8f0'
+                      ? 'https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=dark&hide_border=true&background=0d1117&ring=e11d48&fire=e11d48&currStreakLabel=e11d48&sideNums=f1f5f9&currStreakNum=f1f5f9&sideLabels=94a3b8&dates=64748b&stroke=21262d'
+                      : 'https://github-readme-streak-stats.herokuapp.com?user=imanuelayubflabianos&theme=default&hide_border=true&background=ffffff&ring=be123c&fire=be123c&currStreakLabel=be123c&sideNums=0f172a&currStreakNum=0f172a&sideLabels=475569&dates=64748b&stroke=e2e8f0'
                   }
                   alt="GitHub Streak"
                   className="activity-img"
