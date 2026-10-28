@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import './App.css'
-import { TURNSTILE_SITE_KEY, CONTACT_ENDPOINT } from './config.js'
+import { TURNSTILE_SITE_KEY, CONTACT_ENDPOINT, WEB3FORMS_ACCESS_KEY } from './config.js'
 // Foto profil wajah: Simpan foto kamu di website/src/assets/profile.jpg
 import profilePhoto from './assets/profile.jpg'
 
@@ -395,7 +395,11 @@ function App() {
       return
     }
 
-    if (!turnstileToken) {
+    const isLocalhost =
+      typeof window !== 'undefined' &&
+      (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+
+    if (!turnstileToken && !isLocalhost) {
       setFormStatus('error')
       setFormFeedback('Mohon selesaikan verifikasi Cloudflare Turnstile sebelum mengirim.')
       return
@@ -404,7 +408,7 @@ function App() {
     if (!contactEndpoint) {
       setFormStatus('no-endpoint')
       setFormFeedback(
-        'Verifikasi Turnstile berhasil! Namun endpoint backend API belum diatur di VITE_CONTACT_ENDPOINT. Klik tombol di bawah untuk membuka aplikasi Gmail dengan pesan yang sudah terisi otomatis.'
+        'Verifikasi berhasil! Namun endpoint pengiriman belum diatur. Klik tombol di bawah untuk membuka aplikasi Gmail dengan pesan yang sudah terisi otomatis.'
       )
       return
     }
@@ -412,34 +416,49 @@ function App() {
     setFormStatus('submitting')
 
     try {
+      const payload = {
+        name: contactForm.name.trim(),
+        email: contactForm.email.trim(),
+        subject: contactForm.subject.trim(),
+        message: contactForm.message.trim(),
+        from_name: `${contactForm.name.trim()} (Portfolio Form)`,
+      }
+
+      if (WEB3FORMS_ACCESS_KEY && contactEndpoint.includes('web3forms')) {
+        payload.access_key = WEB3FORMS_ACCESS_KEY
+      }
+
+      if (turnstileToken) {
+        payload.turnstileToken = turnstileToken
+        payload['cf-turnstile-response'] = turnstileToken
+      }
+
       const response = await fetch(contactEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify({
-          ...contactForm,
-          turnstileToken,
-        }),
+        body: JSON.stringify(payload),
       })
 
       const result = await response.json().catch(() => ({}))
 
       if (response.ok && result.success) {
         setFormStatus('success')
-        setFormFeedback(result.message || 'Pesan Anda berhasil diverifikasi dan terkirim!')
+        setFormFeedback(result.message || 'Pesan Anda berhasil dikirim langsung ke Gmail Imanuel Ayub!')
         setContactForm({ name: '', email: '', subject: '', message: '' })
         setTurnstileToken('')
       } else {
         setFormStatus('error')
         setFormFeedback(
-          result.error || 'Verifikasi server gagal. Silakan coba lagi atau kirim via email langsung.'
+          result.message || result.error || 'Pengiriman gagal. Silakan coba lagi atau kirim via tombol Direct Gmail di bawah.'
         )
       }
     } catch (err) {
       setFormStatus('error')
       setFormFeedback(
-        `Gagal menghubungi server backend (${err.message}). Silakan hubungi via email langsung.`
+        `Gagal menghubungi server pengiriman (${err.message}). Silakan hubungi via tombol Direct Gmail di bawah.`
       )
     }
   }
@@ -1163,7 +1182,13 @@ function App() {
               <button
                 type="submit"
                 className="button button-submit-pill"
-                disabled={formStatus === 'submitting' || !turnstileToken}
+                disabled={
+                  formStatus === 'submitting' ||
+                  (!turnstileToken &&
+                    typeof window !== 'undefined' &&
+                    window.location.hostname !== 'localhost' &&
+                    window.location.hostname !== '127.0.0.1')
+                }
               >
                 {formStatus === 'submitting' ? 'Mengirim...' : 'Kirim Pesan Sekarang ↗'}
               </button>
