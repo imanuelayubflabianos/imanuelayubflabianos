@@ -65,11 +65,11 @@ const FALLBACK_PROJECTS = [
 const TECH_CATEGORIES = [
   {
     category: 'Languages',
-    skills: ['C++', 'C#', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Java', 'Dart', 'HTML5', 'CSS3'],
+    skills: ['C++', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Dart', 'HTML5', 'CSS3'],
   },
   {
     category: 'Frameworks & Libs',
-    skills: ['Laravel', 'React', 'Node.js', 'Vite', 'Flutter', 'Bootstrap', '.NET', 'WordPress'],
+    skills: ['Laravel', 'React', 'Node.js', 'Vite', 'Flutter', 'Bootstrap', 'WordPress', 'Arduino'],
   },
   {
     category: 'Databases & DevOps',
@@ -86,12 +86,12 @@ const TECH_CATEGORIES = [
       'Android Studio',
       'Git',
       'GitHub',
-      'GitLab',
       'Figma',
       'Photoshop',
       'Illustrator',
       'Premiere',
       'After Effects',
+      'CapCut',
       'Unity',
       'Blender',
       'Postman',

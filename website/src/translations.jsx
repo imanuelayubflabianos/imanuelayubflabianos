@@ -113,11 +113,11 @@ export const TRANSLATIONS = {
       figBadge: 'GBR. ARSITEKTUR',
       figCaption: 'Sistem arsitektur interaktif & rekayasa perangkat lunak modern.',
       items: [
-        { area: 'Game Development', action: 'Membuat dan mengembangkan gim lebih banyak.', tag: 'Unity / C#' },
+        { area: 'Game Development', action: 'Membuat dan mengembangkan gim lebih banyak.', tag: 'Unity' },
         { area: 'Web Applications', action: 'Membangun backend terukur dengan Laravel & PHP.', tag: 'Laravel / PHP' },
         { area: 'Database Systems', action: 'Merancang skema & kueri MySQL yang efisien.', tag: 'MySQL / DB Schema' },
         { area: 'User Interface', action: 'Membuat tata letak bersih via Figma & Bootstrap.', tag: 'Figma / UI/UX' },
-        { area: 'IoT & Systems', action: 'Mengeksplorasi integrasi perangkat ke cloud.', tag: 'Hardware / Cloud' },
+        { area: 'IoT & Systems', action: 'Mengeksplorasi integrasi perangkat ke cloud.', tag: 'Arduino / IoT' },
       ],
     },
     favorites: {
@@ -298,11 +298,11 @@ export const TRANSLATIONS = {
       figBadge: 'FIG. ARCHITECTURE',
       figCaption: 'Interactive systems architecture & modern software engineering.',
       items: [
-        { area: 'Game Development', action: 'Make and Develop more Games.', tag: 'Unity / C#' },
+        { area: 'Game Development', action: 'Make and Develop more Games.', tag: 'Unity' },
         { area: 'Web Applications', action: 'Building scalable backends with Laravel & PHP.', tag: 'Laravel / PHP' },
         { area: 'Database Systems', action: 'Designing efficient MySQL schema & queries.', tag: 'MySQL / DB Schema' },
         { area: 'User Interface', action: 'Creating clean layouts via Figma & Bootstrap.', tag: 'Figma / UI/UX' },
-        { area: 'IoT & Systems', action: 'Exploring device-to-cloud integration.', tag: 'Hardware / Cloud' },
+        { area: 'IoT & Systems', action: 'Exploring device-to-cloud integration.', tag: 'Arduino / IoT' },
       ],
     },
     favorites: {

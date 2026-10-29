@@ -147,10 +147,10 @@ I'm constantly **learning and building** new projects to sharpen my skills and g
 
 | Category | Technologies &amp; Tools |
 | :--- | :--- |
-| **Languages** | `C++` · `C#` · `JavaScript` · `TypeScript` · `PHP` · `Python` · `Java` · `Dart` · `HTML5` · `CSS3` |
-| **Frameworks & Libs** | `Laravel` · `React` · `Node.js` · `Vite` · `Flutter` · `Bootstrap` · `.NET` · `WordPress` |
+| **Languages** | `C++` · `JavaScript` · `TypeScript` · `PHP` · `Python` · `Dart` · `HTML5` · `CSS3` |
+| **Frameworks & Libs** | `Laravel` · `React` · `Node.js` · `Vite` · `Flutter` · `Bootstrap` · `WordPress` · `Arduino` |
 | **Databases & DevOps** | `MySQL` · `PostgreSQL` · `MongoDB` · `Docker` · `AWS` · `Cloudflare` · `Linux` · `Windows` |
-| **Tools & Creative** | `Minecraft` · `Command Block` · `Roblox` · `Roblox Studio` · `VS Code` · `Android Studio` · `Git` · `GitHub` · `GitLab` · `Postman` · `Figma` · `Photoshop` · `Illustrator` · `Premiere` · `After Effects` · `Unity` · `Blender` · `Discord` |
+| **Tools & Creative** | `Minecraft` · `Command Block` · `Roblox` · `Roblox Studio` · `VS Code` · `Android Studio` · `Git` · `GitHub` · `Postman` · `Figma` · `Photoshop` · `Illustrator` · `Premiere` · `After Effects` · `CapCut` · `Unity` · `Blender` · `Discord` |
 
 </details>
 
