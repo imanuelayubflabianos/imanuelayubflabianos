@@ -65,7 +65,7 @@ const FALLBACK_PROJECTS = [
 const TECH_CATEGORIES = [
   {
     category: 'Languages',
-    skills: ['C++', 'JavaScript', 'TypeScript', 'PHP', 'Python', 'Dart', 'HTML5', 'CSS3'],
+    skills: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'Dart', 'HTML5', 'CSS3'],
   },
   {
     category: 'Frameworks & Libs',

@@ -5,28 +5,28 @@ import { resolve } from "node:path";
 import { repositoryRoot } from "./lib/config.mjs";
 
 const ICONS_CONFIG = [
-  // Row 1 (15 icons: Minecraft and Command Block first, then C++ onwards with CapCut after AE)
-  "minecraft", "commandblock", "cpp", "windows", "discord", "ai", "ps", "pr", "ae", "capcut", "figma", "vscode", "html", "nodejs", "js",
-  // Row 2 (15 icons: with Arduino after WordPress)
-  "vite", "py", "css", "git", "github", "mysql", "postgres", "docker", "php", "laravel", "bootstrap", "react", "wordpress", "arduino", "dart",
-  // Row 3 (11 icons: Roblox and Roblox Studio, tools and cloud)
-  "flutter", "androidstudio", "unity", "blender", "roblox", "robloxstudio", "mongodb", "postman", "aws", "cloudflare", "linux"
+  // Row 1 (14 icons: Minecraft, Command Block, Windows, Discord, Creative & Core Web)
+  "minecraft", "commandblock", "windows", "discord", "ai", "ps", "pr", "ae", "capcut", "figma", "vscode", "html", "nodejs", "js",
+  // Row 2 (14 icons: Web tools, Languages, DBs, Backend & Frameworks)
+  "vite", "py", "css", "git", "github", "mysql", "postgres", "docker", "php", "laravel", "bootstrap", "react", "wordpress", "arduino",
+  // Row 3 (12 icons: Mobile, Engines, 3D, Roblox, DB, Cloud & Linux)
+  "dart", "flutter", "androidstudio", "unity", "blender", "roblox", "robloxstudio", "mongodb", "postman", "aws", "cloudflare", "linux"
 ];
 
-// Icons to fetch from skillicons (37 icons)
-const SKILLICONS_NAMES = [
-  "cpp", "windows", "discord", "ai", "ps", "pr", "ae", "figma", "vscode", "html", "nodejs", "js",
-  "vite", "py", "css", "git", "github", "mysql", "postgres", "docker", "php", "laravel", "bootstrap", "react", "wordpress", "arduino", "dart",
-  "flutter", "androidstudio", "unity", "blender", "robloxstudio", "mongodb", "postman", "aws", "cloudflare", "linux"
-];
+// Icons to fetch from skillicons (36 icons)
+const SKILLICONS_NAMES = ICONS_CONFIG.filter(
+  (name) => !["minecraft", "commandblock", "roblox", "capcut"].includes(name)
+);
 
 function getCustomIcons(theme = "dark") {
-  const bg = theme === "dark" ? "#111726" : "#FFFFFF";
-  const iconColor = theme === "dark" ? "#FFFFFF" : "#000000";
+  const isDark = theme === "dark";
+  const cubeBg = isDark ? "#242938" : "#EEF2F6";
+  const brandDarkBg = "#111726";
+  const brandDarkIconColor = "#FFFFFF";
 
   return {
     minecraft: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${theme === "dark" ? "#1B1F2A" : "#FFFFFF"}" rx="60"/>
+      <rect width="256" height="256" fill="${cubeBg}" rx="60"/>
       <g transform="translate(38, 38)">
         <!-- Top Face (Green Grass) -->
         <polygon points="90,10 170,50 90,90 10,50" fill="#5C8E32"/>
@@ -44,7 +44,7 @@ function getCustomIcons(theme = "dark") {
     </svg>`,
 
     commandblock: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${theme === "dark" ? "#1B1F2A" : "#FFFFFF"}" rx="60"/>
+      <rect width="256" height="256" fill="${cubeBg}" rx="60"/>
       <g transform="translate(38, 38)">
         <!-- Top Face (Command Block Copper) -->
         <polygon points="90,10 170,50 90,90 10,50" fill="#C98158"/>
@@ -70,19 +70,53 @@ function getCustomIcons(theme = "dark") {
     </svg>`,
 
     roblox: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${bg}" rx="60"/>
+      <rect width="256" height="256" fill="${brandDarkBg}" rx="60"/>
       <g transform="translate(48, 48) scale(6.666)">
-        <path fill="${iconColor}" d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"/>
+        <path fill="${brandDarkIconColor}" d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"/>
       </g>
     </svg>`,
 
     capcut: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${bg}" rx="60"/>
+      <rect width="256" height="256" fill="${brandDarkBg}" rx="60"/>
       <g transform="translate(48, 48) scale(6.666)">
-        <path fill="${iconColor}" fill-rule="evenodd" d="M24.189 6.442V2.671l-4.535 2.383V4.91c.002-1.505-1.078-2.411-2.638-2.411H2.64C.993 2.5 0 3.407 0 4.91V8.72L6.354 12 0 15.316v3.8C0 20.595 1 21.5 2.64 21.5h14.373c1.56 0 2.639-.907 2.639-2.382v-.197l4.536 2.409v-3.828L13.64 12 24.19 6.443zM9.982 13.873l7.797 4.083H2.157l7.825-4.083zm7.741-7.828l-7.742 4.057-7.825-4.057h15.567z"/>
+        <path fill="${brandDarkIconColor}" fill-rule="evenodd" d="M24.189 6.442V2.671l-4.535 2.383V4.91c.002-1.505-1.078-2.411-2.638-2.411H2.64C.993 2.5 0 3.407 0 4.91V8.72L6.354 12 0 15.316v3.8C0 20.595 1 21.5 2.64 21.5h14.373c1.56 0 2.639-.907 2.639-2.382v-.197l4.536 2.409v-3.828L13.64 12 24.19 6.443zM9.982 13.873l7.797 4.083H2.157l7.825-4.083zm7.741-7.828l-7.742 4.057-7.825-4.057h15.567z"/>
       </g>
     </svg>`
   };
+}
+
+function processIcon(name, rawSvg, theme) {
+  const isDark = theme === "dark";
+  const neutralBg = isDark ? "#242938" : "#EEF2F6";
+  const strokeColor = isDark ? "rgba(255, 255, 255, 0.16)" : "rgba(0, 0, 0, 0.12)";
+  const strokeWidth = "5";
+
+  let svg = rawSvg;
+
+  // 1. Replace skillicons off-white #F4F2ED with a visible, elegant neutral card background
+  svg = svg.replaceAll("#F4F2ED", neutralBg);
+
+  // 2. Fix robloxstudio which has no background rect in skillicons
+  if (name === "robloxstudio") {
+    svg = svg.replace(
+      /(<svg[^>]*>)/,
+      `$1<rect width="256" height="256" rx="60" fill="${neutralBg}"/>`
+    );
+  }
+
+  // 3. For any other svg without a root 256x256 rounded rect, ensure background rect exists
+  if (!svg.includes('rx="60"')) {
+    svg = svg.replace(
+      /(<svg[^>]*>)/,
+      `$1<rect width="256" height="256" rx="60" fill="${neutralBg}"/>`
+    );
+  }
+
+  // 4. Add the crisp border outline ("garis tepi kotak") on top of every icon for uniform consistency
+  const borderOverlay = `<rect x="2.5" y="2.5" width="251" height="251" rx="58" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}"/>`;
+  svg = svg.replace(/<\/svg>\s*$/, `${borderOverlay}</svg>`);
+
+  return svg;
 }
 
 async function buildBanner(theme = "dark") {
@@ -106,7 +140,7 @@ async function buildBanner(theme = "dark") {
     iconMap[key] = val;
   }
 
-  const cols = 15;
+  const cols = 14;
   const stepX = 300;
   const stepY = 300;
 
@@ -116,8 +150,9 @@ async function buildBanner(theme = "dark") {
     const row = Math.floor(i / cols);
     const x = col * stepX;
     const y = row * stepY;
-    const iconSvg = iconMap[name] || "";
-    innerContent += `\n    <g transform="translate(${x}, ${y})">\n      ${iconSvg}\n    </g>`;
+    const rawIconSvg = iconMap[name] || "";
+    const processedSvg = processIcon(name, rawIconSvg, theme);
+    innerContent += `\n    <g transform="translate(${x}, ${y})">\n      ${processedSvg}\n    </g>`;
   });
 
   const totalRows = Math.ceil(ICONS_CONFIG.length / cols);
@@ -126,7 +161,7 @@ async function buildBanner(theme = "dark") {
   const renderWidth = (viewBoxWidth / 256) * 48;
   const renderHeight = (viewBoxHeight / 256) * 48;
 
-  return `<!-- Generated Tech Stack SVG with CapCut, Arduino, Minecraft, Command Block, Roblox & Roblox Studio -->
+  return `<!-- Generated Tech Stack SVG with uniform background cards, borders and responsive dark/light support -->
 <svg width="${renderWidth}" height="${renderHeight}" viewBox="0 0 ${viewBoxWidth} ${viewBoxHeight}" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
   ${innerContent}
 </svg>
@@ -134,7 +169,7 @@ async function buildBanner(theme = "dark") {
 }
 
 async function main() {
-  console.log("Generating dark and light Tech Stack SVGs with 41 icons...");
+  console.log("Generating dark and light Tech Stack SVGs with 40 icons (with uniform background and box borders)...");
   const darkSvg = await buildBanner("dark");
   const lightSvg = await buildBanner("light");
 
