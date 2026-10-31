@@ -7,10 +7,8 @@ import profilePhoto from './assets/profile.jpg'
 
 const TYPING_PHRASES = [
   "Hello, World! I'm Ayub!",
-  "Full Stack Developer",
-  "Web3 & Blockchain Engineer",
+  "Developer",
   "ML & AI Enthusiast",
-  "Cybersecurity Expert",
   "Moto Unstoppable Learner",
 ]
 
@@ -65,36 +63,30 @@ const FALLBACK_PROJECTS = [
 const TECH_CATEGORIES = [
   {
     category: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'Dart', 'HTML5', 'CSS3'],
+    skills: ['JavaScript', 'TypeScript', 'PHP', 'HTML5', 'CSS3'],
   },
   {
     category: 'Frameworks & Libs',
-    skills: ['Laravel', 'React', 'Node.js', 'Vite', 'Flutter', 'Bootstrap', 'WordPress', 'Arduino'],
+    skills: ['Laravel', 'WordPress'],
   },
   {
     category: 'Databases & DevOps',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Cloudflare', 'Linux', 'Windows'],
+    skills: ['MySQL', 'MongoDB', 'Docker', 'Linux', 'Windows'],
   },
   {
     category: 'Tools & Creative',
     skills: [
-      'Minecraft',
-      'Command Block',
-      'Roblox',
-      'Roblox Studio',
       'VS Code',
-      'Android Studio',
-      'Git',
       'GitHub',
+      'Postman',
       'Figma',
       'Photoshop',
       'Illustrator',
-      'Premiere',
       'After Effects',
+      'KineMaster',
       'CapCut',
       'Unity',
       'Blender',
-      'Postman',
       'Discord',
     ],
   },
@@ -743,7 +735,7 @@ function App() {
         {/* Waving Capsule Header Banner */}
         <div className="capsule-banner-container">
           <img
-            src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Imanuel%20Ayub%20Flabianos&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Full%20Stack%20%7C%20Web3%20%7C%20AI%20%7C%20Cybersecurity&descAlignY=62&descAlign=50"
+            src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Imanuel%20Ayub%20Flabianos&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Developer&descAlignY=62&descAlign=50"
             alt="Imanuel Ayub Flabianos - Banner"
             className="capsule-banner-img"
             loading="eager"
@@ -1051,12 +1043,6 @@ function App() {
             <div className="about-lead">{t.about.lead}</div>
             <p>{t.about.p1}</p>
             <p>{t.about.p2}</p>
-          </div>
-
-          <div className="about-badges-footer">
-            <span className="about-pill">🔗 {t.about.badgeGithub}</span>
-            <span className="about-pill">⚡ {t.about.badgeStatus}</span>
-            <span className="about-pill">📍 {t.about.badgeLocation}</span>
           </div>
         </div>
       </section>

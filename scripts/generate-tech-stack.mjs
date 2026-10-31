@@ -5,74 +5,38 @@ import { resolve } from "node:path";
 import { repositoryRoot } from "./lib/config.mjs";
 
 const ICONS_CONFIG = [
-  // Row 1 (14 icons: Minecraft, Command Block, Windows, Discord, Creative & Core Web)
-  "minecraft", "commandblock", "windows", "discord", "ai", "ps", "pr", "ae", "capcut", "figma", "vscode", "html", "nodejs", "js",
-  // Row 2 (14 icons: Web tools, Languages, DBs, Backend & Frameworks)
-  "vite", "py", "css", "git", "github", "mysql", "postgres", "docker", "php", "laravel", "bootstrap", "react", "wordpress", "arduino",
-  // Row 3 (12 icons: Mobile, Engines, 3D, Roblox, DB, Cloud & Linux)
-  "dart", "flutter", "androidstudio", "unity", "blender", "roblox", "robloxstudio", "mongodb", "postman", "aws", "cloudflare", "linux"
+  // Row 1 (12 icons: Desktop OS, Community, Design & Video Editing with KineMaster before CapCut, Frontend Core)
+  "windows", "discord", "ai", "ps", "ae", "kinemaster", "capcut", "figma", "vscode", "html", "css", "js",
+  // Row 2 (11 icons: Backend Languages, Frameworks, CMS, Databases, Container, VCS, API, 3D/Game Engines, OS)
+  "php", "laravel", "wordpress", "mysql", "mongodb", "docker", "github", "postman", "unity", "blender", "linux"
 ];
 
-// Icons to fetch from skillicons (36 icons)
+// Icons to fetch from skillicons (21 icons)
 const SKILLICONS_NAMES = ICONS_CONFIG.filter(
-  (name) => !["minecraft", "commandblock", "roblox", "capcut"].includes(name)
+  (name) => !["kinemaster", "capcut"].includes(name)
 );
+
+const KM_PATH =
+  "M 132.29162,1.2480827e-5 A 132.29166,132.29166 0 1 0 264.58332,132.29168 132.23426,132.23426 0 0 0 132.29162,1.2480827e-5 Z m 0,14.957457519173 c 8.61276,-0.602895 16.07715,6.875834 16.07715,16.062755 A 16.077114,16.077114 0 1 1 132.29162,14.90005 Z M 36.848131,117.34858 c -9.18692,0 -16.665651,-7.47873 -16.077114,-16.07711 a 16.077114,16.077114 0 1 1 16.077114,16.07711 z M 72.50487,229.51514 A 16.435977,16.435977 0 0 1 56.427761,213.4524 16.077114,16.077114 0 1 1 72.50487,229.51514 Z m 93.51999,-43.79577 a 10.737215,10.737215 0 0 1 -8.06728,-3.5743 l -36.97734,-40.60903 h -4.82313 v 33.33131 a 10.923824,10.923824 0 0 1 -21.8333,0 V 86.314016 a 10.923824,10.923824 0 0 1 21.8333,0 v 33.331294 h 4.56475 l 33.01549,-39.015704 a 10.938179,10.938179 0 1 1 16.59389,14.11053 l -30.14459,35.584964 33.79065,37.09218 a 10.852052,10.852051 0 0 1 -8.06728,18.20161 z m 25.53678,43.79577 c -9.20127,0 -16.68,-7.46437 -16.0771,-16.06274 a 16.077114,16.077114 0 1 1 16.0771,16.06274 z m 52.25062,-128.84656 a 16.077114,16.077114 0 1 1 -16.07712,-16.062764 16.00534,16.00534 0 0 1 16.01969,16.005344 z";
 
 function getCustomIcons(theme = "dark") {
   const isDark = theme === "dark";
-  const cubeBg = isDark ? "#242938" : "#EEF2F6";
+  const bg = isDark ? "#242938" : "#EEF2F6";
   const brandDarkBg = "#111726";
   const brandDarkIconColor = "#FFFFFF";
 
   return {
-    minecraft: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${cubeBg}" rx="60"/>
-      <g transform="translate(38, 38)">
-        <!-- Top Face (Green Grass) -->
-        <polygon points="90,10 170,50 90,90 10,50" fill="#5C8E32"/>
-        <polygon points="90,14 162,50 90,86 18,50" fill="#71A740"/>
-        <polygon points="90,20 148,50 90,78 32,50" fill="#86C14B"/>
-        <!-- Left Face (Dirt + Grass Hang) -->
-        <polygon points="10,50 90,90 90,175 10,135" fill="#866043"/>
-        <polygon points="10,50 90,90 90,115 72,106 65,116 48,102 38,118 20,104 10,112" fill="#5C8E32"/>
-        <polygon points="12,52 88,90 88,112 72,104 65,113 48,100 38,115 20,102 12,108" fill="#4D772A"/>
-        <!-- Right Face (Shadow Dirt + Grass Hang) -->
-        <polygon points="90,90 170,50 170,135 90,175" fill="#573D26"/>
-        <polygon points="90,90 170,50 170,72 155,78 148,68 132,84 120,72 108,86 90,115" fill="#4D772A"/>
-        <polygon points="90,90 168,52 168,70 155,76 148,66 132,82 120,70 108,84 90,112" fill="#3D5F21"/>
-      </g>
-    </svg>`,
-
-    commandblock: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${cubeBg}" rx="60"/>
-      <g transform="translate(38, 38)">
-        <!-- Top Face (Command Block Copper) -->
-        <polygon points="90,10 170,50 90,90 10,50" fill="#C98158"/>
-        <polygon points="90,22 150,50 90,78 30,50" fill="#9C5E3B"/>
-        <!-- Center top panel dot -->
-        <circle cx="90" cy="50" r="14" fill="#E6A880"/>
-        <circle cx="90" cy="50" r="8" fill="#55FFD8"/>
-        <!-- Left Face -->
-        <polygon points="10,50 90,90 90,175 10,135" fill="#B06D46"/>
-        <polygon points="32,76 72,96 72,142 32,122" fill="#4B3322"/>
-        <polygon points="36,80 68,96 68,138 36,122" fill="#D98E64"/>
-        <!-- Glowing core indicator on front face -->
-        <polygon points="46,94 58,100 58,118 46,112" fill="#171C2B"/>
-        <circle cx="52" cy="106" r="6" fill="#55FFD8"/>
-        <!-- Right Face (Shadowed) -->
-        <polygon points="90,90 170,50 170,135 90,175" fill="#7D492B"/>
-        <polygon points="108,96 148,76 148,122 108,142" fill="#382417"/>
-        <polygon points="112,96 144,80 144,122 112,138" fill="#8F5431"/>
-        <!-- Right Glowing indicator -->
-        <polygon points="122,100 134,94 134,112 122,118" fill="#171C2B"/>
-        <circle cx="128" cy="106" r="6" fill="#55FFD8"/>
-      </g>
-    </svg>`,
-
-    roblox: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="${brandDarkBg}" rx="60"/>
-      <g transform="translate(48, 48) scale(6.666)">
-        <path fill="${brandDarkIconColor}" d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"/>
+    kinemaster: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" viewBox="0 0 256 256">
+      <defs>
+        <linearGradient id="km-grad-${theme}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fc0148" />
+          <stop offset="100%" stop-color="#fd7f30" />
+        </linearGradient>
+      </defs>
+      <rect width="256" height="256" fill="${bg}" rx="60"/>
+      <g transform="translate(38, 38) scale(0.68)">
+        <circle cx="132.29" cy="132.29" r="131" fill="#ffffff" />
+        <path fill="url(#km-grad-${theme})" d="${KM_PATH}" />
       </g>
     </svg>`,
 
@@ -96,15 +60,7 @@ function processIcon(name, rawSvg, theme) {
   // 1. Replace skillicons off-white #F4F2ED with a visible, elegant neutral card background
   svg = svg.replaceAll("#F4F2ED", neutralBg);
 
-  // 2. Fix robloxstudio which has no background rect in skillicons
-  if (name === "robloxstudio") {
-    svg = svg.replace(
-      /(<svg[^>]*>)/,
-      `$1<rect width="256" height="256" rx="60" fill="${neutralBg}"/>`
-    );
-  }
-
-  // 3. For any other svg without a root 256x256 rounded rect, ensure background rect exists
+  // 2. For any svg without a root 256x256 rounded rect, ensure background rect exists
   if (!svg.includes('rx="60"')) {
     svg = svg.replace(
       /(<svg[^>]*>)/,
@@ -112,7 +68,7 @@ function processIcon(name, rawSvg, theme) {
     );
   }
 
-  // 4. Add the crisp border outline ("garis tepi kotak") on top of every icon for uniform consistency
+  // 3. Add the crisp border outline ("garis tepi kotak") on top of every icon for uniform consistency
   const borderOverlay = `<rect x="2.5" y="2.5" width="251" height="251" rx="58" fill="none" stroke="${strokeColor}" stroke-width="${strokeWidth}"/>`;
   svg = svg.replace(/<\/svg>\s*$/, `${borderOverlay}</svg>`);
 
@@ -140,7 +96,7 @@ async function buildBanner(theme = "dark") {
     iconMap[key] = val;
   }
 
-  const cols = 14;
+  const cols = 12;
   const stepX = 300;
   const stepY = 300;
 
@@ -169,7 +125,7 @@ async function buildBanner(theme = "dark") {
 }
 
 async function main() {
-  console.log("Generating dark and light Tech Stack SVGs with 40 icons (with uniform background and box borders)...");
+  console.log("Generating dark and light Tech Stack SVGs with 23 icons...");
   const darkSvg = await buildBanner("dark");
   const lightSvg = await buildBanner("light");
 

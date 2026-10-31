@@ -16,12 +16,12 @@ export const TRANSLATIONS = {
     hero: {
       active: 'Aktif',
       badgeBuilderman: 'BUILDERMAN',
-      badgeRole: 'FULLSTACK DEVELOPER',
+      badgeRole: 'DEVELOPER',
       badgeLocation: 'WNI · INDONESIA',
       bio: (
         <>
           <strong>@imanuelayubflabianos</strong> &mdash; <em>&ldquo;AKUN PERSONAL BRANDING&rdquo;</em> iDiD |
-          Software Dev, Pemrograman, Analis Data, IoT, UI/UX, dan App Dev.
+          Software Dev, Pemrograman, Analis Data, UI/UX, dan App Dev.
         </>
       ),
       githubProfile: 'Profil GitHub ↗',
@@ -62,14 +62,14 @@ export const TRANSLATIONS = {
       titleAccent: 'Saya.',
       lead: (
         <>
-          Halo! Saya <strong>Imanuel Ayub Flabianos</strong>, seorang <strong>Fullstack Developer</strong> dari Indonesia.
+          Halo! Saya <strong>Imanuel Ayub Flabianos</strong>, seorang <strong>Developer</strong> dari Indonesia.
           Saya berfokus pada bidang <strong>Pengembangan Perangkat Lunak dan Gim (Software &amp; Game Development)</strong>.
         </>
       ),
       p1: (
         <>
           Saya passionate dalam membangun aplikasi web dan sistem yang fungsional, efisien, dan memiliki tampilan yang menarik.
-          Fokus utama saya meliputi pengembangan <strong>Web &amp; System (Fullstack)</strong>, <strong>IoT</strong>,{' '}
+          Fokus utama saya meliputi pengembangan <strong>Web &amp; System</strong>,{' '}
           <strong>UI/UX Design</strong>, serta <strong>Database Architecture</strong>.
         </>
       ),
@@ -116,8 +116,7 @@ export const TRANSLATIONS = {
         { area: 'Game Development', action: 'Membuat dan mengembangkan gim lebih banyak.', tag: 'Unity' },
         { area: 'Web Applications', action: 'Membangun backend terukur dengan Laravel & PHP.', tag: 'Laravel / PHP' },
         { area: 'Database Systems', action: 'Merancang skema & kueri MySQL yang efisien.', tag: 'MySQL / DB Schema' },
-        { area: 'User Interface', action: 'Membuat tata letak bersih via Figma & Bootstrap.', tag: 'Figma / UI/UX' },
-        { area: 'IoT & Systems', action: 'Mengeksplorasi integrasi perangkat ke cloud.', tag: 'Arduino / IoT' },
+        { area: 'User Interface', action: 'Membuat tata letak bersih via Figma.', tag: 'Figma / UI/UX' },
       ],
     },
     favorites: {
@@ -201,12 +200,12 @@ export const TRANSLATIONS = {
     hero: {
       active: 'Active',
       badgeBuilderman: 'BUILDERMAN',
-      badgeRole: 'FULLSTACK DEVELOPER',
+      badgeRole: 'DEVELOPER',
       badgeLocation: 'WNI · INDONESIA',
       bio: (
         <>
           <strong>@imanuelayubflabianos</strong> &mdash; <em>&ldquo;PERSONAL BRANDING ACCOUNT&rdquo;</em> iDiD |
-          Software Dev, Programming, Data Analyst, IoT, UI/UX, and App Dev.
+          Software Dev, Programming, Data Analyst, UI/UX, and App Dev.
         </>
       ),
       githubProfile: 'GitHub Profile ↗',
@@ -247,14 +246,14 @@ export const TRANSLATIONS = {
       titleAccent: 'Me.',
       lead: (
         <>
-          Hello! I&apos;m <strong>Imanuel Ayub Flabianos</strong>, a <strong>Fullstack Developer</strong> from Indonesia.
+          Hello! I&apos;m <strong>Imanuel Ayub Flabianos</strong>, a <strong>Developer</strong> from Indonesia.
           I specialize in <strong>Software &amp; Game Development</strong>.
         </>
       ),
       p1: (
         <>
           I&apos;m passionate about building functional, efficient, and visually appealing web applications and systems. My
-          main focus areas include <strong>Web &amp; System Development (Fullstack)</strong>, <strong>IoT</strong>,{' '}
+          main focus areas include <strong>Web &amp; System Development</strong>,{' '}
           <strong>UI/UX Design</strong>, and <strong>Database Architecture</strong>.
         </>
       ),
@@ -301,8 +300,7 @@ export const TRANSLATIONS = {
         { area: 'Game Development', action: 'Make and Develop more Games.', tag: 'Unity' },
         { area: 'Web Applications', action: 'Building scalable backends with Laravel & PHP.', tag: 'Laravel / PHP' },
         { area: 'Database Systems', action: 'Designing efficient MySQL schema & queries.', tag: 'MySQL / DB Schema' },
-        { area: 'User Interface', action: 'Creating clean layouts via Figma & Bootstrap.', tag: 'Figma / UI/UX' },
-        { area: 'IoT & Systems', action: 'Exploring device-to-cloud integration.', tag: 'Arduino / IoT' },
+        { area: 'User Interface', action: 'Creating clean layouts via Figma.', tag: 'Figma / UI/UX' },
       ],
     },
     favorites: {
