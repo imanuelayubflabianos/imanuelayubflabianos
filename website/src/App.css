@@ -1685,6 +1685,24 @@ code {
   box-shadow: 0 4px 16px rgba(0, 240, 255, 0.16);
 }
 
+.button-app-contact.btn-instagram:hover {
+  border-color: #E4405F;
+  color: #E4405F;
+  box-shadow: 0 4px 16px rgba(228, 64, 95, 0.2);
+}
+
+.button-app-contact.btn-linkedin:hover {
+  border-color: #0A66C2;
+  color: #0A66C2;
+  box-shadow: 0 4px 16px rgba(10, 102, 194, 0.2);
+}
+
+.button-app-contact.btn-gmail:hover {
+  border-color: #EA4335;
+  color: #EA4335;
+  box-shadow: 0 4px 16px rgba(234, 67, 53, 0.2);
+}
+
 .button-app-contact .btn-app-icon {
   width: 20px;
   height: 20px;

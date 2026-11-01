@@ -39,6 +39,20 @@
   ],
   "links": [
     {
+      "label": "Instagram",
+      "value": "imanuelayubflabianos",
+      "url": "https://www.instagram.com/imanuelayubflabianos",
+      "logo": "instagram",
+      "color": "E4405F"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "imanuel-ayub-flabianos",
+      "url": "https://www.linkedin.com/in/imanuel-ayub-flabianos-425595347/",
+      "logo": "linkedin",
+      "color": "0A66C2"
+    },
+    {
       "label": "GitHub",
       "value": "imanuelayubflabianos",
       "url": "https://github.com/imanuelayubflabianos",
